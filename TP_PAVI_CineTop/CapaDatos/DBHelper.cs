@@ -19,7 +19,8 @@ namespace TP_PAVI_CineTop.CapaDatos
         public DBHelper()
         {
             string nombreBD = ConfigurationManager.AppSettings["dbName"];
-            string cadenaConexion = ConfigurationManager.ConnectionStrings[nombreBD].ConnectionString;
+            //string cadenaConexion = ConfigurationManager.ConnectionStrings[nombreBD].ConnectionString;
+            string cadenaConexion = "Data Source=LAPTOP-TP28K55O\\SQLEXPRESS;Initial Catalog=CINETOP;Integrated Security=True";
             conexion = new SqlConnection();
             conexion.ConnectionString = cadenaConexion;
         }
@@ -29,7 +30,6 @@ namespace TP_PAVI_CineTop.CapaDatos
             if (instancia == null)
                 instancia = new DBHelper();
 
-            instancia.conectar();
             return instancia;
         }
 
@@ -69,6 +69,7 @@ namespace TP_PAVI_CineTop.CapaDatos
 
             try
             {
+                conectar();
                 tabla.Load(comando.ExecuteReader());
                 return tabla;
             }

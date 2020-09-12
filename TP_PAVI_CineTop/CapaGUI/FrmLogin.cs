@@ -14,7 +14,7 @@ namespace TP_PAVI_CineTop.CapaGUI
 {
     public partial class FrmLogin : Form
     {
-        Usuario usuario = new Usuario("","");
+        Usuario usuario;
 
         public FrmLogin()
         {

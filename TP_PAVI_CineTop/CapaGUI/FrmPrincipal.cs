@@ -29,7 +29,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             usuario "vacio" o "lleno" */
             usuarioLogueado = login.Usuario;
 
-            if(usuarioLogueado.Nombre == "")
+            if(usuarioLogueado == null)
             {
                 this.Close();
             }
