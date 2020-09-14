@@ -40,5 +40,11 @@ namespace TP_PAVI_CineTop.CapaGUI
 
             login.Dispose();
         }
+
+        private void btnSalas_Click(object sender, EventArgs e)
+        {
+            FrmSalasABMC abmcSalas = new FrmSalasABMC();
+            abmcSalas.ShowDialog();
+        }
     }
 }

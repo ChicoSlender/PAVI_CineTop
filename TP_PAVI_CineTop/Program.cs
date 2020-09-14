@@ -17,7 +17,7 @@ namespace TP_PAVI_CineTop
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmPrincipal());
+            Application.Run(new FrmSalasABMC());
         }
     }
 }

@@ -19,7 +19,8 @@ namespace TP_PAVI_CineTop.CapaDatos
 
             DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
             Usuario usuario;
-            if (resultado.Rows.Count > 1)
+
+            if (resultado.Rows.Count > 0)
                 usuario = mapearUsuario(resultado.Rows[0]);
             else
                 usuario = new Usuario("", "");

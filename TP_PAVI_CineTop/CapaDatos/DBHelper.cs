@@ -18,10 +18,10 @@ namespace TP_PAVI_CineTop.CapaDatos
 
         public DBHelper()
         {
-            string nombreBD = ConfigurationManager.AppSettings["dbName"];
+            conexion = new SqlConnection();
+            //string nombreBD = ConfigurationManager.AppSettings["dbName"];
             //string cadenaConexion = ConfigurationManager.ConnectionStrings[nombreBD].ConnectionString;
             string cadenaConexion = "Data Source=LAPTOP-TP28K55O\\SQLEXPRESS;Initial Catalog=CINETOP;Integrated Security=True";
-            conexion = new SqlConnection();
             conexion.ConnectionString = cadenaConexion;
         }
 
@@ -30,6 +30,7 @@ namespace TP_PAVI_CineTop.CapaDatos
             if (instancia == null)
                 instancia = new DBHelper();
 
+            instancia.conectar();
             return instancia;
         }
 
@@ -53,7 +54,6 @@ namespace TP_PAVI_CineTop.CapaDatos
             if(conexion.State == ConnectionState.Open)
             {
                 conexion.Close();
-                conexion.Dispose();
             }
         }
 
@@ -63,17 +63,38 @@ namespace TP_PAVI_CineTop.CapaDatos
             //Si no hubo errores en la consulta cierra la conexion
             DataTable tabla = new DataTable();
             SqlCommand comando = new SqlCommand();
-            comando.CommandType = CommandType.Text;
-            comando.CommandText = consulta;
-            comando.Connection = conexion;
 
             try
             {
-                conectar();
+                comando.CommandType = CommandType.Text;
+                comando.CommandText = consulta;
+                comando.Connection = conexion;
                 tabla.Load(comando.ExecuteReader());
                 return tabla;
             }
             catch(SqlException ex)
+            {
+                throw (ex);
+            }
+            finally
+            {
+                desconectar();
+            }
+        }
+
+        public int ejecutarSQL(string consulta)
+        {
+            SqlCommand comando = new SqlCommand();
+
+            try
+            {
+                comando.CommandType = CommandType.Text;
+                comando.Transaction = transaccion;
+                comando.CommandText = consulta;
+                comando.Connection = conexion;
+                return comando.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
             {
                 throw (ex);
             }

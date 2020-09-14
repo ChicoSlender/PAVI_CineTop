@@ -48,7 +48,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CapaDatos\DBHelper.cs" />
+    <Compile Include="CapaDatos\SalasDAO.cs" />
+    <Compile Include="CapaDatos\UbicacionDAO.cs" />
     <Compile Include="CapaDatos\UsuarioDAO.cs" />
+    <Compile Include="CapaGUI\FrmHelper.cs" />
     <Compile Include="CapaGUI\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -61,7 +64,17 @@
     <Compile Include="CapaGUI\FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaGUI\FrmSalasABMC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaGUI\FrmSalasABMC.Designer.cs">
+      <DependentUpon>FrmSalasABMC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaNegocio\ServSala.cs" />
+    <Compile Include="CapaNegocio\ServUbicacion.cs" />
     <Compile Include="CapaNegocio\ServUsuario.cs" />
+    <Compile Include="Entidades\Sala.cs" />
+    <Compile Include="Entidades\Ubicacion.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -71,6 +84,9 @@
     <EmbeddedResource Include="CapaGUI\FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CapaGUI\FrmSalasABMC.resx">
+      <DependentUpon>FrmSalasABMC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -79,6 +95,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -93,8 +110,87 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="Recursos\" />
+    <None Include="Recursos\imagenes\buscar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\buscar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\buscar3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\cancelar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\cancelar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\Cancelar3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\cancelar4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\candado.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\excel4.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\grabar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\grabar2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\grabar3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\grabar4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\icons8-actualizar-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\i-info.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\i-info2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\nuevo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\nuevo2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\pregunta.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\preview1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\preview2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\print1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\print2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\print3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\print4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\puerta2.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Recursos\imagenes\salir1.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

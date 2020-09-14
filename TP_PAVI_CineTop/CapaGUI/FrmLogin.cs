@@ -15,10 +15,12 @@ namespace TP_PAVI_CineTop.CapaGUI
     public partial class FrmLogin : Form
     {
         Usuario usuario;
+        ServUsuario servUsuario;
 
         public FrmLogin()
         {
             InitializeComponent();
+            servUsuario = new ServUsuario();
         }
 
         internal Usuario Usuario { get => usuario; set => usuario = value; }
@@ -45,7 +47,6 @@ namespace TP_PAVI_CineTop.CapaGUI
             //Llama a la clase ServUsuario de la capa de negocio y le pide validar el usuario
             //Si se devuelve un usuario null (inexistente o contraseña incorrecta) lo informa
             //Caso contrario el login se realiza exitosamente y se cierra el formulario
-            ServUsuario servUsuario = new ServUsuario();
             usuario = servUsuario.validarUsuario(nombre_usuario, contraseña);
 
             if (usuario == null)
