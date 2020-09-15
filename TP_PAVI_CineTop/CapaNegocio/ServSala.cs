@@ -42,5 +42,10 @@ namespace TP_PAVI_CineTop.CapaNegocio
         {
             return salasDAO.borrarSala(nombre);
         }
+
+        public bool existeSala(string nombre)
+        {
+            return salasDAO.obtenerSala(nombre).Nombre != "";
+        }
     }
 }

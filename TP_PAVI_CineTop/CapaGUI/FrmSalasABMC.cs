@@ -108,11 +108,34 @@ namespace TP_PAVI_CineTop.CapaGUI
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (txtNombre.Text == "")
+            {
+                MessageBox.Show("El nombre no puede estar vacío", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (numCapacidad.Value <= 0)
+            {
+                MessageBox.Show("La capacidad debe ser mayor a 0", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (cmbUbicacion.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar una ubicación", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             int res = 0;
             if(nuevo)
             {
                 //insert
                 string nombre = txtNombre.Text;
+
+                if(servSala.existeSala(nombre))
+                {
+                    MessageBox.Show("Ya existe una sala registrada con ese nombre", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 int capacidad = Convert.ToInt32(numCapacidad.Value);
                 int idUbicacion = Convert.ToInt32(cmbUbicacion.SelectedValue);
                 bool tiene3d = ch3D.Checked;
