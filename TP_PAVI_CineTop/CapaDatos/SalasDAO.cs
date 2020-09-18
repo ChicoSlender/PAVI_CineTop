@@ -27,12 +27,15 @@ namespace TP_PAVI_CineTop.CapaDatos
         internal int actualizarSala(Sala sala)
         {
             string consultaSQL = "UPDATE Sala " +
-                                 "SET capacidad="+sala.Capacidad+"," +
-                                     "id_ubicacion="+sala.Id_ubicacion+"," +
-                                     "tiene3d="+Convert.ToInt32(sala.Tiene3D)+" " +
-                                 "WHERE nombre='"+sala.Nombre+"'";
+                                 "SET capacidad=" + sala.Capacidad + "," +
+                                     "id_ubicacion=" + sala.Id_ubicacion + "," +
+                                     "tiene3d=" + Convert.ToInt32(sala.Tiene3D) + " " +
+                                 "WHERE nombre='" + sala.Nombre + "'";
 
-            return DBHelper.GetDBHelper().ejecutarSQL(consultaSQL);
+           int res = DBHelper.GetDBHelper().ejecutarSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
+
+            return res;
         }
 
         internal int borrarSala(string nombre)
@@ -41,7 +44,11 @@ namespace TP_PAVI_CineTop.CapaDatos
                                  "SET borrado=1 " +
                                  "WHERE nombre='" + nombre + "'" ;
 
-            return DBHelper.GetDBHelper().ejecutarSQL(consultaSQL);
+            DBHelper db = DBHelper.GetDBHelper();
+            int res = db.ejecutarSQL(consultaSQL);
+            db.desconectar();
+
+            return res;
         }
 
         internal int insertarSala(Sala sala)
@@ -52,7 +59,10 @@ namespace TP_PAVI_CineTop.CapaDatos
                                  sala.Id_ubicacion + "," +
                                  Convert.ToInt32(sala.Tiene3D) + ", 0)";
 
-            return DBHelper.GetDBHelper().ejecutarSQL(consultaSQL);
+            int res = DBHelper.GetDBHelper().ejecutarSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
+
+            return res;
         }
 
         internal Sala obtenerSala(string nombre)
