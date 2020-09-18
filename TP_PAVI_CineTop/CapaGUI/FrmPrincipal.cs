@@ -46,5 +46,11 @@ namespace TP_PAVI_CineTop.CapaGUI
             FrmSalasABMC abmcSalas = new FrmSalasABMC();
             abmcSalas.ShowDialog();
         }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEmpleadosABMC abmcEmpleados = new FrmEmpleadosABMC();
+            abmcEmpleados.ShowDialog();
+        }
     }
 }

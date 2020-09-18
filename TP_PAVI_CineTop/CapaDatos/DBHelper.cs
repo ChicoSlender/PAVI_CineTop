@@ -110,7 +110,6 @@ public class DBHelper
         //Si no hubo errores en la consulta cierra la conexion
         DataTable tabla = new DataTable();
         SqlCommand comando = new SqlCommand();
-        conectar();
 
         try
         {
@@ -123,10 +122,6 @@ public class DBHelper
         catch(SqlException ex)
         {
             throw (ex);
-        }
-        finally
-        {
-            desconectar();
         }
     }
 

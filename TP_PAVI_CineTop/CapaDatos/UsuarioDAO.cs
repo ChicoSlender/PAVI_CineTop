@@ -17,7 +17,9 @@ namespace TP_PAVI_CineTop.CapaDatos
             string consultaSQL = "SELECT * FROM Usuario " +
                 "WHERE nombre='" + nombre_usuario + "'";
 
+            DBHelper.GetDBHelper().conectar();
             DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
             Usuario usuario;
 
             if (resultado.Rows.Count > 0)

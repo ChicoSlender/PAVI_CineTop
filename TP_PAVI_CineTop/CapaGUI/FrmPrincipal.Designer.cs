@@ -31,6 +31,7 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.btnSoporte = new System.Windows.Forms.ToolStripMenuItem();
             this.btnSalas = new System.Windows.Forms.ToolStripMenuItem();
+            this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -47,7 +48,8 @@
             // btnSoporte
             // 
             this.btnSoporte.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnSalas});
+            this.btnSalas,
+            this.empleadosToolStripMenuItem});
             this.btnSoporte.Name = "btnSoporte";
             this.btnSoporte.Size = new System.Drawing.Size(60, 20);
             this.btnSoporte.Text = "Soporte";
@@ -58,6 +60,13 @@
             this.btnSalas.Size = new System.Drawing.Size(180, 22);
             this.btnSalas.Text = "Salas";
             this.btnSalas.Click += new System.EventHandler(this.btnSalas_Click);
+            // 
+            // empleadosToolStripMenuItem
+            // 
+            this.empleadosToolStripMenuItem.Name = "empleadosToolStripMenuItem";
+            this.empleadosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.empleadosToolStripMenuItem.Text = "Empleados";
+            this.empleadosToolStripMenuItem.Click += new System.EventHandler(this.empleadosToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -81,6 +90,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem btnSoporte;
         private System.Windows.Forms.ToolStripMenuItem btnSalas;
+        private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
     }
 }
 

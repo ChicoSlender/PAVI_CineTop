@@ -13,7 +13,9 @@ namespace TP_PAVI_CineTop.CapaDatos
         public IList<Sala> obtenerSalas()
         {
             string consultaSQL = "SELECT nombre, capacidad, id_ubicacion, tiene3d FROM Sala WHERE borrado=0";
+            DBHelper.GetDBHelper().conectar();
             DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
             List<Sala> salas = new List<Sala>();
 
             for (int i = 0; i < resultado.Rows.Count; i++)
@@ -32,7 +34,8 @@ namespace TP_PAVI_CineTop.CapaDatos
                                      "tiene3d=" + Convert.ToInt32(sala.Tiene3D) + " " +
                                  "WHERE nombre='" + sala.Nombre + "'";
 
-           int res = DBHelper.GetDBHelper().ejecutarSQL(consultaSQL);
+            DBHelper.GetDBHelper().conectar();
+            int res = DBHelper.GetDBHelper().ejecutarSQL(consultaSQL);
             DBHelper.GetDBHelper().desconectar();
 
             return res;
@@ -44,9 +47,9 @@ namespace TP_PAVI_CineTop.CapaDatos
                                  "SET borrado=1 " +
                                  "WHERE nombre='" + nombre + "'" ;
 
-            DBHelper db = DBHelper.GetDBHelper();
-            int res = db.ejecutarSQL(consultaSQL);
-            db.desconectar();
+            DBHelper.GetDBHelper().conectar();
+            int res = DBHelper.GetDBHelper().ejecutarSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
 
             return res;
         }
@@ -59,6 +62,7 @@ namespace TP_PAVI_CineTop.CapaDatos
                                  sala.Id_ubicacion + "," +
                                  Convert.ToInt32(sala.Tiene3D) + ", 0)";
 
+            DBHelper.GetDBHelper().conectar();
             int res = DBHelper.GetDBHelper().ejecutarSQL(consultaSQL);
             DBHelper.GetDBHelper().desconectar();
 
@@ -69,7 +73,9 @@ namespace TP_PAVI_CineTop.CapaDatos
         {
             string consultaSQL = "SELECT nombre, capacidad, id_ubicacion, tiene3d FROM Sala " +
                                  "WHERE borrado=0 AND nombre='"+nombre+"'";
+            DBHelper.GetDBHelper().conectar();
             DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
 
             if (resultado.Rows.Count > 0)
                 return mapearSala(resultado.Rows[0]);
@@ -81,7 +87,9 @@ namespace TP_PAVI_CineTop.CapaDatos
         {
             string consultaSQL = "SELECT s.nombre, s.capacidad, u.nombre as ubicacion, s.tiene3d " +
                                  "FROM Sala s JOIN Ubicacion u ON s.id_ubicacion=u.id WHERE borrado=0";
+            DBHelper.GetDBHelper().conectar();
             DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
             return resultado;
         }
 

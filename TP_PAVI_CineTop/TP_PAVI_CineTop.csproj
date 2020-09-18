@@ -49,8 +49,15 @@
   <ItemGroup>
     <Compile Include="CapaDatos\DBHelper.cs" />
     <Compile Include="CapaDatos\SalasDAO.cs" />
+    <Compile Include="CapaDatos\TipoDocumentoDAO.cs" />
     <Compile Include="CapaDatos\UbicacionDAO.cs" />
     <Compile Include="CapaDatos\UsuarioDAO.cs" />
+    <Compile Include="CapaGUI\FrmEmpleadosABMC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaGUI\FrmEmpleadosABMC.Designer.cs">
+      <DependentUpon>FrmEmpleadosABMC.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaGUI\FrmHelper.cs" />
     <Compile Include="CapaGUI\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -71,13 +78,18 @@
       <DependentUpon>FrmSalasABMC.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaNegocio\ServSala.cs" />
+    <Compile Include="CapaNegocio\ServTipoDocumento.cs" />
     <Compile Include="CapaNegocio\ServUbicacion.cs" />
     <Compile Include="CapaNegocio\ServUsuario.cs" />
     <Compile Include="Entidades\Sala.cs" />
+    <Compile Include="Entidades\TipoDocumento.cs" />
     <Compile Include="Entidades\Ubicacion.cs" />
     <Compile Include="Entidades\Usuario.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CapaGUI\FrmEmpleadosABMC.resx">
+      <DependentUpon>FrmEmpleadosABMC.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CapaGUI\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>

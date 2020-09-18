@@ -8,31 +8,30 @@ using System.Data;
 
 namespace TP_PAVI_CineTop.CapaDatos
 {
-    class UbicacionDAO
+    class TipoDocumentoDAO
     {
-        public IList<Ubicacion> obtenerTodasUbicaciones()
+        public IList<TipoDocumento> obtenerTiposDocumento()
         {
-            string consultaSQL = "SELECT * FROM Ubicacion";
+            string consultaSQL = "SELECT * FROM TipoDocumento";
             DBHelper.GetDBHelper().conectar();
             DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
             DBHelper.GetDBHelper().desconectar();
-            List <Ubicacion> ubicaciones = new List<Ubicacion>();
+            List<TipoDocumento> tiposDocumento = new List<TipoDocumento>();
 
             for (int i = 0; i < resultado.Rows.Count; i++)
             {
-                ubicaciones.Add(mapearUbicacion(resultado.Rows[i]));
+                tiposDocumento.Add(mapearTipoDocumento(resultado.Rows[i]));
             }
 
-            return ubicaciones;
+            return tiposDocumento;
         }
 
-        private Ubicacion mapearUbicacion(DataRow fila)
+        private TipoDocumento mapearTipoDocumento(DataRow fila)
         {
             int id = Convert.ToInt32(fila["id"]);
             string nombre = fila["nombre"].ToString();
             string descripcion = fila["descripcion"].ToString();
-
-            return new Ubicacion(id, nombre, descripcion);
+            return new TipoDocumento(id, nombre, descripcion);
         }
     }
 }
