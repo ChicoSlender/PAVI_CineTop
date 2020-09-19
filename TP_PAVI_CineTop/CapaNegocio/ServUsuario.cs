@@ -26,5 +26,15 @@ namespace TP_PAVI_CineTop.CapaNegocio
                 return null;
         }
 
+        public IList<Usuario> obtenerUsuarios()
+        {
+            return dbUsuario.obtenerUsuarios();
+        }
+
+        public bool existeUsuario(string nombreUsuario)
+        {
+            return dbUsuario.obtenerUsuario(nombreUsuario).Nombre != "";
+        }
+
     }
 }

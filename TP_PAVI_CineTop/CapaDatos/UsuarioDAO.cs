@@ -29,6 +29,7 @@ namespace TP_PAVI_CineTop.CapaDatos
 
             return usuario;
         }
+
         private Usuario mapearUsuario(DataRow fila)
         {
             //Llena una instancia de la clase Usuario con los datos de la fila parametro
@@ -36,6 +37,22 @@ namespace TP_PAVI_CineTop.CapaDatos
             string contraseña = fila[1].ToString();
             Usuario usuario = new Usuario(nombre, contraseña);
             return usuario;
+        }
+
+        internal IList<Usuario> obtenerUsuarios()
+        {
+            string consultaSQL = "SELECT nombre, '' as contraseña FROM Usuario";
+            DBHelper.GetDBHelper().conectar();
+            DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
+            List<Usuario> usuarios = new List<Usuario>();
+
+            for (int i = 0; i < resultado.Rows.Count; i++)
+            {
+                usuarios.Add(mapearUsuario(resultado.Rows[i]));
+            }
+
+            return usuarios;
         }
     }
 }

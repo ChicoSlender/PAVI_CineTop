@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CapaDatos\DBHelper.cs" />
+    <Compile Include="CapaDatos\EmpleadoDAO.cs" />
     <Compile Include="CapaDatos\SalasDAO.cs" />
     <Compile Include="CapaDatos\TipoDocumentoDAO.cs" />
     <Compile Include="CapaDatos\UbicacionDAO.cs" />
@@ -77,10 +78,12 @@
     <Compile Include="CapaGUI\FrmSalasABMC.Designer.cs">
       <DependentUpon>FrmSalasABMC.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaNegocio\ServEmpleado.cs" />
     <Compile Include="CapaNegocio\ServSala.cs" />
     <Compile Include="CapaNegocio\ServTipoDocumento.cs" />
     <Compile Include="CapaNegocio\ServUbicacion.cs" />
     <Compile Include="CapaNegocio\ServUsuario.cs" />
+    <Compile Include="Entidades\Empleado.cs" />
     <Compile Include="Entidades\Sala.cs" />
     <Compile Include="Entidades\TipoDocumento.cs" />
     <Compile Include="Entidades\Ubicacion.cs" />
