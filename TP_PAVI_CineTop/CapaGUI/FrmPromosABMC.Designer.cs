@@ -30,7 +30,6 @@
         {
             this.txtMayores = new System.Windows.Forms.TextBox();
             this.txtPromo = new System.Windows.Forms.TextBox();
-            this.txtFecha = new System.Windows.Forms.TextBox();
             this.txtMenores = new System.Windows.Forms.TextBox();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
@@ -42,18 +41,19 @@
             this.LblFechaDesde = new System.Windows.Forms.Label();
             this.LblFechaHasta = new System.Windows.Forms.Label();
             this.dtgPromos = new System.Windows.Forms.DataGridView();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
-            this.btnBaja = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnNuevo = new System.Windows.Forms.Button();
             this.ID_Promo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID_Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio_Menores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio_Mayores = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha_Desde = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fecha_Hasta = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnBaja = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnNuevo = new System.Windows.Forms.Button();
+            this.cmbEpoca = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgPromos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -70,13 +70,7 @@
             this.txtPromo.Name = "txtPromo";
             this.txtPromo.Size = new System.Drawing.Size(86, 20);
             this.txtPromo.TabIndex = 3;
-            // 
-            // txtFecha
-            // 
-            this.txtFecha.Location = new System.Drawing.Point(124, 69);
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(86, 20);
-            this.txtFecha.TabIndex = 4;
+            this.txtPromo.TextChanged += new System.EventHandler(this.txtPromo_TextChanged);
             // 
             // txtMenores
             // 
@@ -186,60 +180,7 @@
             this.dtgPromos.Size = new System.Drawing.Size(599, 174);
             this.dtgPromos.TabIndex = 23;
             this.dtgPromos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgEmpleados_CellContentClick);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Image = global::TP_PAVI_CineTop.Properties.Resources.puerta2;
-            this.btnSalir.Location = new System.Drawing.Point(561, 393);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(50, 50);
-            this.btnSalir.TabIndex = 29;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Image = global::TP_PAVI_CineTop.Properties.Resources.grabar4;
-            this.btnGuardar.Location = new System.Drawing.Point(379, 393);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(50, 50);
-            this.btnGuardar.TabIndex = 28;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Image = global::TP_PAVI_CineTop.Properties.Resources.Cancelar3;
-            this.btnCancelar.Location = new System.Drawing.Point(312, 393);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(50, 50);
-            this.btnCancelar.TabIndex = 27;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            // 
-            // btnBaja
-            // 
-            this.btnBaja.Image = global::TP_PAVI_CineTop.Properties.Resources.cancelar2;
-            this.btnBaja.Location = new System.Drawing.Point(160, 393);
-            this.btnBaja.Name = "btnBaja";
-            this.btnBaja.Size = new System.Drawing.Size(50, 50);
-            this.btnBaja.TabIndex = 26;
-            this.btnBaja.UseVisualStyleBackColor = true;
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Image = global::TP_PAVI_CineTop.Properties.Resources.grabar1;
-            this.btnModificar.Location = new System.Drawing.Point(87, 393);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(50, 50);
-            this.btnModificar.TabIndex = 25;
-            this.btnModificar.UseVisualStyleBackColor = true;
-            // 
-            // btnNuevo
-            // 
-            this.btnNuevo.Image = global::TP_PAVI_CineTop.Properties.Resources.nuevo1;
-            this.btnNuevo.Location = new System.Drawing.Point(12, 393);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(50, 50);
-            this.btnNuevo.TabIndex = 24;
-            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.dtgPromos.SelectionChanged += new System.EventHandler(this.dtgPromos_SelectionChanged);
             // 
             // ID_Promo
             // 
@@ -281,11 +222,79 @@
             this.Fecha_Hasta.Name = "Fecha_Hasta";
             this.Fecha_Hasta.ReadOnly = true;
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Image = global::TP_PAVI_CineTop.Properties.Resources.puerta2;
+            this.btnSalir.Location = new System.Drawing.Point(561, 393);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(50, 50);
+            this.btnSalir.TabIndex = 29;
+            this.btnSalir.UseVisualStyleBackColor = true;
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Image = global::TP_PAVI_CineTop.Properties.Resources.grabar4;
+            this.btnGuardar.Location = new System.Drawing.Point(379, 393);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(50, 50);
+            this.btnGuardar.TabIndex = 28;
+            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Image = global::TP_PAVI_CineTop.Properties.Resources.Cancelar3;
+            this.btnCancelar.Location = new System.Drawing.Point(312, 393);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(50, 50);
+            this.btnCancelar.TabIndex = 27;
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnBaja
+            // 
+            this.btnBaja.Image = global::TP_PAVI_CineTop.Properties.Resources.cancelar2;
+            this.btnBaja.Location = new System.Drawing.Point(160, 393);
+            this.btnBaja.Name = "btnBaja";
+            this.btnBaja.Size = new System.Drawing.Size(50, 50);
+            this.btnBaja.TabIndex = 26;
+            this.btnBaja.UseVisualStyleBackColor = true;
+            this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.Image = global::TP_PAVI_CineTop.Properties.Resources.grabar1;
+            this.btnModificar.Location = new System.Drawing.Point(87, 393);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(50, 50);
+            this.btnModificar.TabIndex = 25;
+            this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnNuevo
+            // 
+            this.btnNuevo.Image = global::TP_PAVI_CineTop.Properties.Resources.nuevo1;
+            this.btnNuevo.Location = new System.Drawing.Point(12, 393);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(50, 50);
+            this.btnNuevo.TabIndex = 24;
+            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // cmbEpoca
+            // 
+            this.cmbEpoca.FormattingEnabled = true;
+            this.cmbEpoca.Location = new System.Drawing.Point(125, 63);
+            this.cmbEpoca.Name = "cmbEpoca";
+            this.cmbEpoca.Size = new System.Drawing.Size(85, 21);
+            this.cmbEpoca.TabIndex = 30;
+            // 
             // FrmPromosABMC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(623, 450);
+            this.Controls.Add(this.cmbEpoca);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.btnCancelar);
@@ -303,7 +312,6 @@
             this.Controls.Add(this.dtpFechaHasta);
             this.Controls.Add(this.dtpFechaDesde);
             this.Controls.Add(this.txtMenores);
-            this.Controls.Add(this.txtFecha);
             this.Controls.Add(this.txtPromo);
             this.Controls.Add(this.txtMayores);
             this.Name = "FrmPromosABMC";
@@ -319,7 +327,6 @@
 
         private System.Windows.Forms.TextBox txtMayores;
         private System.Windows.Forms.TextBox txtPromo;
-        private System.Windows.Forms.TextBox txtFecha;
         private System.Windows.Forms.TextBox txtMenores;
         private System.Windows.Forms.DateTimePicker dtpFechaDesde;
         private System.Windows.Forms.DateTimePicker dtpFechaHasta;
@@ -343,5 +350,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio_Mayores;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_Desde;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_Hasta;
+        private System.Windows.Forms.ComboBox cmbEpoca;
     }
 }
