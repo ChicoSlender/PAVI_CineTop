@@ -33,7 +33,7 @@ public class DBHelper
         conexion = new SqlConnection();
         //string nombreBD = ConfigurationManager.AppSettings["dbName"];
         //string cadenaConexion = ConfigurationManager.ConnectionStrings[nombreBD].ConnectionString;
-        string cadenaConexion = "Data Source=LAPTOP-TP28K55O\\SQLEXPRESS;Initial Catalog=CINETOP;Integrated Security=True";
+        string cadenaConexion = "Data Source=DESKTOP-048MGER\\SQLEXPRESS;Initial Catalog=CINETOP;Integrated Security=True";
         conexion.ConnectionString = cadenaConexion;
         tipo = TipoConexion.comun;
         resultado = "";

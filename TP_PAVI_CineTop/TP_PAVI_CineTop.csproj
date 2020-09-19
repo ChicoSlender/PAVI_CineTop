@@ -72,6 +72,12 @@
     <Compile Include="CapaGUI\FrmPrincipal.Designer.cs">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaGUI\FrmPromosABMC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaGUI\FrmPromosABMC.Designer.cs">
+      <DependentUpon>FrmPromosABMC.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaGUI\FrmSalasABMC.cs">
       <SubType>Form</SubType>
     </Compile>
