@@ -103,10 +103,6 @@ namespace TP_PAVI_CineTop.CapaGUI
                 txtApellido.Focus();
                 return false;
             }
-            else if(servEmpleado.existeEmpleado(Convert.ToInt32(txtLegajo.Text))) {
-                MessageBox.Show("Ya existe un empleado con ese legajo", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
             else if(!servUsuario.existeUsuario(txtUsuario.Text))
             {
                 MessageBox.Show("Debe ingresar un usuario ya existente", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -140,7 +136,7 @@ namespace TP_PAVI_CineTop.CapaGUI
 
         private void dtgEmpleados_SelectionChanged(object sender, EventArgs e)
         {
-            this.cargarCampos(Convert.ToInt32(dtgEmpleados.SelectedRows[0].Cells["legajo"].Value));
+            this.cargarCampos(Convert.ToInt32(dtgEmpleados.CurrentRow.Cells["legajo"].Value));
         }
 
         private void btnNuevo_Click(object sender, EventArgs e)
@@ -161,8 +157,15 @@ namespace TP_PAVI_CineTop.CapaGUI
             DialogResult dialogResult = MessageBox.Show("Esta seguro de querer borrar al empleado "+txtNombre.Text+" "+txtApellido.Text+"?", "Borrado de empleado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if(dialogResult == DialogResult.Yes)
             {
-                //Borrar empleado
+                string errores = servEmpleado.borrarEmpleado(Convert.ToInt32(txtLegajo.Text));
+                
+                if(errores != "")
+                {
+                    MessageBox.Show(errores, "Error de operacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 MessageBox.Show("Empleado borrado con exito", "Resultado de operacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FrmHelper.cargarGrilla(servEmpleado.obtenerTablaEmpleados(), dtgEmpleados);
             }
         }
 
@@ -176,16 +179,54 @@ namespace TP_PAVI_CineTop.CapaGUI
         {
             if (!validarCampos())
                 return;
-            if(nuevo)
+            string errores = "";
+            int legajo = Convert.ToInt32(txtLegajo.Text);
+            string usuario = txtUsuario.Text;
+            int idTipoDoc = Convert.ToInt32(cmbTipoDocumento.SelectedValue);
+            int nroDoc = Convert.ToInt32(txtDocumento.Text);
+            string nombre = txtNombre.Text;
+            string apellido = txtApellido.Text;
+            DateTime fechaIngreso = dtpFechaIngreso.Value;
+
+            Empleado oEmpleado = new Empleado(legajo, idTipoDoc, nroDoc, nombre, apellido, fechaIngreso, usuario);
+
+            if (nuevo)
             {
-                //Insert
+                if (servEmpleado.existeEmpleado(Convert.ToInt32(txtLegajo.Text)))
+                {
+                    MessageBox.Show("Ya existe un empleado con ese legajo", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                errores = servEmpleado.insertarEmpleado(oEmpleado);
             }
             else
             {
-                //Update
+                errores = servEmpleado.actualizarEmpleado(oEmpleado);
+            }
+            if (errores != "")
+            {
+                MessageBox.Show(errores, "Error de operacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
             this.habilitarCampos(false);
             MessageBox.Show("Empleado registrado con exito", "Resultado de operacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            FrmHelper.cargarGrilla(servEmpleado.obtenerTablaEmpleados(), dtgEmpleados);
+        }
+
+        private void cmbTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (cmbTipoDocumento.SelectedValue)
+            {
+                case 1:
+                    txtDocumento.Mask = "99999999";
+                    break;
+                case 2:
+                    txtDocumento.Mask = "99-99999999-9";
+                    break;
+                default:
+                    txtDocumento.Mask = "";
+                    break;
+            }
         }
     }
 }

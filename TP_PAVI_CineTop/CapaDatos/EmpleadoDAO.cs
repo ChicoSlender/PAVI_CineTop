@@ -53,6 +53,46 @@ namespace TP_PAVI_CineTop.CapaDatos
             return resultado;
         }
 
+        public string insertarEmpleado(Empleado empleado)
+        {
+            string consultaSQL = "INSERT INTO Empleado (legajo, id_tipoDoc, nroDoc, nombre, apellido, fechaIngreso, nombreUsuario, borrado)" +
+                                        "VALUES (" + empleado.Legajo + ", " +
+                                                empleado.IdTipoDoc + ", " +
+                                                empleado.NroDoc + ", " +
+                                                "'" + empleado.Nombre + "', " +
+                                                "'" + empleado.Apellido + "', " + 
+                                                "'" + empleado.FechaIngreso.ToString("yyyy-MM-dd") + "', " +
+                                                "'" + empleado.NombreUsuario + "', 0)";
+            DBHelper.GetDBHelper().conectar();
+            DBHelper.GetDBHelper().ejecutarSQL(consultaSQL);
+            return DBHelper.GetDBHelper().desconectar();
+        }
+
+        public string actualizarEmpleado(Empleado empleado)
+        {
+            string consultaSQL = "UPDATE Empleado " +
+                                 "SET id_tipoDoc=" + empleado.IdTipoDoc + ", " +
+                                     "nroDoc=" + empleado.NroDoc + ", " +
+                                     "nombre='" + empleado.Nombre + "', " +
+                                     "apellido='" + empleado.Apellido + "', " +
+                                     "fechaIngreso='" + empleado.FechaIngreso.ToString("yyyy-MM-dd") + "', " +
+                                     "nombreUsuario='" + empleado.NombreUsuario + "' " +
+                                 "WHERE legajo=" + empleado.Legajo;
+            DBHelper.GetDBHelper().conectar();
+            DBHelper.GetDBHelper().ejecutarSQL(consultaSQL);
+            return DBHelper.GetDBHelper().desconectar();
+        }
+
+        public string borrarEmpleado(int legajo)
+        {
+            string consultaSQL = "UPDATE Empleado " +
+                                 "SET borrado=1 " +
+                                 "WHERE legajo=" + legajo;
+            DBHelper.GetDBHelper().conectar();
+            DBHelper.GetDBHelper().ejecutarSQL(consultaSQL);
+            return DBHelper.GetDBHelper().desconectar();
+        }
+
         private Empleado mapearEmpleado(DataRow fila)
         {
             int legajo = Convert.ToInt32(fila["legajo"]);

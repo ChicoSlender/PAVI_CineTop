@@ -31,5 +31,20 @@ namespace TP_PAVI_CineTop.CapaNegocio
         {
             return obtenerEmpleado(legajo).Nombre != "";
         }
+
+        public string insertarEmpleado(Empleado empleado)
+        {
+            return dao.insertarEmpleado(empleado);
+        }
+
+        public string actualizarEmpleado(Empleado empleado)
+        {
+            return dao.actualizarEmpleado(empleado);
+        }
+
+        public string borrarEmpleado(int legajo)
+        {
+            return dao.borrarEmpleado(legajo);
+        }
     }
 }

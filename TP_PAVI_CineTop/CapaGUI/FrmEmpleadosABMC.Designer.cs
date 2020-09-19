@@ -36,6 +36,11 @@
             this.lblApellido = new System.Windows.Forms.Label();
             this.lblFechaIngreso = new System.Windows.Forms.Label();
             this.dtgEmpleados = new System.Windows.Forms.DataGridView();
+            this.legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBaja = new System.Windows.Forms.Button();
@@ -48,11 +53,6 @@
             this.cmbTipoDocumento = new System.Windows.Forms.ComboBox();
             this.txtDocumento = new System.Windows.Forms.MaskedTextBox();
             this.txtLegajo = new System.Windows.Forms.TextBox();
-            this.legajo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombreUsuario = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fechaIngreso = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtUsuario = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmpleados)).BeginInit();
             this.SuspendLayout();
@@ -137,6 +137,40 @@
             this.dtgEmpleados.Size = new System.Drawing.Size(600, 174);
             this.dtgEmpleados.TabIndex = 14;
             this.dtgEmpleados.SelectionChanged += new System.EventHandler(this.dtgEmpleados_SelectionChanged);
+            // 
+            // legajo
+            // 
+            this.legajo.HeaderText = "Legajo";
+            this.legajo.Name = "legajo";
+            this.legajo.ReadOnly = true;
+            this.legajo.Width = 75;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 125;
+            // 
+            // apellido
+            // 
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
+            this.apellido.ReadOnly = true;
+            this.apellido.Width = 125;
+            // 
+            // nombreUsuario
+            // 
+            this.nombreUsuario.HeaderText = "Usuario";
+            this.nombreUsuario.Name = "nombreUsuario";
+            this.nombreUsuario.ReadOnly = true;
+            this.nombreUsuario.Width = 125;
+            // 
+            // fechaIngreso
+            // 
+            this.fechaIngreso.HeaderText = "Ingreso";
+            this.fechaIngreso.Name = "fechaIngreso";
+            this.fechaIngreso.ReadOnly = true;
             // 
             // btnNuevo
             // 
@@ -227,13 +261,14 @@
             this.cmbTipoDocumento.Name = "cmbTipoDocumento";
             this.cmbTipoDocumento.Size = new System.Drawing.Size(153, 21);
             this.cmbTipoDocumento.TabIndex = 5;
+            this.cmbTipoDocumento.SelectedIndexChanged += new System.EventHandler(this.cmbTipoDocumento_SelectedIndexChanged);
             // 
             // txtDocumento
             // 
             this.txtDocumento.Location = new System.Drawing.Point(410, 64);
             this.txtDocumento.Mask = "99999999";
             this.txtDocumento.Name = "txtDocumento";
-            this.txtDocumento.Size = new System.Drawing.Size(58, 20);
+            this.txtDocumento.Size = new System.Drawing.Size(108, 20);
             this.txtDocumento.TabIndex = 7;
             // 
             // txtLegajo
@@ -243,40 +278,6 @@
             this.txtLegajo.Size = new System.Drawing.Size(53, 20);
             this.txtLegajo.TabIndex = 1;
             this.txtLegajo.Validated += new System.EventHandler(this.txtLegajo_Validated);
-            // 
-            // legajo
-            // 
-            this.legajo.HeaderText = "Legajo";
-            this.legajo.Name = "legajo";
-            this.legajo.ReadOnly = true;
-            this.legajo.Width = 75;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 125;
-            // 
-            // apellido
-            // 
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.Name = "apellido";
-            this.apellido.ReadOnly = true;
-            this.apellido.Width = 125;
-            // 
-            // nombreUsuario
-            // 
-            this.nombreUsuario.HeaderText = "Usuario";
-            this.nombreUsuario.Name = "nombreUsuario";
-            this.nombreUsuario.ReadOnly = true;
-            this.nombreUsuario.Width = 125;
-            // 
-            // fechaIngreso
-            // 
-            this.fechaIngreso.HeaderText = "Ingreso";
-            this.fechaIngreso.Name = "fechaIngreso";
-            this.fechaIngreso.ReadOnly = true;
             // 
             // txtUsuario
             // 
