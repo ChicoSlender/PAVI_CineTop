@@ -78,6 +78,12 @@
     <Compile Include="CapaGUI\FrmSalasABMC.Designer.cs">
       <DependentUpon>FrmSalasABMC.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaGUI\FrmTransaccionPelicula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaGUI\FrmTransaccionPelicula.Designer.cs">
+      <DependentUpon>FrmTransaccionPelicula.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaNegocio\ServEmpleado.cs" />
     <Compile Include="CapaNegocio\ServSala.cs" />
     <Compile Include="CapaNegocio\ServTipoDocumento.cs" />
@@ -101,6 +107,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CapaGUI\FrmSalasABMC.resx">
       <DependentUpon>FrmSalasABMC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaGUI\FrmTransaccionPelicula.resx">
+      <DependentUpon>FrmTransaccionPelicula.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
