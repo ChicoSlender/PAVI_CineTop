@@ -21,6 +21,12 @@ public class DBHelper
         exito, error
     }
 
+    private class CadenaConexion
+    {
+        public string benja = "Data Source=LAPTOP-TP28K55O\\SQLEXPRESS;Initial Catalog=CINETOP;Integrated Security=True";
+        public string agus = "Data Source=DESKTOP-048MGER\\SQLEXPRESS;Initial Catalog=CINETOP;Integrated Security=True";
+    }
+
     static DBHelper instancia = new DBHelper();
     SqlConnection conexion;
     SqlTransaction transaccion;
@@ -33,7 +39,8 @@ public class DBHelper
         conexion = new SqlConnection();
         //string nombreBD = ConfigurationManager.AppSettings["dbName"];
         //string cadenaConexion = ConfigurationManager.ConnectionStrings[nombreBD].ConnectionString;
-        string cadenaConexion = "Data Source=DESKTOP-048MGER\\SQLEXPRESS;Initial Catalog=CINETOP;Integrated Security=True";
+
+        string cadenaConexion = new CadenaConexion().benja;
         conexion.ConnectionString = cadenaConexion;
         tipo = TipoConexion.comun;
         resultado = "";
@@ -143,3 +150,4 @@ public class DBHelper
         }
     }
 }
+
