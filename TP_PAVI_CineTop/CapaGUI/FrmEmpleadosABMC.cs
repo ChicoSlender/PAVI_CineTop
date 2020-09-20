@@ -211,6 +211,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             this.habilitarCampos(false);
             MessageBox.Show("Empleado registrado con exito", "Resultado de operacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             FrmHelper.cargarGrilla(servEmpleado.obtenerTablaEmpleados(), dtgEmpleados);
+            nuevo = false;
         }
 
         private void cmbTipoDocumento_SelectedIndexChanged(object sender, EventArgs e)
