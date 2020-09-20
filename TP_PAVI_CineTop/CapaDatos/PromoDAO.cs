@@ -43,7 +43,7 @@ namespace TP_PAVI_CineTop.CapaDatos
         }
         public string insertar_promo(Promo promo)
         {
-            string consulta = "INSERT INTO Promo VALUES("  + promo.Id + ","+ promo.Id_epoca +"," + promo.Precio_menores.ToString().Replace(",", ".") + ","+ promo.Precio_menores.ToString().Replace(",",".") + ",'"
+            string consulta = "INSERT INTO Promo VALUES("  + promo.Id + ","+ promo.Id_epoca +"," + promo.Precio_menores.ToString().Replace(",", ".") + ","+ promo.Precio_mayores.ToString().Replace(",",".") + ",'"
                 + promo.Vigencia_desde.ToString("yyyy-MM-dd") +"','" + promo.Vigencia_hasta.ToString("yyyy-MM-dd") + "',0)";
             DBHelper.GetDBHelper().conectar();
             DBHelper.GetDBHelper().ejecutarSQL(consulta);
