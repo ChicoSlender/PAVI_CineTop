@@ -67,6 +67,51 @@ namespace TP_PAVI_CineTop.CapaGUI
             dtgActores.Rows.Clear();
         }
 
+        private bool validarCampos()
+        {
+            if(txtTitulo.Text == "")
+            {
+                MessageBox.Show("El titulo no puede estar vacio", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if(txtDirector.Text == "")
+            {
+                MessageBox.Show("El director no puede estar vacio", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if(numDuracion.Value<=0)
+            {
+                MessageBox.Show("La duracion debe ser mayor a 0", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if(cmbGenero.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe elegir un genero", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if(cmbPais.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe elegir un pais", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if(dtpFechaEstreno.Value > dtpFechaFinProyeccion.Value)
+            {
+                MessageBox.Show("La fecha de estreno debe ser anterior a la fecha de fin de proyeccion", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if(txtArgumento.Text == "")
+            {
+                MessageBox.Show("El argumento no puede estar vacio", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            if(dtgActores.Rows.Count==0)
+            {
+                MessageBox.Show("Debe haber por lo menos un actor", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            return true;
+        }
+
         private void FrmTransaccionPelicula_Load(object sender, EventArgs e)
         {
             FrmHelper.cargarCombo(servGenero.obtenerGeneros(), cmbGenero, "nombre", "id");
@@ -98,7 +143,12 @@ namespace TP_PAVI_CineTop.CapaGUI
             DialogResult eleccion = MessageBox.Show("Seguro que quiere eliminar la pelicula elegida?", "Borrado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if(eleccion == DialogResult.Yes)
             {
-                //borrado=1
+                string errores = servPelicula.borrarPelicula(Convert.ToInt32(txtId.Text));
+                if(errores != "")
+                {
+                    MessageBox.Show(errores, "Error de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 MessageBox.Show("Pelicula eliminada", "Resultado operacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 habilitarCampos(false);
             }
@@ -112,6 +162,54 @@ namespace TP_PAVI_CineTop.CapaGUI
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            if (!validarCampos())
+                return;
+
+            int id;
+            if (txtId.Text == "")
+                id = 0;
+            else 
+                id = Convert.ToInt32(txtId.Text);
+            string titulo = txtTitulo.Text;
+            string director = txtDirector.Text;
+            int duracion = Convert.ToInt32(numDuracion.Value);
+            int id_genero = Convert.ToInt32(cmbGenero.SelectedValue);
+            int id_pais = Convert.ToInt32(cmbPais.SelectedValue);
+            DateTime fechaEstreno = dtpFechaEstreno.Value;
+            DateTime fechaFin = dtpFechaFinProyeccion.Value;
+            string argumento = txtArgumento.Text;
+
+            Pelicula peli = new Pelicula(id, titulo, id_genero, director, duracion, fechaEstreno, fechaFin, argumento, id_pais, false);
+
+            string nombreActor, apellidoActor;
+            ActorPelicula actor;
+            List<ActorPelicula> actores = new List<ActorPelicula>();
+            for (int i = 0; i < dtgActores.Rows.Count-1; i++)
+            {
+                nombreActor = dtgActores.Rows[i].Cells["nombre"].Value.ToString();
+                apellidoActor = dtgActores.Rows[i].Cells["apellido"].Value.ToString();
+                actor = new ActorPelicula(id, nombreActor, apellidoActor);
+                actores.Add(actor);
+            }
+            peli.Actores = actores;
+
+            string errores = "";
+            switch (modo)
+            {
+                case Modo.nuevo:
+                    errores = servPelicula.insertarPelicula(peli);
+                    break;
+                case Modo.modificar:
+                    errores = servPelicula.actualizarPelicula(peli);
+                    break;
+            }
+
+            if(errores != "Transaccion realizada con exito")
+            {
+                MessageBox.Show(errores, "Error de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             MessageBox.Show("Pelicula registrada exitosamente", "Resultado operacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
             habilitarCampos(false);
         }

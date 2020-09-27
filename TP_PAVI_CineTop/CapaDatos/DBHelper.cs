@@ -60,6 +60,7 @@ public class DBHelper
         {
             if(conexion.State != ConnectionState.Open) conexion.Open();
             this.resultado = "";
+            transaccion = null;
         }
         catch(SqlException ex)
         {
@@ -121,6 +122,7 @@ public class DBHelper
         try
         {
             comando.CommandType = CommandType.Text;
+            comando.Transaction = transaccion;
             comando.CommandText = consulta;
             comando.Connection = conexion;
             tabla.Load(comando.ExecuteReader());
@@ -146,6 +148,7 @@ public class DBHelper
         catch (SqlException ex)
         {
             this.resultado += ex.ToString() + "\n";
+            estadoTransaccion = EstadoTransaccion.error;
             return 0;
         }
     }
