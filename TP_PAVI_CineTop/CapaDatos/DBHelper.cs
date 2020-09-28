@@ -58,9 +58,10 @@ public class DBHelper
     {
         try
         {
-            if(conexion.State != ConnectionState.Open) conexion.Open();
+            if (conexion.State != ConnectionState.Open) conexion.Open();
             this.resultado = "";
             transaccion = null;
+            tipo = TipoConexion.comun;
         }
         catch(SqlException ex)
         {

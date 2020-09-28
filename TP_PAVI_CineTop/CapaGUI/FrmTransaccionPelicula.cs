@@ -188,7 +188,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             {
                 nombreActor = dtgActores.Rows[i].Cells["nombre"].Value.ToString();
                 apellidoActor = dtgActores.Rows[i].Cells["apellido"].Value.ToString();
-                actor = new ActorPelicula(id, nombreActor, apellidoActor);
+                actor = new ActorPelicula(id, i+1, nombreActor, apellidoActor);
                 actores.Add(actor);
             }
             peli.Actores = actores;

@@ -12,7 +12,7 @@ namespace TP_PAVI_CineTop.CapaDatos
     {
         public IList<ActorPelicula> obtenerActoresPorPelicula(int id_pelicula)
         {
-            string consultaSQL = "SELECT * FROM ActoresXPelicula WHERE id_pelicula="+id_pelicula;
+            string consultaSQL = "SELECT * FROM ActoresXPelicula WHERE id_pelicula="+id_pelicula+" ORDER BY id_actor";
             DBHelper.GetDBHelper().conectar();
             DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
             DBHelper.GetDBHelper().desconectar();
@@ -29,10 +29,11 @@ namespace TP_PAVI_CineTop.CapaDatos
         private ActorPelicula mapearActor(DataRow fila)
         {
             int id_pelicula = Convert.ToInt32(fila["id_pelicula"]);
+            int id_actor = Convert.ToInt32(fila["id_actor"]);
             string nombre = fila["nombreActor"].ToString();
             string apellido = fila["apellidoActor"].ToString();
 
-            return new ActorPelicula(id_pelicula, nombre, apellido);
+            return new ActorPelicula(id_pelicula, id_actor, nombre, apellido);
         }
     }
 }

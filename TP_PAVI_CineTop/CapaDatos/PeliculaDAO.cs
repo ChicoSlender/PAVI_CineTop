@@ -49,8 +49,8 @@ namespace TP_PAVI_CineTop.CapaDatos
             string insercionActor;
             for (int i = 0; i < peli.Actores.Count; i++)
             {
-                insercionActor = "INSERT INTO ActoresXPelicula (id_pelicula, nombreActor, apellidoActor) " +
-                                        "VALUES (" + peli.Id + ", '" + peli.Actores[i].Nombre + "', '" + peli.Actores[i].Apellido + "')";
+                insercionActor = "INSERT INTO ActoresXPelicula (id_pelicula, id_actor, nombreActor, apellidoActor) " +
+                                        "VALUES (" + peli.Id + ", " + peli.Actores[i].Id + ", '" + peli.Actores[i].Nombre + "', '" + peli.Actores[i].Apellido + "')";
                 DBHelper.GetDBHelper().ejecutarSQL(insercionActor);
             }
 
@@ -73,14 +73,24 @@ namespace TP_PAVI_CineTop.CapaDatos
             DBHelper.GetDBHelper().comenzarTransaccion();
             DBHelper.GetDBHelper().ejecutarSQL(updateCabecera);
 
-            DBHelper.GetDBHelper().ejecutarSQL("DELETE FROM ActoresXPelicula WHERE id_pelicula=" + peli.Id);
+            //DBHelper.GetDBHelper().ejecutarSQL("DELETE FROM ActoresXPelicula WHERE id_pelicula=" + peli.Id);
 
-            string insercionActor;
-            for (int i = 0; i < peli.Actores.Count; i++)
+            DataTable tablaCantIdActores = DBHelper.GetDBHelper().consultaSQL("SELECT COUNT(id_actor) FROM ActoresXPelicula GROUP BY id_pelicula HAVING id_pelicula="+peli.Id);
+            int cantIdActores = Convert.ToInt32(tablaCantIdActores.Rows[0][0]);
+
+            string consultaActor;
+            for (int i = 0; i < cantIdActores; i++)
             {
-                insercionActor = "INSERT INTO ActoresXPelicula (id_pelicula, nombreActor, apellidoActor) " +
-                                        "VALUES (" + peli.Id + ", '" + peli.Actores[i].Nombre + "', '" + peli.Actores[i].Apellido + "')";
-                DBHelper.GetDBHelper().ejecutarSQL(insercionActor);
+                consultaActor = "UPDATE ActoresXPelicula SET nombreActor='" + peli.Actores[i].Nombre + "', apellidoActor='" + peli.Actores[i].Apellido + "' " +
+                                                        "WHERE id_pelicula=" + peli.Id + " AND id_actor=" + peli.Actores[i].Id;
+                DBHelper.GetDBHelper().ejecutarSQL(consultaActor);
+            }
+
+            for (int i = cantIdActores; i < peli.Actores.Count; i++)
+            {
+                consultaActor = "INSERT INTO ActoresXPelicula (id_pelicula, id_actor, nombreActor, apellidoActor) " +
+                                        "VALUES (" + peli.Id + ", " + peli.Actores[i].Id + ", '" + peli.Actores[i].Nombre + "', '" + peli.Actores[i].Apellido + "')";
+                DBHelper.GetDBHelper().ejecutarSQL(consultaActor);
             }
             return DBHelper.GetDBHelper().desconectar();
         }
