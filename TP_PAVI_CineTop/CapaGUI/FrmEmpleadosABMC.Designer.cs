@@ -316,7 +316,7 @@
             this.Controls.Add(this.lblTipoDocumento);
             this.Controls.Add(this.lblLegajo);
             this.Name = "FrmEmpleadosABMC";
-            this.Text = "FrmEmpleadosABMC";
+            this.Text = "Gestión Empleados";
             this.Load += new System.EventHandler(this.FrmEmpleadosABMC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmpleados)).EndInit();
             this.ResumeLayout(false);

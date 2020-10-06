@@ -71,42 +71,42 @@ namespace TP_PAVI_CineTop.CapaGUI
         {
             if(txtTitulo.Text == "")
             {
-                MessageBox.Show("El titulo no puede estar vacio", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El campo de titulo no puede estar vacío", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if(txtDirector.Text == "")
             {
-                MessageBox.Show("El director no puede estar vacio", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El campo de director no puede estar vacío", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if(numDuracion.Value<=0)
             {
-                MessageBox.Show("La duracion debe ser mayor a 0", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La duración de la película debe ser mayor a 0 minutos", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if(cmbGenero.SelectedIndex == -1)
             {
-                MessageBox.Show("Debe elegir un genero", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe elegir un género", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if(cmbPais.SelectedIndex == -1)
             {
-                MessageBox.Show("Debe elegir un pais", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe elegir un país", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if(dtpFechaEstreno.Value > dtpFechaFinProyeccion.Value)
             {
-                MessageBox.Show("La fecha de estreno debe ser anterior a la fecha de fin de proyeccion", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La fecha de estreno debe ser anterior a la fecha de fin de proyeccion", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if(txtArgumento.Text == "")
             {
-                MessageBox.Show("El argumento no puede estar vacio", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El campo del argumento no puede estar vacio", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             if(dtgActores.Rows.Count==0)
             {
-                MessageBox.Show("Debe haber por lo menos un actor", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La película debe tener por lo menos un actor", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -140,13 +140,13 @@ namespace TP_PAVI_CineTop.CapaGUI
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
-            DialogResult eleccion = MessageBox.Show("Seguro que quiere eliminar la pelicula elegida?", "Borrado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult eleccion = MessageBox.Show("Seguro que quiere eliminar la pelicula elegida?", "Confirmar borrado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if(eleccion == DialogResult.Yes)
             {
                 string errores = servPelicula.borrarPelicula(Convert.ToInt32(txtId.Text));
                 if(errores != "")
                 {
-                    MessageBox.Show(errores, "Error de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(errores, "Error de borrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 MessageBox.Show("Pelicula eliminada", "Resultado operacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -206,7 +206,7 @@ namespace TP_PAVI_CineTop.CapaGUI
 
             if(errores != "Transaccion realizada con exito")
             {
-                MessageBox.Show(errores, "Error de BD", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(errores, "Error de guardado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -240,7 +240,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             }
             else
             {
-                MessageBox.Show("El id no puede estar vacio", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El campo de id no puede estar vacio", "Formulario incompleto", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

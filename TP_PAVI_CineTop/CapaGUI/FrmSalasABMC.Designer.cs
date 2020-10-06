@@ -229,7 +229,7 @@
             this.Controls.Add(this.lblCapacidad);
             this.Controls.Add(this.lblNombre);
             this.Name = "FrmSalasABMC";
-            this.Text = "ABMC Salas";
+            this.Text = "Gestión Salas";
             this.Load += new System.EventHandler(this.FrmSalasABMC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numCapacidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgSalas)).EndInit();

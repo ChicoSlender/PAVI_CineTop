@@ -47,6 +47,8 @@
             this.dtpFechaFinProyeccion = new System.Windows.Forms.DateTimePicker();
             this.txtArgumento = new System.Windows.Forms.TextBox();
             this.dtgActores = new System.Windows.Forms.DataGridView();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBaja = new System.Windows.Forms.Button();
@@ -54,8 +56,6 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblPais = new System.Windows.Forms.Label();
             this.cmbPais = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numDuracion)).BeginInit();
@@ -227,6 +227,18 @@
             this.dtgActores.Size = new System.Drawing.Size(400, 150);
             this.dtgActores.TabIndex = 18;
             // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.Width = 200;
+            // 
+            // apellido
+            // 
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
+            this.apellido.Width = 200;
+            // 
             // btnNuevo
             // 
             this.btnNuevo.Image = global::TP_PAVI_CineTop.Properties.Resources.nuevo1;
@@ -297,18 +309,6 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.Width = 200;
-            // 
-            // apellido
-            // 
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.Name = "apellido";
-            this.apellido.Width = 200;
-            // 
             // lblPais
             // 
             this.lblPais.AutoSize = true;
@@ -360,7 +360,7 @@
             this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.lblId);
             this.Name = "FrmTransaccionPelicula";
-            this.Text = "FrmTransaccionPelicula";
+            this.Text = "Registrar Pelicula";
             this.Load += new System.EventHandler(this.FrmTransaccionPelicula_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numDuracion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgActores)).EndInit();

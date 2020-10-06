@@ -315,7 +315,7 @@
             this.Controls.Add(this.txtPromo);
             this.Controls.Add(this.txtMayores);
             this.Name = "FrmPromosABMC";
-            this.Text = "FrmPromosABMC";
+            this.Text = "Gestión Promos";
             this.Load += new System.EventHandler(this.FrmPromosABMC_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtgPromos)).EndInit();
             this.ResumeLayout(false);
