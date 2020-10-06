@@ -69,43 +69,43 @@ namespace TP_PAVI_CineTop.CapaGUI
         {
             if(txtLegajo.Text == "")
             {
-                MessageBox.Show("El legajo no puede estar vacio", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El legajo no puede estar vacío", "Legajo incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtLegajo.Focus();
                 return false;
             }
             else if(txtUsuario.Text == "")
             {
-                MessageBox.Show("El usuario no puede estar vacio", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El usuario no puede estar vacío", "Nombre incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtUsuario.Focus();
                 return false;
             }
             else if(cmbTipoDocumento.SelectedIndex == -1)
             {
-                MessageBox.Show("Debe seleccionar un tipo de documento", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar un tipo de documento", "Tipo de documento incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 cmbTipoDocumento.Focus();
                 return false;
             }
             else if(txtDocumento.Text == "")
             {
-                MessageBox.Show("El numero de documento no puede estar vacio", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El número de documento no puede estar vacío", "Número de documento incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtDocumento.Focus();
                 return false;
             }
             else if(txtNombre.Text == "")
             {
-                MessageBox.Show("El nombre no puede estar vacio", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El nombre no puede estar vacío", "Nombre incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtNombre.Focus();
                 return false;
             }
             else if(txtApellido.Text == "")
             {
-                MessageBox.Show("El apellido no puede estar vacio", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El apellido no puede estar vacío", "Apellido incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtApellido.Focus();
                 return false;
             }
             else if(!servUsuario.existeUsuario(txtUsuario.Text))
             {
-                MessageBox.Show("Debe ingresar un usuario ya existente", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe ingresar un usuario ya existente", "Error usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             return true;
@@ -120,7 +120,7 @@ namespace TP_PAVI_CineTop.CapaGUI
         {
             if(!Int32.TryParse(txtLegajo.Text, out int res))
             {
-                MessageBox.Show("El legajo debe ser un numero", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El legajo debe ser un número", "Dato erróneo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtLegajo.Text = "";
             }
         }
@@ -154,17 +154,17 @@ namespace TP_PAVI_CineTop.CapaGUI
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("Esta seguro de querer borrar al empleado "+txtNombre.Text+" "+txtApellido.Text+"?", "Borrado de empleado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dialogResult = MessageBox.Show("Está seguro de querer borrar al empleado "+txtNombre.Text+" "+txtApellido.Text+"?", "Borrado de empleado", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if(dialogResult == DialogResult.Yes)
             {
                 string errores = servEmpleado.borrarEmpleado(Convert.ToInt32(txtLegajo.Text));
                 
                 if(errores != "")
                 {
-                    MessageBox.Show(errores, "Error de operacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show(errores, "Error de operación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                MessageBox.Show("Empleado borrado con exito", "Resultado de operacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Empleado borrado con éxito", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmHelper.cargarGrilla(servEmpleado.obtenerTablaEmpleados(), dtgEmpleados);
             }
         }
@@ -172,7 +172,7 @@ namespace TP_PAVI_CineTop.CapaGUI
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.habilitarCampos(false);
-            MessageBox.Show("Operacion cancelada", "Resultado de operacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Operación cancelada", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -194,7 +194,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             {
                 if (servEmpleado.existeEmpleado(Convert.ToInt32(txtLegajo.Text)))
                 {
-                    MessageBox.Show("Ya existe un empleado con ese legajo", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe un empleado con ese legajo", "Error legajo duplicado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 errores = servEmpleado.insertarEmpleado(oEmpleado);
@@ -205,11 +205,11 @@ namespace TP_PAVI_CineTop.CapaGUI
             }
             if (errores != "")
             {
-                MessageBox.Show(errores, "Error de operacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show(errores, "Error de operación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             this.habilitarCampos(false);
-            MessageBox.Show("Empleado registrado con exito", "Resultado de operacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Empleado registrado con éxito", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             FrmHelper.cargarGrilla(servEmpleado.obtenerTablaEmpleados(), dtgEmpleados);
             nuevo = false;
         }
@@ -228,6 +228,16 @@ namespace TP_PAVI_CineTop.CapaGUI
                     txtDocumento.Mask = "";
                     break;
             }
+        }
+
+        private void txtUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtgEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

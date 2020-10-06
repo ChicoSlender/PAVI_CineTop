@@ -90,7 +90,7 @@ namespace TP_PAVI_CineTop.CapaGUI
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Esta seguro de querer borrar la sala "+salaSeleccionada.Nombre,
+            DialogResult res = MessageBox.Show("Está seguro de querer borrar la sala "+salaSeleccionada.Nombre,
                 "Advertencia", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
 
             if(res == DialogResult.Yes)
@@ -110,17 +110,17 @@ namespace TP_PAVI_CineTop.CapaGUI
         {
             if (txtNombre.Text == "")
             {
-                MessageBox.Show("El nombre no puede estar vacío", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El nombre no puede estar vacío", "ERROR - Falta nombre", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (numCapacidad.Value <= 0)
             {
-                MessageBox.Show("La capacidad debe ser mayor a 0", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La capacidad debe ser mayor a 0", "ERROR - Capacidad incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (cmbUbicacion.SelectedIndex == -1)
             {
-                MessageBox.Show("Debe seleccionar una ubicación", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe seleccionar una ubicación", "ERROR - Ubicación incorrecta", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -132,7 +132,7 @@ namespace TP_PAVI_CineTop.CapaGUI
 
                 if(servSala.existeSala(nombre))
                 {
-                    MessageBox.Show("Ya existe una sala registrada con ese nombre", "Error de validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Ya existe una sala registrada con ese nombre", "Error de validación", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 

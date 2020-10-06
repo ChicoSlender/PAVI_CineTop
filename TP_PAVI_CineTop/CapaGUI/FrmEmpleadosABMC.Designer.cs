@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblLegajo = new System.Windows.Forms.Label();
             this.lblTipoDocumento = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -54,6 +55,7 @@
             this.txtDocumento = new System.Windows.Forms.MaskedTextBox();
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.ComboBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -136,6 +138,7 @@
             this.dtgEmpleados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgEmpleados.Size = new System.Drawing.Size(600, 174);
             this.dtgEmpleados.TabIndex = 14;
+            this.dtgEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgEmpleados_CellContentClick);
             this.dtgEmpleados.SelectionChanged += new System.EventHandler(this.dtgEmpleados_SelectionChanged);
             // 
             // legajo
@@ -238,6 +241,7 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(153, 20);
             this.txtNombre.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.txtNombre, "Ingresar nombre de empleado");
             // 
             // txtApellido
             // 
@@ -288,6 +292,7 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(153, 21);
             this.txtUsuario.TabIndex = 21;
+            this.txtUsuario.SelectedIndexChanged += new System.EventHandler(this.txtUsuario_SelectedIndexChanged);
             // 
             // FrmEmpleadosABMC
             // 
@@ -352,5 +357,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nombreUsuario;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaIngreso;
         private System.Windows.Forms.ComboBox txtUsuario;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

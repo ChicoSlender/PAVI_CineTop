@@ -83,22 +83,22 @@ namespace TP_PAVI_CineTop.CapaGUI
         {
             if (txtPromo.Text == "")
             {
-                MessageBox.Show("El ID no puede estar vacio.");
+                MessageBox.Show("El ID no puede estar vacío.");
                 return false;
             }
             else if (txtMayores.Text == "")
             {
-                MessageBox.Show("El precio para mayores no puede estar vacio.");
+                MessageBox.Show("El precio para mayores no puede estar vacío.");
                 return false;
             }
             else if (txtMenores.Text == "")
             {
-                MessageBox.Show("El precio para menores no puede estar vacio.");
+                MessageBox.Show("El precio para menores no puede estar vacío.");
                 return false;
             }
             else if (cmbEpoca.SelectedIndex == -1)
             {
-                MessageBox.Show("Debe seleccionar una epoca.");
+                MessageBox.Show("Debe seleccionar una época.");
                 return false;
             }
             else if (dtpFechaDesde.Value > dtpFechaHasta.Value)
@@ -108,17 +108,17 @@ namespace TP_PAVI_CineTop.CapaGUI
             }
             else if (!Int32.TryParse(txtPromo.Text, out int valor))
             {
-                MessageBox.Show("El ID de promo debe ser un numero entero.");
+                MessageBox.Show("El ID de promo debe ser un número entero.");
                 return false;
             }
             else if (!float.TryParse(txtMayores.Text, out float valor2))
             {
-                MessageBox.Show("El precio para mayores debe ser un valor flotante.");
+                MessageBox.Show("El precio para mayores debe ser un valor con decimales.");
                 return false;
             }
             else if (!float.TryParse(txtMenores.Text, out float valor3))
             {
-                MessageBox.Show("El precio para menores debe ser un valor flotante.");
+                MessageBox.Show("El precio para menores debe ser un valor con decimales.");
                 return false;
             }
             return true;
@@ -139,7 +139,7 @@ namespace TP_PAVI_CineTop.CapaGUI
 
         private void btnBaja_Click(object sender, EventArgs e)
         {
-            DialogResult resultado = MessageBox.Show("Desea borrar esta promocion?", "Borrar promo", MessageBoxButtons.YesNo);
+            DialogResult resultado = MessageBox.Show("Desea borrar esta promoción?", "Borrar promo", MessageBoxButtons.YesNo);
             if (resultado == DialogResult.Yes)
             {
                 int id = Convert.ToInt32(txtPromo.Text);
@@ -198,7 +198,7 @@ namespace TP_PAVI_CineTop.CapaGUI
                 MessageBox.Show(error);
             }
 
-            MessageBox.Show("Operacion realizada con exito.");
+            MessageBox.Show("Operacion realizada con éxito.");
             FrmHelper.cargarGrilla(servPromo.obtenerTabla(), dtgPromos);
 
             HabilitarCampos(false);

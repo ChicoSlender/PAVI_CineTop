@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.lblId = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.lblGenero = new System.Windows.Forms.Label();
@@ -58,6 +59,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.lblPais = new System.Windows.Forms.Label();
             this.cmbPais = new System.Windows.Forms.ComboBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.numDuracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgActores)).BeginInit();
             this.SuspendLayout();
@@ -149,6 +151,7 @@
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(61, 20);
             this.txtId.TabIndex = 9;
+            this.toolTip1.SetToolTip(this.txtId, "ID de la película registrada");
             // 
             // txtTitulo
             // 
@@ -156,6 +159,7 @@
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(256, 20);
             this.txtTitulo.TabIndex = 10;
+            this.toolTip1.SetToolTip(this.txtTitulo, "Ingresar el título de la película");
             // 
             // txtDirector
             // 
@@ -163,6 +167,7 @@
             this.txtDirector.Name = "txtDirector";
             this.txtDirector.Size = new System.Drawing.Size(256, 20);
             this.txtDirector.TabIndex = 11;
+            this.toolTip1.SetToolTip(this.txtDirector, "Ingresar director de la película");
             // 
             // cmbGenero
             // 
@@ -171,6 +176,7 @@
             this.cmbGenero.Name = "cmbGenero";
             this.cmbGenero.Size = new System.Drawing.Size(151, 21);
             this.cmbGenero.TabIndex = 12;
+            this.toolTip1.SetToolTip(this.cmbGenero, "Seleccionar género de la película");
             // 
             // numDuracion
             // 
@@ -183,6 +189,7 @@
             this.numDuracion.Name = "numDuracion";
             this.numDuracion.Size = new System.Drawing.Size(63, 20);
             this.numDuracion.TabIndex = 13;
+            this.toolTip1.SetToolTip(this.numDuracion, "Ingresar duración de la película");
             // 
             // lblMin
             // 
@@ -199,6 +206,7 @@
             this.dtpFechaEstreno.Name = "dtpFechaEstreno";
             this.dtpFechaEstreno.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaEstreno.TabIndex = 15;
+            this.toolTip1.SetToolTip(this.dtpFechaEstreno, "Seleccionar fecha de estreno de película");
             // 
             // dtpFechaFinProyeccion
             // 
@@ -206,6 +214,7 @@
             this.dtpFechaFinProyeccion.Name = "dtpFechaFinProyeccion";
             this.dtpFechaFinProyeccion.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaFinProyeccion.TabIndex = 16;
+            this.toolTip1.SetToolTip(this.dtpFechaFinProyeccion, "Seleccionar fecha de fin de proyección de la película");
             // 
             // txtArgumento
             // 
@@ -214,6 +223,8 @@
             this.txtArgumento.Name = "txtArgumento";
             this.txtArgumento.Size = new System.Drawing.Size(612, 84);
             this.txtArgumento.TabIndex = 17;
+            this.toolTip1.SetToolTip(this.txtArgumento, "Introduce el argumento de la película");
+            this.txtArgumento.TextChanged += new System.EventHandler(this.txtArgumento_TextChanged);
             // 
             // dtgActores
             // 
@@ -246,6 +257,7 @@
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(50, 50);
             this.btnNuevo.TabIndex = 4;
+            this.toolTip1.SetToolTip(this.btnNuevo, "Agregar nueva película");
             this.btnNuevo.UseVisualStyleBackColor = true;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
@@ -256,6 +268,7 @@
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(50, 50);
             this.btnModificar.TabIndex = 20;
+            this.toolTip1.SetToolTip(this.btnModificar, "Modificar película");
             this.btnModificar.UseVisualStyleBackColor = true;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
@@ -266,6 +279,7 @@
             this.btnBaja.Name = "btnBaja";
             this.btnBaja.Size = new System.Drawing.Size(50, 50);
             this.btnBaja.TabIndex = 21;
+            this.toolTip1.SetToolTip(this.btnBaja, "Eliminar película");
             this.btnBaja.UseVisualStyleBackColor = true;
             this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
             // 
@@ -276,6 +290,7 @@
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(50, 50);
             this.btnSalir.TabIndex = 22;
+            this.toolTip1.SetToolTip(this.btnSalir, "Salir");
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
@@ -286,6 +301,7 @@
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);
             this.btnGuardar.TabIndex = 23;
+            this.toolTip1.SetToolTip(this.btnGuardar, "Guardar película");
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
@@ -296,6 +312,7 @@
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(50, 50);
             this.btnCancelar.TabIndex = 24;
+            this.toolTip1.SetToolTip(this.btnCancelar, "Cancelar carga de película");
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -306,6 +323,7 @@
             this.btnBuscar.Size = new System.Drawing.Size(75, 23);
             this.btnBuscar.TabIndex = 4;
             this.btnBuscar.Text = "Buscar";
+            this.toolTip1.SetToolTip(this.btnBuscar, "Buscar película ingresada");
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -325,6 +343,7 @@
             this.cmbPais.Name = "cmbPais";
             this.cmbPais.Size = new System.Drawing.Size(151, 21);
             this.cmbPais.TabIndex = 26;
+            this.toolTip1.SetToolTip(this.cmbPais, "Seleccionar país de grabación");
             // 
             // FrmTransaccionPelicula
             // 
@@ -401,5 +420,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
         private System.Windows.Forms.Label lblPais;
         private System.Windows.Forms.ComboBox cmbPais;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

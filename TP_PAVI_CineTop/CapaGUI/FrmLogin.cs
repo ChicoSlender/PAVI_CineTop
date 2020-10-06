@@ -33,13 +33,13 @@ namespace TP_PAVI_CineTop.CapaGUI
 
             if (nombre_usuario == "")
             {
-                MessageBox.Show("Debe ingresar un usuario", "Error de login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe ingresar un usuario", "Error usuario", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtUsuario.Focus();
                 return;
             }
             if (contraseña == "")
             {
-                MessageBox.Show("Debe ingresar una contraseña", "Error de login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Debe ingresar una contraseña", "Error contraseña", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtContraseña.Focus();
                 return;
             }
@@ -51,11 +51,11 @@ namespace TP_PAVI_CineTop.CapaGUI
 
             if (usuario == null)
             {
-                MessageBox.Show("Usuario/contraseña incorrecto/s", "Error de login", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Usuario/contraseña incorrecto/s", "Error en login!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
-                MessageBox.Show("Ingreso correcto al sistema", "Informacion de login", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Ingreso correcto al sistema", "Login correcto!", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
         }
@@ -75,6 +75,16 @@ namespace TP_PAVI_CineTop.CapaGUI
         {
             if (e.KeyCode == Keys.Enter)
                 btnLogin_Click(sender, e);
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FrmLogin_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
