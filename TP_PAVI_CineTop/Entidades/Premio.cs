@@ -6,21 +6,21 @@ using System.Threading.Tasks;
 
 namespace TP_PAVI_CineTop.Entidades
 {
-    class ActorPelicula
+    class Premio
     {
         int id;
         string nombre;
-        string apellido;
+        string descripcion;
 
-        public ActorPelicula(int id, string nombre, string apellido)
+        public Premio(int id, string nombre, string descripcion)
         {
             this.id = id;
             this.nombre = nombre;
-            this.apellido = apellido;
+            this.descripcion = descripcion;
         }
 
         public int Id { get => id; set => id = value; }
         public string Nombre { get => nombre; set => nombre = value; }
-        public string Apellido { get => apellido; set => apellido = value; }
+        public string Descripcion { get => descripcion; set => descripcion = value; }
     }
 }

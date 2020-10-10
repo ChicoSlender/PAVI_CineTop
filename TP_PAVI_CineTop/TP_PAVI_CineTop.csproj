@@ -48,12 +48,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CapaDatos\ActorPeliculaDAO.cs" />
+    <Compile Include="CapaDatos\CategoriaPremioDAO.cs" />
     <Compile Include="CapaDatos\DBHelper.cs" />
+    <Compile Include="CapaDatos\DirectorDAO.cs" />
     <Compile Include="CapaDatos\EmpleadoDAO.cs" />
     <Compile Include="CapaDatos\EpocaDAO.cs" />
     <Compile Include="CapaDatos\GeneroDAO.cs" />
     <Compile Include="CapaDatos\PaisDAO.cs" />
     <Compile Include="CapaDatos\PeliculaDAO.cs" />
+    <Compile Include="CapaDatos\PremioDAO.cs" />
     <Compile Include="CapaDatos\PromoDAO.cs" />
     <Compile Include="CapaDatos\SalasDAO.cs" />
     <Compile Include="CapaDatos\TipoDocumentoDAO.cs" />
@@ -96,22 +99,28 @@
     <Compile Include="CapaGUI\FrmTransaccionPelicula.Designer.cs">
       <DependentUpon>FrmTransaccionPelicula.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaNegocio\ServCategoriaPremio.cs" />
+    <Compile Include="CapaNegocio\ServDirector.cs" />
     <Compile Include="CapaNegocio\ServEmpleado.cs" />
     <Compile Include="CapaNegocio\ServEpoca.cs" />
     <Compile Include="CapaNegocio\ServGenero.cs" />
     <Compile Include="CapaNegocio\ServPais.cs" />
     <Compile Include="CapaNegocio\ServPelicula.cs" />
+    <Compile Include="CapaNegocio\ServPremio.cs" />
     <Compile Include="CapaNegocio\ServPromo.cs" />
     <Compile Include="CapaNegocio\ServSala.cs" />
     <Compile Include="CapaNegocio\ServTipoDocumento.cs" />
     <Compile Include="CapaNegocio\ServUbicacion.cs" />
     <Compile Include="CapaNegocio\ServUsuario.cs" />
     <Compile Include="Entidades\ActorPelicula.cs" />
+    <Compile Include="Entidades\CategoriaPremio.cs" />
+    <Compile Include="Entidades\Director.cs" />
     <Compile Include="Entidades\Empleado.cs" />
     <Compile Include="Entidades\Epoca.cs" />
     <Compile Include="Entidades\Genero.cs" />
     <Compile Include="Entidades\Pais.cs" />
     <Compile Include="Entidades\Pelicula.cs" />
+    <Compile Include="Entidades\Premio.cs" />
     <Compile Include="Entidades\Promo.cs" />
     <Compile Include="Entidades\Sala.cs" />
     <Compile Include="Entidades\TipoDocumento.cs" />

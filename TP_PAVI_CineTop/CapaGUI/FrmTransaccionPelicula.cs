@@ -21,7 +21,11 @@ namespace TP_PAVI_CineTop.CapaGUI
         ServGenero servGenero = new ServGenero();
         ServPais servPais = new ServPais();
         ServPelicula servPelicula = new ServPelicula();
+        ServDirector servDirector = new ServDirector();
+        ServPremio servPremio = new ServPremio();
+        ServCategoriaPremio servCategoriaPremio = new ServCategoriaPremio();
         Modo modo = Modo.modificar;
+        bool camposInicializados = false;
 
         public FrmTransaccionPelicula()
         {
@@ -33,11 +37,11 @@ namespace TP_PAVI_CineTop.CapaGUI
             if(modo == Modo.modificar)
             {
                 txtId.Enabled = v;
-                btnBuscar.Enabled = v;
+                btnBuscarId.Enabled = v;
                 btnBaja.Enabled = v;
             }
             txtTitulo.Enabled = v;
-            txtDirector.Enabled = v;
+            cmbDirector.Enabled = v;
             numDuracion.Enabled = v;
             cmbGenero.Enabled = v;
             cmbPais.Enabled = v;
@@ -57,8 +61,8 @@ namespace TP_PAVI_CineTop.CapaGUI
         {
             txtId.Clear();
             txtTitulo.Clear();
-            txtDirector.Clear();
             numDuracion.Value = 0;
+            cmbDirector.SelectedIndex = -1;
             cmbGenero.SelectedIndex = -1;
             cmbPais.SelectedIndex = -1;
             dtpFechaEstreno.Value = DateTime.Today;
@@ -74,7 +78,7 @@ namespace TP_PAVI_CineTop.CapaGUI
                 MessageBox.Show("El campo de título no puede estar vacío", "ERROR - Título vacío", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            if(txtDirector.Text == "")
+            if(cmbDirector.Text == "")
             {
                 MessageBox.Show("El campo de director no puede estar vacío", "ERROR - Director vacío", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
@@ -116,7 +120,10 @@ namespace TP_PAVI_CineTop.CapaGUI
         {
             FrmHelper.cargarCombo(servGenero.obtenerGeneros(), cmbGenero, "nombre", "id");
             FrmHelper.cargarCombo(servPais.obtenerPaises(), cmbPais, "nombre", "id");
+            FrmHelper.cargarCombo(servDirector.obtenerDirectores(), cmbDirector, "nombre", "id");
+            FrmHelper.cargarCombo(servPremio.obtenerPremios(), cmbPremio, "nombre", "id");
             habilitarCampos(false);
+            camposInicializados = true;
         }
 
         private void btnSalir_Click(object sender, EventArgs e)
@@ -171,27 +178,20 @@ namespace TP_PAVI_CineTop.CapaGUI
             else 
                 id = Convert.ToInt32(txtId.Text);
             string titulo = txtTitulo.Text;
-            string director = txtDirector.Text;
+            int id_director = 0;
+            if (cmbDirector.SelectedIndex != -1)
+                id_director = Convert.ToInt32(cmbDirector.SelectedValue);
             int duracion = Convert.ToInt32(numDuracion.Value);
-            int id_genero = Convert.ToInt32(cmbGenero.SelectedValue);
             int id_pais = Convert.ToInt32(cmbPais.SelectedValue);
             DateTime fechaEstreno = dtpFechaEstreno.Value;
             DateTime fechaFin = dtpFechaFinProyeccion.Value;
             string argumento = txtArgumento.Text;
 
-            Pelicula peli = new Pelicula(id, titulo, id_genero, director, duracion, fechaEstreno, fechaFin, argumento, id_pais, false);
+            Pelicula peli = new Pelicula(id, titulo, id_director, duracion, fechaEstreno, fechaFin, argumento, id_pais, false);
 
-            string nombreActor, apellidoActor;
-            ActorPelicula actor;
-            List<ActorPelicula> actores = new List<ActorPelicula>();
-            for (int i = 0; i < dtgActores.Rows.Count-1; i++)
-            {
-                nombreActor = dtgActores.Rows[i].Cells["nombre"].Value.ToString();
-                apellidoActor = dtgActores.Rows[i].Cells["apellido"].Value.ToString();
-                actor = new ActorPelicula(id, i+1, nombreActor, apellidoActor);
-                actores.Add(actor);
-            }
-            peli.Actores = actores;
+            //crear lista de actores y agregarla
+            //crear lista de generos y agregarla
+            //crear lista de premios y agregarla
 
             string errores = "";
             switch (modo)
@@ -226,17 +226,15 @@ namespace TP_PAVI_CineTop.CapaGUI
                     return;
                 }
                 txtTitulo.Text = peliEncontrada.Titulo;
-                txtDirector.Text = peliEncontrada.Director;
+                cmbDirector.SelectedValue = peliEncontrada.Id_director;
                 numDuracion.Value = peliEncontrada.Duracion;
-                cmbGenero.SelectedValue = peliEncontrada.Id_genero;
                 cmbPais.SelectedValue = peliEncontrada.Id_pais;
                 dtpFechaEstreno.Value = peliEncontrada.FechaEstreno;
                 dtpFechaFinProyeccion.Value = peliEncontrada.FechaFinProyeccion;
                 txtArgumento.Text = peliEncontrada.Argumento;
-                for (int i = 0; i < peliEncontrada.Actores.Count; i++)
-                {
-                    dtgActores.Rows.Add(peliEncontrada.Actores[i].Nombre, peliEncontrada.Actores[i].Apellido);
-                }
+                //cargar grilla de actores
+                //cargar grilla de premios
+                //cargar lista de generos
             }
             else
             {
@@ -247,6 +245,65 @@ namespace TP_PAVI_CineTop.CapaGUI
         private void txtArgumento_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void lblFechaEstreno_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpFechaEstreno_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblFechaFinProyeccion_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dtpFechaFinProyeccion_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscarTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnAgregarGenero_Click(object sender, EventArgs e)
+        {
+            dtgGeneros.Rows.Add(cmbGenero.SelectedValue, cmbGenero.Text);
+        }
+
+        private void btnQuitarGenero_Click(object sender, EventArgs e)
+        {
+            dtgGeneros.Rows.RemoveAt(dtgGeneros.CurrentRow.Index);
+        }
+
+        private void cmbPremio_SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (cmbPremio.SelectedIndex!=1 && camposInicializados)
+            {
+                cmbCategoria.Enabled = true;
+                FrmHelper.cargarCombo(servCategoriaPremio.obtenerCategoriasPorPremio(Convert.ToInt32(cmbPremio.SelectedValue)), cmbCategoria, "categoria", "id_categoria");
+            }
+        }
+
+        private void btnAgregarPremio_Click(object sender, EventArgs e)
+        {
+            dtgPremios.Rows.Add(cmbPremio.SelectedValue, cmbPremio.Text, cmbCategoria.SelectedValue, cmbCategoria.Text);
+        }
+
+        private void btnQuitarPremio_Click(object sender, EventArgs e)
+        {
+            dtgPremios.Rows.RemoveAt(dtgPremios.CurrentRow.Index);
         }
     }
 }

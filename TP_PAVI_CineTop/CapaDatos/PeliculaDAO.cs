@@ -30,29 +30,25 @@ namespace TP_PAVI_CineTop.CapaDatos
 
         public string insertarPelicula(Pelicula peli)
         {
+            DBHelper.GetDBHelper().comenzarTransaccion();
+            //Verificar si existe el director y sino insertarlo en la tabla Director y asignar el Id al objeto peli
             string insercionCabecera = "INSERT INTO Pelicula" +
-                "(titulo, id_genero, director, duracion, argumento, fechaEstreno, fechaFinProyeccion, id_pais, borrado) " +
+                "(titulo, id_director, duracion, argumento, fechaEstreno, fechaFinProyeccion, id_pais, borrado) " +
                                                "VALUES ('" + peli.Titulo + "', " +
-                                                        peli.Id_genero + ", " +
-                                                        "'" + peli.Director + "', " +
+                                                        peli.Id_director + ", " +
                                                         peli.Duracion + ", " +
                                                         "'" + peli.Argumento + "', " +
                                                         "'" + peli.FechaEstreno.ToString("yyyy-MM-dd") + "', " +
                                                         "'" + peli.FechaFinProyeccion.ToString("yyyy-MM-dd") + "', " +
                                                         peli.Id_pais + ", 0)";
 
-            DBHelper.GetDBHelper().comenzarTransaccion();
             DBHelper.GetDBHelper().ejecutarSQL(insercionCabecera);
             DataTable tablaIdPelicula = DBHelper.GetDBHelper().consultaSQL("SELECT @@IDENTITY");
             peli.Id = Convert.ToInt32(tablaIdPelicula.Rows[0][0]);
 
-            string insercionActor;
-            for (int i = 0; i < peli.Actores.Count; i++)
-            {
-                insercionActor = "INSERT INTO ActoresXPelicula (id_pelicula, id_actor, nombreActor, apellidoActor) " +
-                                        "VALUES (" + peli.Id + ", " + peli.Actores[i].Id + ", '" + peli.Actores[i].Nombre + "', '" + peli.Actores[i].Apellido + "')";
-                DBHelper.GetDBHelper().ejecutarSQL(insercionActor);
-            }
+            //insertar actores (insertando en la tabla Actores los no existentes)
+            //insertar generos
+            //insertar premios
 
             return DBHelper.GetDBHelper().desconectar();
 
@@ -62,8 +58,7 @@ namespace TP_PAVI_CineTop.CapaDatos
         {
             string updateCabecera = "UPDATE Pelicula SET " +
                                                         "titulo='" + peli.Titulo + "', " +
-                                                        "id_genero=" + peli.Id_genero + ", " +
-                                                        "director='" + peli.Director + "', " +
+                                                        "id_director=" + peli.Id_director + ", " +
                                                         "duracion=" + peli.Duracion + ", " +
                                                         "argumento='" + peli.Argumento + "', " +
                                                         "fechaEstreno='" + peli.FechaEstreno.ToString("yyyy-MM-dd") + "', " +
@@ -75,29 +70,17 @@ namespace TP_PAVI_CineTop.CapaDatos
 
             //DBHelper.GetDBHelper().ejecutarSQL("DELETE FROM ActoresXPelicula WHERE id_pelicula=" + peli.Id);
 
-            DataTable tablaCantIdActores = DBHelper.GetDBHelper().consultaSQL("SELECT COUNT(id_actor) FROM ActoresXPelicula GROUP BY id_pelicula HAVING id_pelicula="+peli.Id);
-            int cantIdActores = Convert.ToInt32(tablaCantIdActores.Rows[0][0]);
-
-            string consultaActor;
-            for (int i = 0; i < cantIdActores; i++)
-            {
-                consultaActor = "UPDATE ActoresXPelicula SET nombreActor='" + peli.Actores[i].Nombre + "', apellidoActor='" + peli.Actores[i].Apellido + "' " +
-                                                        "WHERE id_pelicula=" + peli.Id + " AND id_actor=" + peli.Actores[i].Id;
-                DBHelper.GetDBHelper().ejecutarSQL(consultaActor);
-            }
-
-            for (int i = cantIdActores; i < peli.Actores.Count; i++)
-            {
-                consultaActor = "INSERT INTO ActoresXPelicula (id_pelicula, id_actor, nombreActor, apellidoActor) " +
-                                        "VALUES (" + peli.Id + ", " + peli.Actores[i].Id + ", '" + peli.Actores[i].Nombre + "', '" + peli.Actores[i].Apellido + "')";
-                DBHelper.GetDBHelper().ejecutarSQL(consultaActor);
-            }
+            //actualizar actores
+            //actualizar premios
+            //actualizar premios
             return DBHelper.GetDBHelper().desconectar();
         }
 
         public string borrarPelicula(int id)
         {
             string consultaSQL = "UPDATE Pelicula SET borrado=1 WHERE id=" + id;
+
+            //agregar el borrado de entradas de las tablas ActoresXPelicula, GenerosXPelicula y PremiosXPelicula
 
             DBHelper.GetDBHelper().conectar();
             DBHelper.GetDBHelper().ejecutarSQL(consultaSQL);
@@ -108,15 +91,14 @@ namespace TP_PAVI_CineTop.CapaDatos
         {
             int id = Convert.ToInt32(fila["id"]);
             string titulo = fila["titulo"].ToString();
-            int id_genero = Convert.ToInt32(fila["id_genero"]);
-            string director = fila["director"].ToString();
+            int id_director = Convert.ToInt32(fila["id_director"]);
             int duracion = Convert.ToInt32(fila["duracion"]);
             DateTime fechaEstreno = Convert.ToDateTime(fila["fechaEstreno"]);
             DateTime fechaFinProyeccion = Convert.ToDateTime(fila["fechaFinProyeccion"]);
             string argumento = fila["argumento"].ToString();
             int id_pais = Convert.ToInt32(fila["id_pais"]);
 
-            return new Pelicula(id, titulo, id_genero, director, duracion, fechaEstreno, fechaFinProyeccion, argumento, id_pais, false);
+            return new Pelicula(id, titulo, id_director, duracion, fechaEstreno, fechaFinProyeccion, argumento, id_pais, false);
         }
     }
 }
