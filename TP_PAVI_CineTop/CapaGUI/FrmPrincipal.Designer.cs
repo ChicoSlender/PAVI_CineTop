@@ -33,13 +33,16 @@
             this.btnSalas = new System.Windows.Forms.ToolStripMenuItem();
             this.empleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.promosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.principalToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.peliculaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnSoporte});
+            this.btnSoporte,
+            this.principalToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -77,6 +80,21 @@
             this.promosToolStripMenuItem.Text = "Promos";
             this.promosToolStripMenuItem.Click += new System.EventHandler(this.promosToolStripMenuItem_Click);
             // 
+            // principalToolStripMenuItem
+            // 
+            this.principalToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.peliculaToolStripMenuItem});
+            this.principalToolStripMenuItem.Name = "principalToolStripMenuItem";
+            this.principalToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
+            this.principalToolStripMenuItem.Text = "Principal";
+            // 
+            // peliculaToolStripMenuItem
+            // 
+            this.peliculaToolStripMenuItem.Name = "peliculaToolStripMenuItem";
+            this.peliculaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.peliculaToolStripMenuItem.Text = "Pelicula";
+            this.peliculaToolStripMenuItem.Click += new System.EventHandler(this.peliculaToolStripMenuItem_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -101,6 +119,8 @@
         private System.Windows.Forms.ToolStripMenuItem btnSalas;
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem promosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem principalToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem peliculaToolStripMenuItem;
     }
 }
 
