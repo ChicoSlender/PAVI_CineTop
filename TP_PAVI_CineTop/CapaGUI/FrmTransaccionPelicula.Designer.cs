@@ -46,9 +46,6 @@
             this.dtpFechaFinProyeccion = new System.Windows.Forms.DateTimePicker();
             this.txtArgumento = new System.Windows.Forms.TextBox();
             this.dtgActores = new System.Windows.Forms.DataGridView();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBaja = new System.Windows.Forms.Button();
@@ -67,7 +64,7 @@
             this.btnAgregarPremio = new System.Windows.Forms.Button();
             this.btnBuscarTitulo = new System.Windows.Forms.Button();
             this.grpActores = new System.Windows.Forms.GroupBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.cmbApellidoActor = new System.Windows.Forms.ComboBox();
             this.lblApellidoActor = new System.Windows.Forms.Label();
             this.cmbNombreActor = new System.Windows.Forms.ComboBox();
             this.lblNombreActor = new System.Windows.Forms.Label();
@@ -77,14 +74,17 @@
             this.cmbPremio = new System.Windows.Forms.ComboBox();
             this.lblPremio = new System.Windows.Forms.Label();
             this.dtgPremios = new System.Windows.Forms.DataGridView();
-            this.cmbDirector = new System.Windows.Forms.ComboBox();
-            this.dtgGeneros = new System.Windows.Forms.DataGridView();
-            this.idGenero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idPremio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.premio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.idCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.categoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbDirector = new System.Windows.Forms.ComboBox();
+            this.dtgGeneros = new System.Windows.Forms.DataGridView();
+            this.idGenero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.numDuracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgActores)).BeginInit();
             this.grpActores.SuspendLayout();
@@ -146,7 +146,6 @@
             this.lblFechaEstreno.Size = new System.Drawing.Size(46, 13);
             this.lblFechaEstreno.TabIndex = 5;
             this.lblFechaEstreno.Text = "Estreno:";
-            this.lblFechaEstreno.Click += new System.EventHandler(this.lblFechaEstreno_Click);
             // 
             // lblFechaFinProyeccion
             // 
@@ -156,7 +155,6 @@
             this.lblFechaFinProyeccion.Size = new System.Drawing.Size(94, 13);
             this.lblFechaFinProyeccion.TabIndex = 6;
             this.lblFechaFinProyeccion.Text = "Fin de proyeccion:";
-            this.lblFechaFinProyeccion.Click += new System.EventHandler(this.lblFechaFinProyeccion_Click);
             // 
             // lblArgumento
             // 
@@ -177,6 +175,8 @@
             // 
             // txtTitulo
             // 
+            this.txtTitulo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.txtTitulo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
             this.txtTitulo.Location = new System.Drawing.Point(79, 63);
             this.txtTitulo.Name = "txtTitulo";
             this.txtTitulo.Size = new System.Drawing.Size(256, 20);
@@ -222,7 +222,6 @@
             this.dtpFechaEstreno.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaEstreno.TabIndex = 15;
             this.toolTip1.SetToolTip(this.dtpFechaEstreno, "Seleccionar fecha de estreno de película");
-            this.dtpFechaEstreno.ValueChanged += new System.EventHandler(this.dtpFechaEstreno_ValueChanged);
             // 
             // dtpFechaFinProyeccion
             // 
@@ -231,7 +230,6 @@
             this.dtpFechaFinProyeccion.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaFinProyeccion.TabIndex = 16;
             this.toolTip1.SetToolTip(this.dtpFechaFinProyeccion, "Seleccionar fecha de fin de proyección de la película");
-            this.dtpFechaFinProyeccion.ValueChanged += new System.EventHandler(this.dtpFechaFinProyeccion_ValueChanged);
             // 
             // txtArgumento
             // 
@@ -241,7 +239,6 @@
             this.txtArgumento.Size = new System.Drawing.Size(612, 73);
             this.txtArgumento.TabIndex = 17;
             this.toolTip1.SetToolTip(this.txtArgumento, "Introduce el argumento de la película");
-            this.txtArgumento.TextChanged += new System.EventHandler(this.txtArgumento_TextChanged);
             // 
             // dtgActores
             // 
@@ -249,9 +246,9 @@
             this.dtgActores.AllowUserToDeleteRows = false;
             this.dtgActores.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgActores.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.id,
             this.nombre,
-            this.apellido,
-            this.id});
+            this.apellido});
             this.dtgActores.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgActores.Location = new System.Drawing.Point(6, 53);
             this.dtgActores.Name = "dtgActores";
@@ -260,27 +257,6 @@
             this.dtgActores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgActores.Size = new System.Drawing.Size(606, 101);
             this.dtgActores.TabIndex = 18;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 300;
-            // 
-            // apellido
-            // 
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.Name = "apellido";
-            this.apellido.ReadOnly = true;
-            this.apellido.Width = 300;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
             // 
             // btnNuevo
             // 
@@ -412,6 +388,7 @@
             this.btnQuitarActor.Text = "-";
             this.toolTip1.SetToolTip(this.btnQuitarActor, "Quitar actor seleccionado en la grilla");
             this.btnQuitarActor.UseVisualStyleBackColor = true;
+            this.btnQuitarActor.Click += new System.EventHandler(this.btnQuitarActor_Click);
             // 
             // btnAgregarActor
             // 
@@ -423,6 +400,7 @@
             this.btnAgregarActor.Text = "+";
             this.toolTip1.SetToolTip(this.btnAgregarActor, "Agregar actor a la grilla");
             this.btnAgregarActor.UseVisualStyleBackColor = true;
+            this.btnAgregarActor.Click += new System.EventHandler(this.btnAgregarActor_Click);
             // 
             // btnQuitarPremio
             // 
@@ -462,7 +440,7 @@
             // grpActores
             // 
             this.grpActores.Controls.Add(this.btnQuitarActor);
-            this.grpActores.Controls.Add(this.comboBox2);
+            this.grpActores.Controls.Add(this.cmbApellidoActor);
             this.grpActores.Controls.Add(this.btnAgregarActor);
             this.grpActores.Controls.Add(this.lblApellidoActor);
             this.grpActores.Controls.Add(this.cmbNombreActor);
@@ -475,15 +453,15 @@
             this.grpActores.TabStop = false;
             this.grpActores.Text = "Actores";
             // 
-            // comboBox2
+            // cmbApellidoActor
             // 
-            this.comboBox2.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.comboBox2.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(291, 26);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(164, 21);
-            this.comboBox2.TabIndex = 36;
+            this.cmbApellidoActor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbApellidoActor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbApellidoActor.FormattingEnabled = true;
+            this.cmbApellidoActor.Location = new System.Drawing.Point(291, 26);
+            this.cmbApellidoActor.Name = "cmbApellidoActor";
+            this.cmbApellidoActor.Size = new System.Drawing.Size(164, 21);
+            this.cmbApellidoActor.TabIndex = 36;
             // 
             // lblApellidoActor
             // 
@@ -503,6 +481,7 @@
             this.cmbNombreActor.Name = "cmbNombreActor";
             this.cmbNombreActor.Size = new System.Drawing.Size(164, 21);
             this.cmbNombreActor.TabIndex = 34;
+            this.cmbNombreActor.SelectedIndexChanged += new System.EventHandler(this.cmbNombreActor_SelectedIndexChanged);
             // 
             // lblNombreActor
             // 
@@ -586,47 +565,6 @@
             this.dtgPremios.Size = new System.Drawing.Size(606, 102);
             this.dtgPremios.TabIndex = 18;
             // 
-            // cmbDirector
-            // 
-            this.cmbDirector.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.cmbDirector.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cmbDirector.FormattingEnabled = true;
-            this.cmbDirector.Location = new System.Drawing.Point(79, 104);
-            this.cmbDirector.Name = "cmbDirector";
-            this.cmbDirector.Size = new System.Drawing.Size(256, 21);
-            this.cmbDirector.TabIndex = 38;
-            // 
-            // dtgGeneros
-            // 
-            this.dtgGeneros.AllowUserToAddRows = false;
-            this.dtgGeneros.AllowUserToDeleteRows = false;
-            this.dtgGeneros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgGeneros.ColumnHeadersVisible = false;
-            this.dtgGeneros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.idGenero,
-            this.genero});
-            this.dtgGeneros.Location = new System.Drawing.Point(79, 171);
-            this.dtgGeneros.Name = "dtgGeneros";
-            this.dtgGeneros.ReadOnly = true;
-            this.dtgGeneros.RowHeadersVisible = false;
-            this.dtgGeneros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dtgGeneros.Size = new System.Drawing.Size(209, 85);
-            this.dtgGeneros.TabIndex = 40;
-            this.dtgGeneros.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // idGenero
-            // 
-            this.idGenero.HeaderText = "ID";
-            this.idGenero.Name = "idGenero";
-            this.idGenero.ReadOnly = true;
-            // 
-            // genero
-            // 
-            this.genero.HeaderText = "Genero";
-            this.genero.Name = "genero";
-            this.genero.ReadOnly = true;
-            this.genero.Width = 200;
-            // 
             // idPremio
             // 
             this.idPremio.HeaderText = "IDPremio";
@@ -654,6 +592,68 @@
             this.categoria.Name = "categoria";
             this.categoria.ReadOnly = true;
             this.categoria.Width = 300;
+            // 
+            // cmbDirector
+            // 
+            this.cmbDirector.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cmbDirector.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmbDirector.FormattingEnabled = true;
+            this.cmbDirector.Location = new System.Drawing.Point(79, 104);
+            this.cmbDirector.Name = "cmbDirector";
+            this.cmbDirector.Size = new System.Drawing.Size(256, 21);
+            this.cmbDirector.TabIndex = 38;
+            // 
+            // dtgGeneros
+            // 
+            this.dtgGeneros.AllowUserToAddRows = false;
+            this.dtgGeneros.AllowUserToDeleteRows = false;
+            this.dtgGeneros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtgGeneros.ColumnHeadersVisible = false;
+            this.dtgGeneros.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idGenero,
+            this.genero});
+            this.dtgGeneros.Location = new System.Drawing.Point(79, 171);
+            this.dtgGeneros.Name = "dtgGeneros";
+            this.dtgGeneros.ReadOnly = true;
+            this.dtgGeneros.RowHeadersVisible = false;
+            this.dtgGeneros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtgGeneros.Size = new System.Drawing.Size(209, 85);
+            this.dtgGeneros.TabIndex = 40;
+            // 
+            // idGenero
+            // 
+            this.idGenero.HeaderText = "ID";
+            this.idGenero.Name = "idGenero";
+            this.idGenero.ReadOnly = true;
+            this.idGenero.Visible = false;
+            // 
+            // genero
+            // 
+            this.genero.HeaderText = "Genero";
+            this.genero.Name = "genero";
+            this.genero.ReadOnly = true;
+            this.genero.Width = 200;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 300;
+            // 
+            // apellido
+            // 
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
+            this.apellido.ReadOnly = true;
+            this.apellido.Width = 300;
             // 
             // FrmTransaccionPelicula
             // 
@@ -741,7 +741,7 @@
         private System.Windows.Forms.Button btnQuitarGenero;
         private System.Windows.Forms.GroupBox grpActores;
         private System.Windows.Forms.Button btnQuitarActor;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox cmbApellidoActor;
         private System.Windows.Forms.Button btnAgregarActor;
         private System.Windows.Forms.Label lblApellidoActor;
         private System.Windows.Forms.ComboBox cmbNombreActor;
@@ -756,15 +756,15 @@
         private System.Windows.Forms.DataGridView dtgPremios;
         private System.Windows.Forms.ComboBox cmbDirector;
         private System.Windows.Forms.Button btnBuscarTitulo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridView dtgGeneros;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idGenero;
-        private System.Windows.Forms.DataGridViewTextBoxColumn genero;
         private System.Windows.Forms.DataGridViewTextBoxColumn idPremio;
         private System.Windows.Forms.DataGridViewTextBoxColumn premio;
         private System.Windows.Forms.DataGridViewTextBoxColumn idCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn categoria;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idGenero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn genero;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
     }
 }

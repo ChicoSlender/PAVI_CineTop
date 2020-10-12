@@ -99,6 +99,7 @@
     <Compile Include="CapaGUI\FrmTransaccionPelicula.Designer.cs">
       <DependentUpon>FrmTransaccionPelicula.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaNegocio\ServActor.cs" />
     <Compile Include="CapaNegocio\ServCategoriaPremio.cs" />
     <Compile Include="CapaNegocio\ServDirector.cs" />
     <Compile Include="CapaNegocio\ServEmpleado.cs" />
