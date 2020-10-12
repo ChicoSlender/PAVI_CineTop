@@ -17,9 +17,15 @@ namespace TP_PAVI_CineTop.CapaNegocio
             return dao.obtenerPelicula(id);
         }
 
-        public string insertarPelicula(Pelicula peli)
+        public string insertarPelicula(Pelicula peli, bool UsaDBHelper)
         {
-            return dao.insertarPelicula(peli);
+            if(UsaDBHelper)
+                return dao.insertarPelicula(peli);
+            else
+            {
+                dao.insertarPeliculaDataManager(peli);
+                return "Transaccion realizada con exito";
+            }
         }
 
         public string actualizarPelicula(Pelicula peli)

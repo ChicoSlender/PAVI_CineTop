@@ -68,6 +68,8 @@ namespace TP_PAVI_CineTop.CapaGUI
 
             btnGuardar.Enabled = v;
             btnCancelar.Enabled = v;
+            radDBHelper.Enabled = v;
+            radDataManager.Enabled = v;
 
             btnNuevo.Enabled = !v;
             btnModificar.Enabled = !v;
@@ -145,6 +147,12 @@ namespace TP_PAVI_CineTop.CapaGUI
 
         private void FrmTransaccionPelicula_Load(object sender, EventArgs e)
         {
+            inicializarCampos();
+        }
+
+        private void inicializarCampos()
+        {
+            camposInicializados = false;
             FrmHelper.cargarCombo(servGenero.obtenerGeneros(), cmbGenero, "nombre", "id");
             FrmHelper.cargarCombo(servPais.obtenerPaises(), cmbPais, "nombre", "id");
             FrmHelper.cargarCombo(servDirector.obtenerDirectores(), cmbDirector, "nombre", "id");
@@ -266,7 +274,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             switch (modo)
             {
                 case Modo.nuevo:
-                    errores = servPelicula.insertarPelicula(peli);
+                    errores = servPelicula.insertarPelicula(peli, radDBHelper.Checked);
                     break;
                 case Modo.modificar:
                     errores = servPelicula.actualizarPelicula(peli);
@@ -281,6 +289,7 @@ namespace TP_PAVI_CineTop.CapaGUI
 
             MessageBox.Show("Película registrada exitosamente", "Resultado operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
             habilitarCampos(false);
+            inicializarCampos();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)

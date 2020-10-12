@@ -130,6 +130,129 @@ namespace TP_PAVI_CineTop.CapaDatos
 
         }
 
+        public void insertarPeliculaDataManager(Pelicula peli)
+        {
+            DataManager.GetInstance().Open();
+            DataManager.GetInstance().BeginTransaction();
+            //Verificar si existe el director y sino insertarlo en la tabla Director y asignar el Id al objeto peli
+            if (peli.Director.Id == 0)
+            {
+                Dictionary<string, object> paramDirector = new Dictionary<string, object>();
+                paramDirector.Add("director", peli.Director.Nombre);
+                try
+                {
+                    DataManager.GetInstance().EjecutarSQLConParametros("INSERT INTO Director VALUES (@director)", paramDirector);
+                    peli.Director.Id = Convert.ToInt32(DataManager.GetInstance().ConsultaSQLScalar("SELECT @@IDENTITY"));
+                }
+                catch
+                {
+                    DataManager.GetInstance().Rollback();
+                    return;
+                }
+            }
+            string insercionCabecera = "INSERT INTO Pelicula" +
+                "(titulo, id_director, duracion, argumento, fechaEstreno, fechaFinProyeccion, id_pais, borrado) " +
+                                               "VALUES (@titulo, @idDirector, @duracion, @argumento, @estreno, @finProyeccion, @idPais, 0)";
+            Dictionary<string, object> paramCabecera = new Dictionary<string, object>();
+            paramCabecera.Add("titulo", peli.Titulo);
+            paramCabecera.Add("idDirector", peli.Director.Id);
+            paramCabecera.Add("duracion", peli.Duracion);
+            paramCabecera.Add("argumento", peli.Argumento);
+            paramCabecera.Add("estreno", peli.FechaEstreno.ToString("yyyy-MM-dd"));
+            paramCabecera.Add("finProyeccion", peli.FechaFinProyeccion.ToString("yyyy-MM-dd"));
+            paramCabecera.Add("idPais", peli.Id_pais);
+
+            try
+            {
+                DataManager.GetInstance().EjecutarSQLConParametros(insercionCabecera, paramCabecera);
+                peli.Id = Convert.ToInt32(DataManager.GetInstance().ConsultaSQLScalar("SELECT @@IDENTITY"));
+            }
+            catch
+            {
+                DataManager.GetInstance().Rollback();
+                return;
+            }
+
+            //insertar actores (insertando en la tabla Actores los no existentes)
+            string insercionActor;
+            Dictionary<string, object> paramActor;
+            Dictionary<string, object> paramActorPelicula;
+            for (int i = 0; i < peli.Actores.Count; i++)
+            {
+                if (peli.Actores[i].Id == 0)
+                {
+                    paramActor = new Dictionary<string, object>();
+                    paramActor.Add("nombreActor", peli.Actores[i].Nombre);
+                    paramActor.Add("apellidoActor", peli.Actores[i].Apellido);
+                    try {
+                        DataManager.GetInstance().EjecutarSQLConParametros("INSERT INTO Actor (nombre, apellido) VALUES (@nombreActor, @apellidoActor)", paramActor);
+                        peli.Actores[i].Id = Convert.ToInt32(DataManager.GetInstance().ConsultaSQLScalar("SELECT @@IDENTITY"));
+                    }
+                    catch
+                    {
+                        DataManager.GetInstance().Rollback();
+                        return;
+                    }
+                }
+                paramActorPelicula = new Dictionary<string, object>();
+                paramActorPelicula.Add("idPelicula", peli.Id);
+                paramActorPelicula.Add("idActor", peli.Actores[i].Id);
+                insercionActor = "INSERT INTO ActoresXPelicula (id_pelicula, id_actor, borrado) VALUES (@idPelicula, @idActor, 0)";
+                try
+                {
+                    DataManager.GetInstance().EjecutarSQLConParametros(insercionActor, paramActorPelicula);
+                }
+                catch
+                {
+                    DataManager.GetInstance().Rollback();
+                    return;
+                }
+            }
+            //insertar generos
+            string insercionGenero;
+            Dictionary<string, object> paramGenero;
+            for (int i = 0; i < peli.Generos.Count; i++)
+            {
+                paramGenero = new Dictionary<string, object>();
+                paramGenero.Add("idPelicula", peli.Id);
+                paramGenero.Add("idGenero", peli.Generos[i].Id);
+                insercionGenero = "INSERT INTO GenerosXPelicula (id_pelicula, id_genero, borrado) VALUES (@idPelicula, @idGenero, 0)";
+                try
+                {
+                    DataManager.GetInstance().EjecutarSQLConParametros(insercionGenero, paramGenero);
+                }
+                catch
+                {
+                    DataManager.GetInstance().Rollback();
+                    return;
+                }
+            }
+            //insertar premios
+            string insercionPremios;
+            Dictionary<string, object> paramPremio;
+            for (int i = 0; i < peli.Premios.Count; i++)
+            {
+                paramPremio = new Dictionary<string, object>();
+                paramPremio.Add("idPelicula", peli.Id);
+                paramPremio.Add("idPremio", peli.Premios[i].Id_premio);
+                paramPremio.Add("idCategoria", peli.Premios[i].Id_categoria);
+                insercionPremios = "INSERT INTO PremiosXPelicula (id_pelicula, id_premio, id_categoria, borrado) " +
+                                                         "VALUES (@idPelicula, @idPremio, @idCategoria, 0)";
+                try
+                {
+                    DataManager.GetInstance().EjecutarSQLConParametros(insercionPremios, paramPremio);
+                }
+                catch
+                {
+                    DataManager.GetInstance().Rollback();
+                    return;
+                }
+            }
+            DataManager.GetInstance().Commit();
+            DataManager.GetInstance().Close();
+            return;
+        }
+
         public string actualizarPelicula(Pelicula peli)
         {
             DBHelper.GetDBHelper().comenzarTransaccion();

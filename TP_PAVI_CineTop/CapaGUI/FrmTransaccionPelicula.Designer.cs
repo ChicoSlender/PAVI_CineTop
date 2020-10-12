@@ -46,6 +46,9 @@
             this.dtpFechaFinProyeccion = new System.Windows.Forms.DateTimePicker();
             this.txtArgumento = new System.Windows.Forms.TextBox();
             this.dtgActores = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBaja = new System.Windows.Forms.Button();
@@ -82,9 +85,8 @@
             this.dtgGeneros = new System.Windows.Forms.DataGridView();
             this.idGenero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.apellido = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.radDBHelper = new System.Windows.Forms.RadioButton();
+            this.radDataManager = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.numDuracion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgActores)).BeginInit();
             this.grpActores.SuspendLayout();
@@ -257,6 +259,27 @@
             this.dtgActores.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgActores.Size = new System.Drawing.Size(606, 101);
             this.dtgActores.TabIndex = 18;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // nombre
+            // 
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 300;
+            // 
+            // apellido
+            // 
+            this.apellido.HeaderText = "Apellido";
+            this.apellido.Name = "apellido";
+            this.apellido.ReadOnly = true;
+            this.apellido.Width = 300;
             // 
             // btnNuevo
             // 
@@ -634,32 +657,35 @@
             this.genero.ReadOnly = true;
             this.genero.Width = 200;
             // 
-            // id
+            // radDBHelper
             // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
+            this.radDBHelper.AutoSize = true;
+            this.radDBHelper.Checked = true;
+            this.radDBHelper.Location = new System.Drawing.Point(442, 690);
+            this.radDBHelper.Name = "radDBHelper";
+            this.radDBHelper.Size = new System.Drawing.Size(96, 17);
+            this.radDBHelper.TabIndex = 41;
+            this.radDBHelper.TabStop = true;
+            this.radDBHelper.Text = "Usar DBHelper";
+            this.radDBHelper.UseVisualStyleBackColor = true;
             // 
-            // nombre
+            // radDataManager
             // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 300;
-            // 
-            // apellido
-            // 
-            this.apellido.HeaderText = "Apellido";
-            this.apellido.Name = "apellido";
-            this.apellido.ReadOnly = true;
-            this.apellido.Width = 300;
+            this.radDataManager.AutoSize = true;
+            this.radDataManager.Location = new System.Drawing.Point(442, 713);
+            this.radDataManager.Name = "radDataManager";
+            this.radDataManager.Size = new System.Drawing.Size(115, 17);
+            this.radDataManager.TabIndex = 42;
+            this.radDataManager.Text = "Usar DataManager";
+            this.radDataManager.UseVisualStyleBackColor = true;
             // 
             // FrmTransaccionPelicula
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(634, 747);
+            this.Controls.Add(this.radDataManager);
+            this.Controls.Add(this.radDBHelper);
             this.Controls.Add(this.dtgGeneros);
             this.Controls.Add(this.btnBuscarTitulo);
             this.Controls.Add(this.cmbDirector);
@@ -766,5 +792,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
         private System.Windows.Forms.DataGridViewTextBoxColumn apellido;
+        private System.Windows.Forms.RadioButton radDBHelper;
+        private System.Windows.Forms.RadioButton radDataManager;
     }
 }
