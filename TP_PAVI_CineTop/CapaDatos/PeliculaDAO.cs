@@ -305,12 +305,18 @@ namespace TP_PAVI_CineTop.CapaDatos
 
         public string borrarPelicula(int id)
         {
-            string consultaSQL = "UPDATE Pelicula SET borrado=1 WHERE id=" + id;
+            string consultaCabecera = "UPDATE Pelicula SET borrado=1 WHERE id=" + id;
 
-            //agregar el borrado de entradas de las tablas ActoresXPelicula, GenerosXPelicula y PremiosXPelicula
+            //borrado de entradas de las tablas ActoresXPelicula, GenerosXPelicula y PremiosXPelicula
+            string consultaActores = "UPDATE ActoresXPelicula SET borrado=1 WHERE id_pelicula=" + id;
+            string consultaGeneros = "UPDATE GenerosXPelicula SET borrado=1 WHERE id_pelicula=" + id;
+            string consultaPremios = "UPDATE PremiosXPelicula SET borrado=1 WHERE id_pelicula=" + id;
 
-            DBHelper.GetDBHelper().conectar();
-            DBHelper.GetDBHelper().ejecutarSQL(consultaSQL);
+            DBHelper.GetDBHelper().comenzarTransaccion();
+            DBHelper.GetDBHelper().ejecutarSQL(consultaCabecera);
+            DBHelper.GetDBHelper().ejecutarSQL(consultaActores);
+            DBHelper.GetDBHelper().ejecutarSQL(consultaGeneros);
+            DBHelper.GetDBHelper().ejecutarSQL(consultaPremios);
             return DBHelper.GetDBHelper().desconectar();
         }
 

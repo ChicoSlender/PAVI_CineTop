@@ -180,7 +180,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             if (eleccion == DialogResult.Yes)
             {
                 string errores = servPelicula.borrarPelicula(Convert.ToInt32(txtId.Text));
-                if (errores != "")
+                if (errores != "Transaccion realizada con exito")
                 {
                     MessageBox.Show(errores, "Error de borrado", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
