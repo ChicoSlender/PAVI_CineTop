@@ -443,6 +443,37 @@ namespace TP_PAVI_CineTop.CapaDatos
             return DBHelper.GetDBHelper().desconectar();
         }
 
+        public DataTable obtenerTablaPeliculaExtendida() //Agregado por el reporte (mostrar todo)
+        {
+            string consulta = "SELECT p.id, p.titulo, d.nombre as director, p.duracion, p.argumento, p.fechaEstreno, p.fechaFinProyeccion, pa.nombre as pais " +
+                "FROM Pelicula p JOIN Director d ON p.id_director=d.id JOIN Pais pa ON p.id_pais=pa.id " +
+                "WHERE borrado=0";
+            DBHelper.GetDBHelper().conectar();
+            DataTable tabla = DBHelper.GetDBHelper().consultaSQL(consulta);
+            DBHelper.GetDBHelper().desconectar();
+            return tabla;
+        }
+
+        public DataTable obtenerTablaPeliculaExtendidaFiltrada(string fechaDesde, string fechaHasta, int id_director, int id_pais) //agregado por el reporte (filtros)
+        {
+            string consulta = "SELECT p.id, p.titulo, d.nombre as director, p.duracion, p.argumento, p.fechaEstreno, p.fechaFinProyeccion, pa.nombre as pais " +
+                "FROM Pelicula p JOIN Director d ON p.id_director=d.id JOIN Pais pa ON p.id_pais=pa.id " +
+                "WHERE borrado=0 AND fechaEstreno>='"+fechaDesde+"' AND fechaEstreno<='"+fechaHasta+"'";
+
+            if(id_director != 0)
+            {
+                consulta = consulta + " AND id_director=" + id_director;
+            }
+            if(id_pais!=0)
+            {
+                consulta = consulta + " AND id_pais=" + id_pais;
+            }
+            DBHelper.GetDBHelper().conectar();
+            DataTable tabla = DBHelper.GetDBHelper().consultaSQL(consulta);
+            DBHelper.GetDBHelper().desconectar();
+            return tabla;
+        }
+
         private Pelicula mapearPelicula(DataRow fila)
         {
             int id = Convert.ToInt32(fila["id"]);

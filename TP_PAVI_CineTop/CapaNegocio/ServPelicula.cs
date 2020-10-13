@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TP_PAVI_CineTop.CapaDatos;
 using TP_PAVI_CineTop.Entidades;
+using System.Data;
 
 namespace TP_PAVI_CineTop.CapaNegocio
 {
@@ -36,5 +37,14 @@ namespace TP_PAVI_CineTop.CapaNegocio
         public string borrarPelicula(int id) => dao.borrarPelicula(id);
         public AutoCompleteStringCollection obtenerNombresPeliculasVigentes() => dao.obtenerNombresPeliculasVigentes();
         public Pelicula obtenerPeliculaPorTitulo(string titulo) => dao.obtenerPeliculaPorTitulo(titulo);
+
+        public DataTable obtenerTablaPeliculaExtendida() => dao.obtenerTablaPeliculaExtendida(); //nuevo
+
+        public DataTable obtenerTablaPeliculaExtendidaFiltrada(DateTime fechaDesde, DateTime fechaHasta, int id_director, int id_pais) //nuevo
+        {
+            string fechaDesdeStr = fechaDesde.ToString("yyyy-MM-dd");
+            string fechaHastaStr = fechaHasta.ToString("yyyy-MM-dd");
+            return dao.obtenerTablaPeliculaExtendidaFiltrada(fechaDesdeStr, fechaHastaStr, id_director, id_pais);
+        }
     }
 }
