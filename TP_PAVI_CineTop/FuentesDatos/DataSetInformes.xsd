@@ -14,6 +14,16 @@
       <xs:choice minOccurs="0" maxOccurs="unbounded">
         <xs:element name="Peliculas" msprop:Generator_TableClassName="PeliculasDataTable" msprop:Generator_TableVarName="tablePeliculas" msprop:Generator_TablePropName="Peliculas" msprop:Generator_RowDeletingName="PeliculasRowDeleting" msprop:Generator_RowChangingName="PeliculasRowChanging" msprop:Generator_RowEvHandlerName="PeliculasRowChangeEventHandler" msprop:Generator_RowDeletedName="PeliculasRowDeleted" msprop:Generator_UserTableName="Peliculas" msprop:Generator_RowChangedName="PeliculasRowChanged" msprop:Generator_RowEvArgName="PeliculasRowChangeEvent" msprop:Generator_RowClassName="PeliculasRow">
           <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:string" minOccurs="0" />
+              <xs:element name="titulo" msprop:Generator_ColumnVarNameInTable="columntitulo" msprop:Generator_ColumnPropNameInRow="titulo" msprop:Generator_ColumnPropNameInTable="tituloColumn" msprop:Generator_UserColumnName="titulo" type="xs:string" minOccurs="0" />
+              <xs:element name="director" msprop:Generator_ColumnVarNameInTable="columndirector" msprop:Generator_ColumnPropNameInRow="director" msprop:Generator_ColumnPropNameInTable="directorColumn" msprop:Generator_UserColumnName="director" type="xs:string" minOccurs="0" />
+              <xs:element name="duracion" msprop:Generator_ColumnVarNameInTable="columnduracion" msprop:Generator_ColumnPropNameInRow="duracion" msprop:Generator_ColumnPropNameInTable="duracionColumn" msprop:Generator_UserColumnName="duracion" type="xs:string" minOccurs="0" />
+              <xs:element name="argumento" msprop:Generator_ColumnVarNameInTable="columnargumento" msprop:Generator_ColumnPropNameInRow="argumento" msprop:Generator_ColumnPropNameInTable="argumentoColumn" msprop:Generator_UserColumnName="argumento" type="xs:string" minOccurs="0" />
+              <xs:element name="fechaEstreno" msprop:Generator_ColumnVarNameInTable="columnfechaEstreno" msprop:Generator_ColumnPropNameInRow="fechaEstreno" msprop:Generator_ColumnPropNameInTable="fechaEstrenoColumn" msprop:Generator_UserColumnName="fechaEstreno" type="xs:string" minOccurs="0" />
+              <xs:element name="fechaFinProyeccion" msprop:Generator_ColumnVarNameInTable="columnfechaFinProyeccion" msprop:Generator_ColumnPropNameInRow="fechaFinProyeccion" msprop:Generator_ColumnPropNameInTable="fechaFinProyeccionColumn" msprop:Generator_UserColumnName="fechaFinProyeccion" type="xs:string" minOccurs="0" />
+              <xs:element name="pais" msprop:Generator_ColumnVarNameInTable="columnpais" msprop:Generator_ColumnPropNameInRow="pais" msprop:Generator_ColumnPropNameInTable="paisColumn" msprop:Generator_UserColumnName="pais" type="xs:string" minOccurs="0" />
+            </xs:sequence>
           </xs:complexType>
         </xs:element>
       </xs:choice>

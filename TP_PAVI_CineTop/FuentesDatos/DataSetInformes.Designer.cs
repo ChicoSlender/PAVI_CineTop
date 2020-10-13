@@ -279,6 +279,22 @@ namespace TP_PAVI_CineTop.FuentesDatos {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class PeliculasDataTable : global::System.Data.TypedTableBase<PeliculasRow> {
             
+            private global::System.Data.DataColumn columnid;
+            
+            private global::System.Data.DataColumn columntitulo;
+            
+            private global::System.Data.DataColumn columndirector;
+            
+            private global::System.Data.DataColumn columnduracion;
+            
+            private global::System.Data.DataColumn columnargumento;
+            
+            private global::System.Data.DataColumn columnfechaEstreno;
+            
+            private global::System.Data.DataColumn columnfechaFinProyeccion;
+            
+            private global::System.Data.DataColumn columnpais;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public PeliculasDataTable() {
@@ -310,6 +326,70 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             protected PeliculasDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn idColumn {
+                get {
+                    return this.columnid;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn tituloColumn {
+                get {
+                    return this.columntitulo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn directorColumn {
+                get {
+                    return this.columndirector;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn duracionColumn {
+                get {
+                    return this.columnduracion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn argumentoColumn {
+                get {
+                    return this.columnargumento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn fechaEstrenoColumn {
+                get {
+                    return this.columnfechaEstreno;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn fechaFinProyeccionColumn {
+                get {
+                    return this.columnfechaFinProyeccion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn paisColumn {
+                get {
+                    return this.columnpais;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -349,9 +429,17 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PeliculasRow AddPeliculasRow() {
+            public PeliculasRow AddPeliculasRow(string id, string titulo, string director, string duracion, string argumento, string fechaEstreno, string fechaFinProyeccion, string pais) {
                 PeliculasRow rowPeliculasRow = ((PeliculasRow)(this.NewRow()));
-                object[] columnValuesArray = new object[0];
+                object[] columnValuesArray = new object[] {
+                        id,
+                        titulo,
+                        director,
+                        duracion,
+                        argumento,
+                        fechaEstreno,
+                        fechaFinProyeccion,
+                        pais};
                 rowPeliculasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPeliculasRow);
                 return rowPeliculasRow;
@@ -374,11 +462,35 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             internal void InitVars() {
+                this.columnid = base.Columns["id"];
+                this.columntitulo = base.Columns["titulo"];
+                this.columndirector = base.Columns["director"];
+                this.columnduracion = base.Columns["duracion"];
+                this.columnargumento = base.Columns["argumento"];
+                this.columnfechaEstreno = base.Columns["fechaEstreno"];
+                this.columnfechaFinProyeccion = base.Columns["fechaFinProyeccion"];
+                this.columnpais = base.Columns["pais"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
+                this.columnid = new global::System.Data.DataColumn("id", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid);
+                this.columntitulo = new global::System.Data.DataColumn("titulo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntitulo);
+                this.columndirector = new global::System.Data.DataColumn("director", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndirector);
+                this.columnduracion = new global::System.Data.DataColumn("duracion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnduracion);
+                this.columnargumento = new global::System.Data.DataColumn("argumento", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnargumento);
+                this.columnfechaEstreno = new global::System.Data.DataColumn("fechaEstreno", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfechaEstreno);
+                this.columnfechaFinProyeccion = new global::System.Data.DataColumn("fechaFinProyeccion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfechaFinProyeccion);
+                this.columnpais = new global::System.Data.DataColumn("pais", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpais);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -517,6 +629,230 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             internal PeliculasRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tablePeliculas = ((PeliculasDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string id {
+                get {
+                    try {
+                        return ((string)(this[this.tablePeliculas.idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'id\' de la tabla \'Peliculas\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePeliculas.idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string titulo {
+                get {
+                    try {
+                        return ((string)(this[this.tablePeliculas.tituloColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'titulo\' de la tabla \'Peliculas\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePeliculas.tituloColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string director {
+                get {
+                    try {
+                        return ((string)(this[this.tablePeliculas.directorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'director\' de la tabla \'Peliculas\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePeliculas.directorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string duracion {
+                get {
+                    try {
+                        return ((string)(this[this.tablePeliculas.duracionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'duracion\' de la tabla \'Peliculas\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePeliculas.duracionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string argumento {
+                get {
+                    try {
+                        return ((string)(this[this.tablePeliculas.argumentoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'argumento\' de la tabla \'Peliculas\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePeliculas.argumentoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string fechaEstreno {
+                get {
+                    try {
+                        return ((string)(this[this.tablePeliculas.fechaEstrenoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaEstreno\' de la tabla \'Peliculas\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePeliculas.fechaEstrenoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string fechaFinProyeccion {
+                get {
+                    try {
+                        return ((string)(this[this.tablePeliculas.fechaFinProyeccionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaFinProyeccion\' de la tabla \'Peliculas\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePeliculas.fechaFinProyeccionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string pais {
+                get {
+                    try {
+                        return ((string)(this[this.tablePeliculas.paisColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'pais\' de la tabla \'Peliculas\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePeliculas.paisColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsidNull() {
+                return this.IsNull(this.tablePeliculas.idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetidNull() {
+                this[this.tablePeliculas.idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IstituloNull() {
+                return this.IsNull(this.tablePeliculas.tituloColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SettituloNull() {
+                this[this.tablePeliculas.tituloColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsdirectorNull() {
+                return this.IsNull(this.tablePeliculas.directorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetdirectorNull() {
+                this[this.tablePeliculas.directorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsduracionNull() {
+                return this.IsNull(this.tablePeliculas.duracionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetduracionNull() {
+                this[this.tablePeliculas.duracionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsargumentoNull() {
+                return this.IsNull(this.tablePeliculas.argumentoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetargumentoNull() {
+                this[this.tablePeliculas.argumentoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsfechaEstrenoNull() {
+                return this.IsNull(this.tablePeliculas.fechaEstrenoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetfechaEstrenoNull() {
+                this[this.tablePeliculas.fechaEstrenoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsfechaFinProyeccionNull() {
+                return this.IsNull(this.tablePeliculas.fechaFinProyeccionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetfechaFinProyeccionNull() {
+                this[this.tablePeliculas.fechaFinProyeccionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IspaisNull() {
+                return this.IsNull(this.tablePeliculas.paisColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetpaisNull() {
+                this[this.tablePeliculas.paisColumn] = global::System.Convert.DBNull;
             }
         }
         
