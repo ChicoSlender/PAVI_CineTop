@@ -470,7 +470,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!fechaEstreno.Value</Value>
+                              <Value>=FormatDateTime(Fields!fechaEstreno.Value, DateFormat.ShortDate)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -500,7 +500,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!fechaFinProyeccion.Value</Value>
+                              <Value>=FormatDateTime(Fields!fechaFinProyeccion.Value, DateFormat.ShortDate)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>

@@ -64,5 +64,11 @@ namespace TP_PAVI_CineTop.CapaGUI
             FrmTransaccionPelicula frmPelicula = new FrmTransaccionPelicula();
             frmPelicula.ShowDialog();
         }
+
+        private void peliculasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReportePeliculas frmReportePeliculas = new FrmReportePeliculas();
+            frmReportePeliculas.ShowDialog();
+        }
     }
 }
