@@ -36,6 +36,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             else
             {
                 this.Text = this.Text + " - USUARIO: " + usuarioLogueado.Nombre;
+                this.lblBienvenida.Text = this.lblBienvenida.Text + "\n" + usuarioLogueado.Nombre;
             }
 
             login.Dispose();
@@ -69,6 +70,12 @@ namespace TP_PAVI_CineTop.CapaGUI
         {
             FrmReportePeliculas frmReportePeliculas = new FrmReportePeliculas();
             frmReportePeliculas.ShowDialog();
+        }
+
+        private void salasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmReporteSalas frmReporteSalas = new FrmReporteSalas();
+            frmReporteSalas.ShowDialog();
         }
     }
 }

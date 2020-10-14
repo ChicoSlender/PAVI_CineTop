@@ -85,8 +85,34 @@ namespace TP_PAVI_CineTop.CapaDatos
 
         public DataTable obtenerTablaSalas()
         {
-            string consultaSQL = "SELECT s.nombre, s.capacidad, u.nombre as ubicacion, s.tiene3d " +
+            string consultaSQL = "SELECT s.nombre, u.nombre as ubicacion, s.tiene3d, s.capacidad " +
                                  "FROM Sala s JOIN Ubicacion u ON s.id_ubicacion=u.id WHERE borrado=0";
+            DBHelper.GetDBHelper().conectar();
+            DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
+            return resultado;
+        }
+
+        public DataTable obtenerTablaSalasFiltrada(int minCapacidad, int maxCapacidad, int id_ubicacion)
+        {
+            string consultaSQL = "SELECT s.nombre, u.nombre as ubicacion, s.tiene3d, s.capacidad " +
+                                 "FROM Sala s JOIN Ubicacion u ON s.id_ubicacion=u.id " +
+                                 "WHERE borrado=0 AND s.capacidad BETWEEN " + minCapacidad + " AND " + maxCapacidad;
+            if (id_ubicacion != 0)
+                consultaSQL = consultaSQL + " AND s.id_ubicacion=" + id_ubicacion;
+            DBHelper.GetDBHelper().conectar();
+            DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
+            return resultado;
+        }
+
+        public DataTable obtenerTablaSalasFiltrada(int minCapacidad, int maxCapacidad, int id_ubicacion, bool tiene3d)
+        {
+            string consultaSQL = "SELECT s.nombre, u.nombre as ubicacion, s.tiene3d, s.capacidad " +
+                                 "FROM Sala s JOIN Ubicacion u ON s.id_ubicacion=u.id " +
+                                 "WHERE borrado=0 AND s.capacidad BETWEEN " + minCapacidad + " AND " + maxCapacidad + " AND tiene3d=" + Convert.ToInt32(tiene3d);
+            if (id_ubicacion != 0)
+                consultaSQL = consultaSQL + " AND s.id_ubicacion=" + id_ubicacion;
             DBHelper.GetDBHelper().conectar();
             DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
             DBHelper.GetDBHelper().desconectar();

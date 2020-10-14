@@ -51,6 +51,8 @@ namespace TP_PAVI_CineTop.CapaGUI
             
             FrmHelper.cargarCombo(servEpoca.ObtenerEpocas(), cmbEpoca, "nombre", "id");
             FrmHelper.cargarGrilla(servPromo.obtenerTabla(), dtgPromos);
+            FrmHelper.adaptarFechasGrilla(dtgPromos, "Fecha_Desde", true, false);
+            FrmHelper.adaptarFechasGrilla(dtgPromos, "Fecha_Hasta", true, false);
             HabilitarCampos(false);
         }
 

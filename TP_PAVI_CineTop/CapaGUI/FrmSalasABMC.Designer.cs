@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSalasABMC));
             this.lblNombre = new System.Windows.Forms.Label();
             this.lblCapacidad = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -36,16 +37,16 @@
             this.ch3D = new System.Windows.Forms.CheckBox();
             this.numCapacidad = new System.Windows.Forms.NumericUpDown();
             this.dtgSalas = new System.Windows.Forms.DataGridView();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.capacidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ubicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tiene3D = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnBaja = new System.Windows.Forms.Button();
             this.btnGuardar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ubicacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tiene3D = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.capacidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgSalas)).BeginInit();
             this.SuspendLayout();
@@ -116,9 +117,9 @@
             this.dtgSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtgSalas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nombre,
-            this.capacidad,
             this.ubicacion,
-            this.tiene3D});
+            this.tiene3D,
+            this.capacidad});
             this.dtgSalas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dtgSalas.Location = new System.Drawing.Point(12, 191);
             this.dtgSalas.Name = "dtgSalas";
@@ -127,15 +128,100 @@
             this.dtgSalas.TabIndex = 7;
             this.dtgSalas.SelectionChanged += new System.EventHandler(this.dtgSalas_SelectionChanged);
             // 
+            // btnNuevo
+            // 
+            this.btnNuevo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnNuevo.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNuevo.Image = global::TP_PAVI_CineTop.Properties.Resources.nuevo1;
+            this.btnNuevo.Location = new System.Drawing.Point(12, 347);
+            this.btnNuevo.Name = "btnNuevo";
+            this.btnNuevo.Size = new System.Drawing.Size(50, 50);
+            this.btnNuevo.TabIndex = 8;
+            this.btnNuevo.UseVisualStyleBackColor = false;
+            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.Image = global::TP_PAVI_CineTop.Properties.Resources.grabar1;
+            this.btnModificar.Location = new System.Drawing.Point(81, 347);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(50, 50);
+            this.btnModificar.TabIndex = 9;
+            this.btnModificar.UseVisualStyleBackColor = false;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
+            // 
+            // btnBaja
+            // 
+            this.btnBaja.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnBaja.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnBaja.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnBaja.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnBaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnBaja.Image = global::TP_PAVI_CineTop.Properties.Resources.cancelar2;
+            this.btnBaja.Location = new System.Drawing.Point(150, 347);
+            this.btnBaja.Name = "btnBaja";
+            this.btnBaja.Size = new System.Drawing.Size(50, 50);
+            this.btnBaja.TabIndex = 10;
+            this.btnBaja.UseVisualStyleBackColor = false;
+            this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Image = global::TP_PAVI_CineTop.Properties.Resources.grabar4;
+            this.btnGuardar.Location = new System.Drawing.Point(270, 347);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(50, 50);
+            this.btnGuardar.TabIndex = 11;
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.Image = global::TP_PAVI_CineTop.Properties.Resources.Cancelar3;
+            this.btnCancelar.Location = new System.Drawing.Point(340, 347);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(50, 50);
+            this.btnCancelar.TabIndex = 12;
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnSalir
+            // 
+            this.btnSalir.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSalir.Image = global::TP_PAVI_CineTop.Properties.Resources.puerta2;
+            this.btnSalir.Location = new System.Drawing.Point(481, 347);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(50, 50);
+            this.btnSalir.TabIndex = 13;
+            this.btnSalir.UseVisualStyleBackColor = false;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            // 
             // nombre
             // 
             this.nombre.HeaderText = "Nombre";
             this.nombre.Name = "nombre";
-            // 
-            // capacidad
-            // 
-            this.capacidad.HeaderText = "Capacidad";
-            this.capacidad.Name = "capacidad";
             // 
             // ubicacion
             // 
@@ -149,70 +235,16 @@
             this.tiene3D.Name = "tiene3D";
             this.tiene3D.Width = 80;
             // 
-            // btnNuevo
+            // capacidad
             // 
-            this.btnNuevo.Image = global::TP_PAVI_CineTop.Properties.Resources.nuevo1;
-            this.btnNuevo.Location = new System.Drawing.Point(12, 347);
-            this.btnNuevo.Name = "btnNuevo";
-            this.btnNuevo.Size = new System.Drawing.Size(50, 50);
-            this.btnNuevo.TabIndex = 8;
-            this.btnNuevo.UseVisualStyleBackColor = true;
-            this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.Image = global::TP_PAVI_CineTop.Properties.Resources.grabar1;
-            this.btnModificar.Location = new System.Drawing.Point(81, 347);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(50, 50);
-            this.btnModificar.TabIndex = 9;
-            this.btnModificar.UseVisualStyleBackColor = true;
-            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
-            // 
-            // btnBaja
-            // 
-            this.btnBaja.Image = global::TP_PAVI_CineTop.Properties.Resources.cancelar2;
-            this.btnBaja.Location = new System.Drawing.Point(150, 347);
-            this.btnBaja.Name = "btnBaja";
-            this.btnBaja.Size = new System.Drawing.Size(50, 50);
-            this.btnBaja.TabIndex = 10;
-            this.btnBaja.UseVisualStyleBackColor = true;
-            this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Image = global::TP_PAVI_CineTop.Properties.Resources.grabar4;
-            this.btnGuardar.Location = new System.Drawing.Point(270, 347);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(50, 50);
-            this.btnGuardar.TabIndex = 11;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.Image = global::TP_PAVI_CineTop.Properties.Resources.Cancelar3;
-            this.btnCancelar.Location = new System.Drawing.Point(340, 347);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(50, 50);
-            this.btnCancelar.TabIndex = 12;
-            this.btnCancelar.UseVisualStyleBackColor = true;
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Image = global::TP_PAVI_CineTop.Properties.Resources.puerta2;
-            this.btnSalir.Location = new System.Drawing.Point(481, 347);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(50, 50);
-            this.btnSalir.TabIndex = 13;
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
+            this.capacidad.HeaderText = "Capacidad";
+            this.capacidad.Name = "capacidad";
             // 
             // FrmSalasABMC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(546, 401);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnCancelar);
@@ -228,6 +260,7 @@
             this.Controls.Add(this.txtNombre);
             this.Controls.Add(this.lblCapacidad);
             this.Controls.Add(this.lblNombre);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmSalasABMC";
             this.Text = "Gestión Salas";
             this.Load += new System.EventHandler(this.FrmSalasABMC_Load);
@@ -248,15 +281,15 @@
         private System.Windows.Forms.CheckBox ch3D;
         private System.Windows.Forms.NumericUpDown numCapacidad;
         private System.Windows.Forms.DataGridView dtgSalas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
-        private System.Windows.Forms.DataGridViewTextBoxColumn capacidad;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ubicacion;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tiene3D;
         private System.Windows.Forms.Button btnNuevo;
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnBaja;
         private System.Windows.Forms.Button btnGuardar;
         private System.Windows.Forms.Button btnCancelar;
         private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ubicacion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tiene3D;
+        private System.Windows.Forms.DataGridViewTextBoxColumn capacidad;
     }
 }

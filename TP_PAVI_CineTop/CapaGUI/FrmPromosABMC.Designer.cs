@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPromosABMC));
             this.txtMayores = new System.Windows.Forms.TextBox();
             this.txtPromo = new System.Windows.Forms.TextBox();
             this.txtMenores = new System.Windows.Forms.TextBox();
@@ -54,6 +56,7 @@
             this.btnModificar = new System.Windows.Forms.Button();
             this.btnNuevo = new System.Windows.Forms.Button();
             this.cmbEpoca = new System.Windows.Forms.ComboBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dtgPromos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -224,61 +227,97 @@
             // 
             // btnSalir
             // 
+            this.btnSalir.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Image = global::TP_PAVI_CineTop.Properties.Resources.puerta2;
             this.btnSalir.Location = new System.Drawing.Point(561, 393);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(50, 50);
             this.btnSalir.TabIndex = 29;
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnSalir, "Salir");
+            this.btnSalir.UseVisualStyleBackColor = false;
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Image = global::TP_PAVI_CineTop.Properties.Resources.grabar4;
             this.btnGuardar.Location = new System.Drawing.Point(379, 393);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);
             this.btnGuardar.TabIndex = 28;
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnGuardar, "Guardar promo");
+            this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Image = global::TP_PAVI_CineTop.Properties.Resources.Cancelar3;
             this.btnCancelar.Location = new System.Drawing.Point(312, 393);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(50, 50);
             this.btnCancelar.TabIndex = 27;
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnCancelar, "Cancelar operacion");
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnBaja
             // 
+            this.btnBaja.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnBaja.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnBaja.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnBaja.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnBaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBaja.Image = global::TP_PAVI_CineTop.Properties.Resources.cancelar2;
             this.btnBaja.Location = new System.Drawing.Point(160, 393);
             this.btnBaja.Name = "btnBaja";
             this.btnBaja.Size = new System.Drawing.Size(50, 50);
             this.btnBaja.TabIndex = 26;
-            this.btnBaja.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnBaja, "Borrar promo seleccionada");
+            this.btnBaja.UseVisualStyleBackColor = false;
             this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
             // 
             // btnModificar
             // 
+            this.btnModificar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Image = global::TP_PAVI_CineTop.Properties.Resources.grabar1;
             this.btnModificar.Location = new System.Drawing.Point(87, 393);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(50, 50);
             this.btnModificar.TabIndex = 25;
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnModificar, "Modificar promo seleccionada");
+            this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnNuevo
             // 
+            this.btnNuevo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnNuevo.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Image = global::TP_PAVI_CineTop.Properties.Resources.nuevo1;
             this.btnNuevo.Location = new System.Drawing.Point(12, 393);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(50, 50);
             this.btnNuevo.TabIndex = 24;
-            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnNuevo, "Agregar nueva promo");
+            this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // cmbEpoca
@@ -293,6 +332,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(623, 450);
             this.Controls.Add(this.cmbEpoca);
             this.Controls.Add(this.btnSalir);
@@ -314,6 +354,7 @@
             this.Controls.Add(this.txtMenores);
             this.Controls.Add(this.txtPromo);
             this.Controls.Add(this.txtMayores);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmPromosABMC";
             this.Text = "Gestión Promos";
             this.Load += new System.EventHandler(this.FrmPromosABMC_Load);
@@ -351,5 +392,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_Desde;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fecha_Hasta;
         private System.Windows.Forms.ComboBox cmbEpoca;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

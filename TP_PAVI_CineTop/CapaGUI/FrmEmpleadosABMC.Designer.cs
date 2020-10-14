@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEmpleadosABMC));
             this.lblLegajo = new System.Windows.Forms.Label();
             this.lblTipoDocumento = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
@@ -177,62 +178,98 @@
             // 
             // btnNuevo
             // 
+            this.btnNuevo.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnNuevo.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnNuevo.Image = global::TP_PAVI_CineTop.Properties.Resources.nuevo1;
             this.btnNuevo.Location = new System.Drawing.Point(12, 397);
             this.btnNuevo.Name = "btnNuevo";
             this.btnNuevo.Size = new System.Drawing.Size(50, 50);
             this.btnNuevo.TabIndex = 15;
-            this.btnNuevo.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnNuevo, "Agregar nuevo empleado");
+            this.btnNuevo.UseVisualStyleBackColor = false;
             this.btnNuevo.Click += new System.EventHandler(this.btnNuevo_Click);
             // 
             // btnModificar
             // 
+            this.btnModificar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnModificar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnModificar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnModificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnModificar.Image = global::TP_PAVI_CineTop.Properties.Resources.grabar1;
             this.btnModificar.Location = new System.Drawing.Point(90, 397);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(50, 50);
             this.btnModificar.TabIndex = 16;
-            this.btnModificar.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnModificar, "Modificar empleado seleccionado");
+            this.btnModificar.UseVisualStyleBackColor = false;
             this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnBaja
             // 
+            this.btnBaja.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnBaja.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnBaja.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnBaja.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnBaja.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBaja.Image = global::TP_PAVI_CineTop.Properties.Resources.cancelar2;
             this.btnBaja.Location = new System.Drawing.Point(168, 397);
             this.btnBaja.Name = "btnBaja";
             this.btnBaja.Size = new System.Drawing.Size(50, 50);
             this.btnBaja.TabIndex = 17;
-            this.btnBaja.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnBaja, "Borrar empleado seleccionado");
+            this.btnBaja.UseVisualStyleBackColor = false;
             this.btnBaja.Click += new System.EventHandler(this.btnBaja_Click);
             // 
             // btnCancelar
             // 
+            this.btnCancelar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCancelar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnCancelar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnCancelar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancelar.Image = global::TP_PAVI_CineTop.Properties.Resources.Cancelar3;
             this.btnCancelar.Location = new System.Drawing.Point(303, 397);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(50, 50);
             this.btnCancelar.TabIndex = 18;
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnCancelar, "Cancelar operación");
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGuardar
             // 
+            this.btnGuardar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnGuardar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardar.Image = global::TP_PAVI_CineTop.Properties.Resources.grabar4;
             this.btnGuardar.Location = new System.Drawing.Point(375, 397);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(50, 50);
             this.btnGuardar.TabIndex = 19;
-            this.btnGuardar.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnGuardar, "Guardar empleado");
+            this.btnGuardar.UseVisualStyleBackColor = false;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnSalir
             // 
+            this.btnSalir.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnSalir.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnSalir.FlatAppearance.MouseDownBackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnSalir.FlatAppearance.MouseOverBackColor = System.Drawing.Color.White;
+            this.btnSalir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalir.Image = global::TP_PAVI_CineTop.Properties.Resources.puerta2;
             this.btnSalir.Location = new System.Drawing.Point(562, 397);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(50, 50);
             this.btnSalir.TabIndex = 20;
-            this.btnSalir.UseVisualStyleBackColor = true;
+            this.toolTip1.SetToolTip(this.btnSalir, "Salir");
+            this.btnSalir.UseVisualStyleBackColor = false;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
             // txtNombre
@@ -298,6 +335,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(624, 455);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtLegajo);
@@ -320,6 +358,7 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblTipoDocumento);
             this.Controls.Add(this.lblLegajo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEmpleadosABMC";
             this.Text = "Gestión Empleados";
             this.Load += new System.EventHandler(this.FrmEmpleadosABMC_Load);

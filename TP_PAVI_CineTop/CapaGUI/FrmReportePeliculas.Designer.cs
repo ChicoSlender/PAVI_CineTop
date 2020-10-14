@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource4 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dataSetInformes = new TP_PAVI_CineTop.FuentesDatos.DataSetInformes();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportePeliculas));
             this.dataSetInformesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetInformes = new TP_PAVI_CineTop.FuentesDatos.DataSetInformes();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.lblFechaHasta = new System.Windows.Forms.Label();
             this.dtpFechaDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaHasta = new System.Windows.Forms.DateTimePicker();
@@ -43,15 +44,25 @@
             this.lblDirector = new System.Windows.Forms.Label();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInformes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetInformesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInformes)).BeginInit();
             this.SuspendLayout();
+            // 
+            // dataSetInformesBindingSource
+            // 
+            this.dataSetInformesBindingSource.DataSource = this.dataSetInformes;
+            this.dataSetInformesBindingSource.Position = 0;
+            // 
+            // dataSetInformes
+            // 
+            this.dataSetInformes.DataSetName = "DataSetInformes";
+            this.dataSetInformes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
-            reportDataSource4.Name = "ReportePeliculas";
-            reportDataSource4.Value = this.dataSetInformesBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource4);
+            reportDataSource1.Name = "ReportePeliculas";
+            reportDataSource1.Value = this.dataSetInformesBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "TP_PAVI_CineTop.Reportes.ReportePeliculas.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(12, 97);
             this.reportViewer1.Name = "reportViewer1";
@@ -59,16 +70,6 @@
             this.reportViewer1.Size = new System.Drawing.Size(739, 369);
             this.reportViewer1.TabIndex = 0;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
-            // 
-            // dataSetInformes
-            // 
-            this.dataSetInformes.DataSetName = "DataSetInformes";
-            this.dataSetInformes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataSetInformesBindingSource
-            // 
-            this.dataSetInformesBindingSource.DataSource = this.dataSetInformes;
-            this.dataSetInformesBindingSource.Position = 0;
             // 
             // lblFechaHasta
             // 
@@ -160,6 +161,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(763, 478);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnFiltrar);
@@ -172,11 +174,12 @@
             this.Controls.Add(this.dtpFechaDesde);
             this.Controls.Add(this.lblFechaHasta);
             this.Controls.Add(this.reportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmReportePeliculas";
             this.Text = "Reporte de Peliculas";
             this.Load += new System.EventHandler(this.FrmReportePeliculas_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInformes)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSetInformesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInformes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

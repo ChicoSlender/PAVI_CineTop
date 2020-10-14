@@ -63,6 +63,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             habilitarCampos(false);
             FrmHelper.cargarCombo(servUbicacion.obtenerUbicaciones(), cmbUbicacion, "Nombre", "Id");
             FrmHelper.cargarGrilla(servSala.obtenerTablaSalas(), dtgSalas);
+            FrmHelper.adaptarBooleanosGrilla(dtgSalas, "tiene3d", "Sí", "No");
         }
 
         private void dtgSalas_SelectionChanged(object sender, EventArgs e)

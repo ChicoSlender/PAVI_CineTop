@@ -130,6 +130,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             FrmHelper.cargarCombo(servTipoDocumento.obtenerTiposDocumento(), cmbTipoDocumento, "nombre", "id");
             FrmHelper.cargarCombo(servUsuario.obtenerUsuarios(), txtUsuario, "nombre", "nombre");
             FrmHelper.cargarGrilla(servEmpleado.obtenerTablaEmpleados(), dtgEmpleados);
+            FrmHelper.adaptarFechasGrilla(dtgEmpleados, "fechaIngreso", true, false);
             dtpFechaIngreso.Value = DateTime.Today;
             this.habilitarCampos(false);
         }

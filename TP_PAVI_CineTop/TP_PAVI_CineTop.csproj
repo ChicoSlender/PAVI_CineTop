@@ -112,6 +112,12 @@
     <Compile Include="CapaGUI\FrmReportePeliculas.Designer.cs">
       <DependentUpon>FrmReportePeliculas.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaGUI\FrmReporteSalas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaGUI\FrmReporteSalas.Designer.cs">
+      <DependentUpon>FrmReporteSalas.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaGUI\FrmSalasABMC.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -178,6 +184,9 @@
     <EmbeddedResource Include="CapaGUI\FrmReportePeliculas.resx">
       <DependentUpon>FrmReportePeliculas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CapaGUI\FrmReporteSalas.resx">
+      <DependentUpon>FrmReporteSalas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CapaGUI\FrmSalasABMC.resx">
       <DependentUpon>FrmSalasABMC.cs</DependentUpon>
     </EmbeddedResource>
@@ -194,6 +203,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\ReporteSalas.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePeliculas.rdlc" />
     <None Include="FuentesDatos\DataSetInformes.xsc">
       <DependentUpon>DataSetInformes.xsd</DependentUpon>
@@ -221,6 +231,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Recursos\imagenes\Icono CineTop.png" />
+    <Content Include="Recursos\imagenes\Logo CineTop.png" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

@@ -223,6 +223,16 @@ namespace TP_PAVI_CineTop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Logo_CineTop {
+            get {
+                object obj = ResourceManager.GetObject("Logo CineTop", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap nuevo1 {
             get {
                 object obj = ResourceManager.GetObject("nuevo1", resourceCulture);
