@@ -58,12 +58,17 @@ namespace TP_PAVI_CineTop.CapaGUI
             ch3D.Checked = false;
         }
 
+        private void refrescarGrilla()
+        {
+            FrmHelper.cargarGrilla(servSala.obtenerTablaSalas(), dtgSalas);
+            FrmHelper.adaptarBooleanosGrilla(dtgSalas, "tiene3d", "Sí", "No");
+        }
+
         private void FrmSalasABMC_Load(object sender, EventArgs e)
         {
             habilitarCampos(false);
             FrmHelper.cargarCombo(servUbicacion.obtenerUbicaciones(), cmbUbicacion, "Nombre", "Id");
-            FrmHelper.cargarGrilla(servSala.obtenerTablaSalas(), dtgSalas);
-            FrmHelper.adaptarBooleanosGrilla(dtgSalas, "tiene3d", "Sí", "No");
+            this.refrescarGrilla();
         }
 
         private void dtgSalas_SelectionChanged(object sender, EventArgs e)
@@ -103,7 +108,7 @@ namespace TP_PAVI_CineTop.CapaGUI
                 else
                     MessageBox.Show("Hubo un error en el borrado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
-                FrmHelper.cargarGrilla(servSala.obtenerTablaSalas(), dtgSalas);
+                this.refrescarGrilla();
             }
         }
 
@@ -158,7 +163,7 @@ namespace TP_PAVI_CineTop.CapaGUI
                 MessageBox.Show("Sala guardada", "Resultado", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Hubo un error en el guardado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            FrmHelper.cargarGrilla(servSala.obtenerTablaSalas(), dtgSalas);
+            this.refrescarGrilla();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

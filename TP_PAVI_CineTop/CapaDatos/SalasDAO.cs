@@ -54,6 +54,7 @@ namespace TP_PAVI_CineTop.CapaDatos
             return res;
         }
 
+
         internal int insertarSala(Sala sala)
         {
             string consultaSQL = "INSERT INTO Sala (nombre, capacidad, id_ubicacion, tiene3d, borrado) " +
@@ -115,6 +116,26 @@ namespace TP_PAVI_CineTop.CapaDatos
                 consultaSQL = consultaSQL + " AND s.id_ubicacion=" + id_ubicacion;
             DBHelper.GetDBHelper().conectar();
             DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
+            return resultado;
+        }
+
+        public DataTable obtenerEstadisticaSalas()
+        {
+            string consulta = "SELECT u.nombre as ubicacion, SUM(s.capacidad) as total_capacidad " +
+                "FROM Sala s JOIN Ubicacion u ON s.id_ubicacion=u.id WHERE borrado=0 GROUP BY u.nombre";
+            DBHelper.GetDBHelper().conectar();
+            DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consulta);
+            DBHelper.GetDBHelper().desconectar();
+            return resultado;
+        }
+        internal object obtenerEstadisticaSalasFiltrada(int capMin, int capMax)
+        {
+            string consulta = "SELECT u.nombre as ubicacion, SUM(s.capacidad) as total_capacidad " +
+                "FROM Sala s JOIN Ubicacion u ON s.id_ubicacion=u.id WHERE borrado=0 AND capacidad BETWEEN " + capMin + " AND " + capMax + " " +
+                "GROUP BY u.nombre";
+            DBHelper.GetDBHelper().conectar();
+            DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consulta);
             DBHelper.GetDBHelper().desconectar();
             return resultado;
         }

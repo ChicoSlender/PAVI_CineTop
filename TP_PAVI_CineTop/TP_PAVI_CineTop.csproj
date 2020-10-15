@@ -87,6 +87,12 @@
     <Compile Include="CapaGUI\FrmEmpleadosABMC.Designer.cs">
       <DependentUpon>FrmEmpleadosABMC.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaGUI\FrmEstadisticaSalas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaGUI\FrmEstadisticaSalas.Designer.cs">
+      <DependentUpon>FrmEstadisticaSalas.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaGUI\FrmHelper.cs" />
     <Compile Include="CapaGUI\FrmLogin.cs">
       <SubType>Form</SubType>
@@ -172,6 +178,9 @@
     <EmbeddedResource Include="CapaGUI\FrmEmpleadosABMC.resx">
       <DependentUpon>FrmEmpleadosABMC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CapaGUI\FrmEstadisticaSalas.resx">
+      <DependentUpon>FrmEstadisticaSalas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CapaGUI\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -203,6 +212,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\EstadisticaSalas.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteSalas.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePeliculas.rdlc" />
     <None Include="FuentesDatos\DataSetInformes.xsc">

@@ -50,10 +50,15 @@ namespace TP_PAVI_CineTop.CapaGUI
         {
             
             FrmHelper.cargarCombo(servEpoca.ObtenerEpocas(), cmbEpoca, "nombre", "id");
+            this.refrescarGrilla();
+            HabilitarCampos(false);
+        }
+
+        private void refrescarGrilla()
+        {
             FrmHelper.cargarGrilla(servPromo.obtenerTabla(), dtgPromos);
             FrmHelper.adaptarFechasGrilla(dtgPromos, "Fecha_Desde", true, false);
             FrmHelper.adaptarFechasGrilla(dtgPromos, "Fecha_Hasta", true, false);
-            HabilitarCampos(false);
         }
 
         private void dtgEmpleados_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -153,7 +158,7 @@ namespace TP_PAVI_CineTop.CapaGUI
                     return;
                 }
                 MessageBox.Show("Promo borrada","OK");
-                FrmHelper.cargarGrilla(servPromo.obtenerTabla(), dtgPromos);
+                this.refrescarGrilla();
             }
         }
 
@@ -201,7 +206,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             }
 
             MessageBox.Show("Operacion realizada con éxito.");
-            FrmHelper.cargarGrilla(servPromo.obtenerTabla(), dtgPromos);
+            this.refrescarGrilla();
 
             HabilitarCampos(false);
             nuevo = false;

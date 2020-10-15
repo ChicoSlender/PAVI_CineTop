@@ -65,6 +65,12 @@ namespace TP_PAVI_CineTop.CapaGUI
             dtpFechaIngreso.Value = DateTime.Today;
         }
 
+        private void refrescarGrilla()
+        {
+            FrmHelper.cargarGrilla(servEmpleado.obtenerTablaEmpleados(), dtgEmpleados);
+            FrmHelper.adaptarFechasGrilla(dtgEmpleados, "fechaIngreso", true, false);
+        }
+
         private bool validarCampos()
         {
             if(txtLegajo.Text == "")
@@ -129,8 +135,7 @@ namespace TP_PAVI_CineTop.CapaGUI
         {
             FrmHelper.cargarCombo(servTipoDocumento.obtenerTiposDocumento(), cmbTipoDocumento, "nombre", "id");
             FrmHelper.cargarCombo(servUsuario.obtenerUsuarios(), txtUsuario, "nombre", "nombre");
-            FrmHelper.cargarGrilla(servEmpleado.obtenerTablaEmpleados(), dtgEmpleados);
-            FrmHelper.adaptarFechasGrilla(dtgEmpleados, "fechaIngreso", true, false);
+            this.refrescarGrilla();
             dtpFechaIngreso.Value = DateTime.Today;
             this.habilitarCampos(false);
         }
@@ -166,7 +171,7 @@ namespace TP_PAVI_CineTop.CapaGUI
                     return;
                 }
                 MessageBox.Show("Empleado borrado con éxito", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FrmHelper.cargarGrilla(servEmpleado.obtenerTablaEmpleados(), dtgEmpleados);
+                this.refrescarGrilla();
             }
         }
 
@@ -211,7 +216,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             }
             this.habilitarCampos(false);
             MessageBox.Show("Empleado registrado con éxito", "Resultado de operación", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            FrmHelper.cargarGrilla(servEmpleado.obtenerTablaEmpleados(), dtgEmpleados);
+            this.refrescarGrilla();
             nuevo = false;
         }
 

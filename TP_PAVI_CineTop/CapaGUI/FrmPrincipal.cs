@@ -77,5 +77,11 @@ namespace TP_PAVI_CineTop.CapaGUI
             FrmReporteSalas frmReporteSalas = new FrmReporteSalas();
             frmReporteSalas.ShowDialog();
         }
+
+        private void capacidadDeSalasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEstadisticaSalas frmEstadisticaSalas = new FrmEstadisticaSalas();
+            frmEstadisticaSalas.ShowDialog();
+        }
     }
 }

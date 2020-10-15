@@ -41,6 +41,8 @@
             this.salasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imgLogo = new System.Windows.Forms.PictureBox();
             this.lblBienvenida = new System.Windows.Forms.Label();
+            this.estadísticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.capacidadDeSalasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.SuspendLayout();
@@ -51,7 +53,8 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnSoporte,
             this.principalToolStripMenuItem,
-            this.reportesToolStripMenuItem});
+            this.reportesToolStripMenuItem,
+            this.estadísticasToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -163,6 +166,25 @@
             this.lblBienvenida.Text = "Bienvenido de nuevo";
             this.lblBienvenida.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // estadísticasToolStripMenuItem
+            // 
+            this.estadísticasToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.estadísticasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.capacidadDeSalasToolStripMenuItem});
+            this.estadísticasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.estadísticasToolStripMenuItem.Name = "estadísticasToolStripMenuItem";
+            this.estadísticasToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
+            this.estadísticasToolStripMenuItem.Text = "Estadísticas";
+            // 
+            // capacidadDeSalasToolStripMenuItem
+            // 
+            this.capacidadDeSalasToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.capacidadDeSalasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.capacidadDeSalasToolStripMenuItem.Name = "capacidadDeSalasToolStripMenuItem";
+            this.capacidadDeSalasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.capacidadDeSalasToolStripMenuItem.Text = "Capacidad de salas";
+            this.capacidadDeSalasToolStripMenuItem.Click += new System.EventHandler(this.capacidadDeSalasToolStripMenuItem_Click);
+            // 
             // FrmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -202,6 +224,8 @@
         private System.Windows.Forms.ToolStripMenuItem salasToolStripMenuItem;
         private System.Windows.Forms.PictureBox imgLogo;
         private System.Windows.Forms.Label lblBienvenida;
+        private System.Windows.Forms.ToolStripMenuItem estadísticasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem capacidadDeSalasToolStripMenuItem;
     }
 }
 
