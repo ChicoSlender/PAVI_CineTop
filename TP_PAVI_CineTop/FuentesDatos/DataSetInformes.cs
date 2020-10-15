@@ -4,5 +4,8 @@
 
     public partial class DataSetInformes
     {
+        partial class PeliculasDataTable
+        {
+        }
     }
 }

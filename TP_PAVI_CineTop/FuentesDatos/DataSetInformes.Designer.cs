@@ -464,7 +464,7 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public PeliculasRow AddPeliculasRow(string id, string titulo, string director, string duracion, string argumento, string fechaEstreno, string fechaFinProyeccion, string pais) {
+            public PeliculasRow AddPeliculasRow(int id, string titulo, string director, string duracion, string argumento, System.DateTime fechaEstreno, System.DateTime fechaFinProyeccion, string pais) {
                 PeliculasRow rowPeliculasRow = ((PeliculasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         id,
@@ -510,7 +510,7 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             private void InitClass() {
-                this.columnid = new global::System.Data.DataColumn("id", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnid = new global::System.Data.DataColumn("id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid);
                 this.columntitulo = new global::System.Data.DataColumn("titulo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntitulo);
@@ -520,9 +520,9 @@ namespace TP_PAVI_CineTop.FuentesDatos {
                 base.Columns.Add(this.columnduracion);
                 this.columnargumento = new global::System.Data.DataColumn("argumento", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnargumento);
-                this.columnfechaEstreno = new global::System.Data.DataColumn("fechaEstreno", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnfechaEstreno = new global::System.Data.DataColumn("fechaEstreno", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaEstreno);
-                this.columnfechaFinProyeccion = new global::System.Data.DataColumn("fechaFinProyeccion", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columnfechaFinProyeccion = new global::System.Data.DataColumn("fechaFinProyeccion", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfechaFinProyeccion);
                 this.columnpais = new global::System.Data.DataColumn("pais", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpais);
@@ -769,7 +769,7 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public SalasRow AddSalasRow(string nombre, string ubicacion, string tiene3d, string capacidad) {
+            public SalasRow AddSalasRow(string nombre, string ubicacion, bool tiene3d, int capacidad) {
                 SalasRow rowSalasRow = ((SalasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         nombre,
@@ -811,9 +811,9 @@ namespace TP_PAVI_CineTop.FuentesDatos {
                 base.Columns.Add(this.columnnombre);
                 this.columnubicacion = new global::System.Data.DataColumn("ubicacion", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnubicacion);
-                this.columntiene3d = new global::System.Data.DataColumn("tiene3d", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columntiene3d = new global::System.Data.DataColumn("tiene3d", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columntiene3d);
-                this.columncapacidad = new global::System.Data.DataColumn("capacidad", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columncapacidad = new global::System.Data.DataColumn("capacidad", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncapacidad);
             }
             
@@ -957,10 +957,10 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string id {
+            public int id {
                 get {
                     try {
-                        return ((string)(this[this.tablePeliculas.idColumn]));
+                        return ((int)(this[this.tablePeliculas.idColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'id\' de la tabla \'Peliculas\' es DBNull.", e);
@@ -1037,10 +1037,10 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string fechaEstreno {
+            public System.DateTime fechaEstreno {
                 get {
                     try {
-                        return ((string)(this[this.tablePeliculas.fechaEstrenoColumn]));
+                        return ((global::System.DateTime)(this[this.tablePeliculas.fechaEstrenoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaEstreno\' de la tabla \'Peliculas\' es DBNull.", e);
@@ -1053,10 +1053,10 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string fechaFinProyeccion {
+            public System.DateTime fechaFinProyeccion {
                 get {
                     try {
-                        return ((string)(this[this.tablePeliculas.fechaFinProyeccionColumn]));
+                        return ((global::System.DateTime)(this[this.tablePeliculas.fechaFinProyeccionColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'fechaFinProyeccion\' de la tabla \'Peliculas\' es DBNull.", e);
@@ -1228,10 +1228,10 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string tiene3d {
+            public bool tiene3d {
                 get {
                     try {
-                        return ((string)(this[this.tableSalas.tiene3dColumn]));
+                        return ((bool)(this[this.tableSalas.tiene3dColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'tiene3d\' de la tabla \'Salas\' es DBNull.", e);
@@ -1244,10 +1244,10 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string capacidad {
+            public int capacidad {
                 get {
                     try {
-                        return ((string)(this[this.tableSalas.capacidadColumn]));
+                        return ((int)(this[this.tableSalas.capacidadColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'capacidad\' de la tabla \'Salas\' es DBNull.", e);
