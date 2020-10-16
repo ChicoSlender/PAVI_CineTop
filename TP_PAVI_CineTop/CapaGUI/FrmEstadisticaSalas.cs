@@ -31,6 +31,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] {new ReportParameter("paramCapMin", ""), new ReportParameter("paramCapMax", "") });
             this.reportViewer1.LocalReport.DataSources.Clear();
             this.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSetEstadisticaSalas", servSala.obtenerEstadisticaSalas()));
+            this.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSetCantSalas", servSala.obtenerEstadisticaCantSalas()));
             this.reportViewer1.RefreshReport();
         }
 
@@ -48,6 +49,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             this.reportViewer1.LocalReport.SetParameters(new ReportParameter[] { new ReportParameter("paramCapMin", capMin.ToString()), new ReportParameter("paramCapMax", capMax.ToString()) });
             this.reportViewer1.LocalReport.DataSources.Clear();
             this.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSetEstadisticaSalas", servSala.obtenerEstadisticaSalasFiltrada(capMin, capMax)));
+            this.reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSetCantSalas", servSala.obtenerEstadisticaCantSalasFiltrada(capMin, capMax)));
             this.reportViewer1.RefreshReport();
         }
     }

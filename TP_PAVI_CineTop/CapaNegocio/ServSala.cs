@@ -56,5 +56,8 @@ namespace TP_PAVI_CineTop.CapaNegocio
         {
             return salasDAO.obtenerEstadisticaSalasFiltrada(capMin, capMax);
         }
+
+        public DataTable obtenerEstadisticaCantSalas() => salasDAO.obtenerEstadisticaCantSalas();
+        public DataTable obtenerEstadisticaCantSalasFiltrada(int capMin, int capMax) => salasDAO.obtenerEstadisticaCantSalasFiltrada(capMin, capMax);
     }
 }

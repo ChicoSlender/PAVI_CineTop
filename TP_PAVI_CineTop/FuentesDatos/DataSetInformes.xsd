@@ -44,6 +44,23 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="EstadisticaCantSalas" msprop:Generator_TableClassName="EstadisticaCantSalasDataTable" msprop:Generator_TableVarName="tableEstadisticaCantSalas" msprop:Generator_RowChangedName="EstadisticaCantSalasRowChanged" msprop:Generator_TablePropName="EstadisticaCantSalas" msprop:Generator_RowDeletingName="EstadisticaCantSalasRowDeleting" msprop:Generator_RowChangingName="EstadisticaCantSalasRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaCantSalasRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaCantSalasRowDeleted" msprop:Generator_RowClassName="EstadisticaCantSalasRow" msprop:Generator_UserTableName="EstadisticaCantSalas" msprop:Generator_RowEvArgName="EstadisticaCantSalasRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="ubicacion" msprop:Generator_ColumnVarNameInTable="columnubicacion" msprop:Generator_ColumnPropNameInRow="ubicacion" msprop:Generator_ColumnPropNameInTable="ubicacionColumn" msprop:Generator_UserColumnName="ubicacion" type="xs:string" minOccurs="0" />
+              <xs:element name="tiene3d" msprop:Generator_ColumnVarNameInTable="columntiene3d" msprop:Generator_ColumnPropNameInRow="tiene3d" msprop:Generator_ColumnPropNameInTable="tiene3dColumn" msprop:Generator_UserColumnName="tiene3d" type="xs:boolean" minOccurs="0" />
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EstadisticaCantPeliculasXGenero" msprop:Generator_TableClassName="EstadisticaCantPeliculasXGeneroDataTable" msprop:Generator_TableVarName="tableEstadisticaCantPeliculasXGenero" msprop:Generator_TablePropName="EstadisticaCantPeliculasXGenero" msprop:Generator_RowDeletingName="EstadisticaCantPeliculasXGeneroRowDeleting" msprop:Generator_RowChangingName="EstadisticaCantPeliculasXGeneroRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaCantPeliculasXGeneroRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaCantPeliculasXGeneroRowDeleted" msprop:Generator_UserTableName="EstadisticaCantPeliculasXGenero" msprop:Generator_RowChangedName="EstadisticaCantPeliculasXGeneroRowChanged" msprop:Generator_RowEvArgName="EstadisticaCantPeliculasXGeneroRowChangeEvent" msprop:Generator_RowClassName="EstadisticaCantPeliculasXGeneroRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="genero" msprop:Generator_ColumnVarNameInTable="columngenero" msprop:Generator_ColumnPropNameInRow="genero" msprop:Generator_ColumnPropNameInTable="generoColumn" msprop:Generator_UserColumnName="genero" type="xs:string" minOccurs="0" />
+              <xs:element name="cantidad" msprop:Generator_ColumnVarNameInTable="columncantidad" msprop:Generator_ColumnPropNameInRow="cantidad" msprop:Generator_ColumnPropNameInTable="cantidadColumn" msprop:Generator_UserColumnName="cantidad" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

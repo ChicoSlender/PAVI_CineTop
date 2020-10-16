@@ -140,6 +140,29 @@ namespace TP_PAVI_CineTop.CapaDatos
             return resultado;
         }
 
+        public DataTable obtenerEstadisticaCantSalas()
+        {
+            string consulta = "SELECT u.nombre as ubicacion, s.tiene3d, COUNT(*) as cantidad " +
+                "FROM Sala s JOIN Ubicacion u ON s.id_ubicacion=u.id " +
+                "WHERE s.borrado=0 " +
+                "GROUP BY u.nombre, s.tiene3d";
+            DBHelper.GetDBHelper().conectar();
+            DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consulta);
+            DBHelper.GetDBHelper().desconectar();
+            return resultado;
+        }
+
+        public DataTable obtenerEstadisticaCantSalasFiltrada(int capMin, int capMax)
+        {
+            string consulta = "SELECT u.nombre as ubicacion, s.tiene3d, COUNT(*) as cantidad " +
+                "FROM Sala s JOIN Ubicacion u ON s.id_ubicacion=u.id " +
+                "WHERE s.borrado=0 AND s.capacidad BETWEEN " + capMin + " AND " + capMax + " " +
+                "GROUP BY u.nombre, s.tiene3d";
+            DBHelper.GetDBHelper().conectar();
+            DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consulta);
+            DBHelper.GetDBHelper().desconectar();
+            return resultado;
+        }
         private Sala mapearSala(DataRow fila)
         {
             string nombre = fila["nombre"].ToString();
