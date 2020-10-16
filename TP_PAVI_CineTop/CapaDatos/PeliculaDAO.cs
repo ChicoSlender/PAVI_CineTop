@@ -474,6 +474,82 @@ namespace TP_PAVI_CineTop.CapaDatos
             return tabla;
         }
 
+        public DataTable obtenerEstadisticaPeliculasPorGenero(string estrenoDesde, string estrenoHasta, IList<int> directores, IList<int> generos, int duracionMax)
+        {
+            string consultaSQL = "SELECT g.nombre as genero, COUNT(*) as cantidad " +
+                                    "FROM GenerosXPelicula gxp JOIN Genero g ON gxp.id_genero = g.id JOIN Pelicula p ON p.id = gxp.id_pelicula " +
+                                    "WHERE gxp.borrado = 0 AND p.fechaEstreno BETWEEN '" + estrenoDesde + "' AND '" + estrenoHasta + "' ";
+            if(directores.Count>0)
+            {
+                consultaSQL = consultaSQL + "AND p.id_director IN("+directores[0];
+                for (int i = 1; i < directores.Count; i++)
+                {
+                    consultaSQL = consultaSQL + "," + directores[i] ;
+                }
+                consultaSQL = consultaSQL + ") ";
+            }
+
+            if(generos.Count>0)
+            {
+                consultaSQL = consultaSQL + "AND gxp.id_genero NOT IN (" + generos[0];
+                for (int i = 1; i < generos.Count; i++)
+                {
+                    consultaSQL = consultaSQL + "," + generos[i];
+                }
+                consultaSQL = consultaSQL + ") ";
+            }
+
+            if(duracionMax>0)
+            {
+                consultaSQL = consultaSQL + "AND p.duracion<=" + duracionMax + " ";
+            }
+
+            consultaSQL = consultaSQL + "GROUP BY g.nombre";
+
+            DBHelper.GetDBHelper().conectar();
+            DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
+            return resultado;
+        }
+
+        public DataTable obtenerEstadisticaPeliculasPorGeneroYDirector(string estrenoDesde, string estrenoHasta, IList<int> directores, IList<int> generos, int duracionMax)
+        {
+            string consultaSQL = "SELECT d.nombre as director, g.nombre as genero, COUNT(*) as cantidad " +
+                                    "FROM GenerosXPelicula gxp JOIN Genero g ON gxp.id_genero = g.id JOIN Pelicula p ON p.id = gxp.id_pelicula JOIN Director d ON d.id=p.id_director " +
+                                    "WHERE gxp.borrado = 0 AND p.fechaEstreno BETWEEN '" + estrenoDesde + "' AND '" + estrenoHasta + "' ";
+            if (directores.Count > 0)
+            {
+                consultaSQL = consultaSQL + "AND p.id_director IN(" + directores[0];
+                for (int i = 1; i < directores.Count; i++)
+                {
+                    consultaSQL = consultaSQL + "," + directores[i];
+                }
+                consultaSQL = consultaSQL + ") ";
+            }
+
+            if (generos.Count > 0)
+            {
+                consultaSQL = consultaSQL + "AND gxp.id_genero NOT IN (" + generos[0];
+                for (int i = 1; i < generos.Count; i++)
+                {
+                    consultaSQL = consultaSQL + "," + generos[i];
+                }
+                consultaSQL = consultaSQL + ") ";
+            }
+
+            if (duracionMax > 0)
+            {
+                consultaSQL = consultaSQL + "AND p.duracion<=" + duracionMax + " ";
+            }
+
+            consultaSQL = consultaSQL + "GROUP BY d.nombre, g.nombre";
+
+            DBHelper.GetDBHelper().conectar();
+            DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
+            return resultado;
+        }
+
         private Pelicula mapearPelicula(DataRow fila)
         {
             int id = Convert.ToInt32(fila["id"]);

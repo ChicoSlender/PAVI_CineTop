@@ -4,6 +4,14 @@
 
     public partial class DataSetInformes
     {
+        partial class EstadisticaCantPeliculasXGeneroXDirectorDataTable
+        {
+        }
+
+        partial class EstadisticaCantPeliculasXGeneroDataTable
+        {
+        }
+
         partial class EstadisticaSalasDataTable
         {
         }

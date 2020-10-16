@@ -34,6 +34,8 @@ namespace TP_PAVI_CineTop.FuentesDatos {
         
         private EstadisticaCantPeliculasXGeneroDataTable tableEstadisticaCantPeliculasXGenero;
         
+        private EstadisticaCantPeliculasXGeneroXDirectorDataTable tableEstadisticaCantPeliculasXGeneroXDirector;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -76,6 +78,9 @@ namespace TP_PAVI_CineTop.FuentesDatos {
                 }
                 if ((ds.Tables["EstadisticaCantPeliculasXGenero"] != null)) {
                     base.Tables.Add(new EstadisticaCantPeliculasXGeneroDataTable(ds.Tables["EstadisticaCantPeliculasXGenero"]));
+                }
+                if ((ds.Tables["EstadisticaCantPeliculasXGeneroXDirector"] != null)) {
+                    base.Tables.Add(new EstadisticaCantPeliculasXGeneroXDirectorDataTable(ds.Tables["EstadisticaCantPeliculasXGeneroXDirector"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -142,6 +147,16 @@ namespace TP_PAVI_CineTop.FuentesDatos {
         public EstadisticaCantPeliculasXGeneroDataTable EstadisticaCantPeliculasXGenero {
             get {
                 return this.tableEstadisticaCantPeliculasXGenero;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public EstadisticaCantPeliculasXGeneroXDirectorDataTable EstadisticaCantPeliculasXGeneroXDirector {
+            get {
+                return this.tableEstadisticaCantPeliculasXGeneroXDirector;
             }
         }
         
@@ -227,6 +242,9 @@ namespace TP_PAVI_CineTop.FuentesDatos {
                 if ((ds.Tables["EstadisticaCantPeliculasXGenero"] != null)) {
                     base.Tables.Add(new EstadisticaCantPeliculasXGeneroDataTable(ds.Tables["EstadisticaCantPeliculasXGenero"]));
                 }
+                if ((ds.Tables["EstadisticaCantPeliculasXGeneroXDirector"] != null)) {
+                    base.Tables.Add(new EstadisticaCantPeliculasXGeneroXDirectorDataTable(ds.Tables["EstadisticaCantPeliculasXGeneroXDirector"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -290,6 +308,12 @@ namespace TP_PAVI_CineTop.FuentesDatos {
                     this.tableEstadisticaCantPeliculasXGenero.InitVars();
                 }
             }
+            this.tableEstadisticaCantPeliculasXGeneroXDirector = ((EstadisticaCantPeliculasXGeneroXDirectorDataTable)(base.Tables["EstadisticaCantPeliculasXGeneroXDirector"]));
+            if ((initTable == true)) {
+                if ((this.tableEstadisticaCantPeliculasXGeneroXDirector != null)) {
+                    this.tableEstadisticaCantPeliculasXGeneroXDirector.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -310,6 +334,8 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             base.Tables.Add(this.tableEstadisticaCantSalas);
             this.tableEstadisticaCantPeliculasXGenero = new EstadisticaCantPeliculasXGeneroDataTable();
             base.Tables.Add(this.tableEstadisticaCantPeliculasXGenero);
+            this.tableEstadisticaCantPeliculasXGeneroXDirector = new EstadisticaCantPeliculasXGeneroXDirectorDataTable();
+            base.Tables.Add(this.tableEstadisticaCantPeliculasXGeneroXDirector);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -339,6 +365,12 @@ namespace TP_PAVI_CineTop.FuentesDatos {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeEstadisticaCantPeliculasXGenero() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeEstadisticaCantPeliculasXGeneroXDirector() {
             return false;
         }
         
@@ -411,6 +443,9 @@ namespace TP_PAVI_CineTop.FuentesDatos {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void EstadisticaCantPeliculasXGeneroRowChangeEventHandler(object sender, EstadisticaCantPeliculasXGeneroRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void EstadisticaCantPeliculasXGeneroXDirectorRowChangeEventHandler(object sender, EstadisticaCantPeliculasXGeneroXDirectorRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1679,7 +1714,7 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public EstadisticaCantPeliculasXGeneroRow AddEstadisticaCantPeliculasXGeneroRow(string genero, string cantidad) {
+            public EstadisticaCantPeliculasXGeneroRow AddEstadisticaCantPeliculasXGeneroRow(string genero, int cantidad) {
                 EstadisticaCantPeliculasXGeneroRow rowEstadisticaCantPeliculasXGeneroRow = ((EstadisticaCantPeliculasXGeneroRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         genero,
@@ -1715,7 +1750,7 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             private void InitClass() {
                 this.columngenero = new global::System.Data.DataColumn("genero", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columngenero);
-                this.columncantidad = new global::System.Data.DataColumn("cantidad", typeof(string), null, global::System.Data.MappingType.Element);
+                this.columncantidad = new global::System.Data.DataColumn("cantidad", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncantidad);
             }
             
@@ -1803,6 +1838,281 @@ namespace TP_PAVI_CineTop.FuentesDatos {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "EstadisticaCantPeliculasXGeneroDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class EstadisticaCantPeliculasXGeneroXDirectorDataTable : global::System.Data.TypedTableBase<EstadisticaCantPeliculasXGeneroXDirectorRow> {
+            
+            private global::System.Data.DataColumn columndirector;
+            
+            private global::System.Data.DataColumn columngenero;
+            
+            private global::System.Data.DataColumn columncantidad;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EstadisticaCantPeliculasXGeneroXDirectorDataTable() {
+                this.TableName = "EstadisticaCantPeliculasXGeneroXDirector";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal EstadisticaCantPeliculasXGeneroXDirectorDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected EstadisticaCantPeliculasXGeneroXDirectorDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn directorColumn {
+                get {
+                    return this.columndirector;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn generoColumn {
+                get {
+                    return this.columngenero;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn cantidadColumn {
+                get {
+                    return this.columncantidad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EstadisticaCantPeliculasXGeneroXDirectorRow this[int index] {
+                get {
+                    return ((EstadisticaCantPeliculasXGeneroXDirectorRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event EstadisticaCantPeliculasXGeneroXDirectorRowChangeEventHandler EstadisticaCantPeliculasXGeneroXDirectorRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event EstadisticaCantPeliculasXGeneroXDirectorRowChangeEventHandler EstadisticaCantPeliculasXGeneroXDirectorRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event EstadisticaCantPeliculasXGeneroXDirectorRowChangeEventHandler EstadisticaCantPeliculasXGeneroXDirectorRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event EstadisticaCantPeliculasXGeneroXDirectorRowChangeEventHandler EstadisticaCantPeliculasXGeneroXDirectorRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddEstadisticaCantPeliculasXGeneroXDirectorRow(EstadisticaCantPeliculasXGeneroXDirectorRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EstadisticaCantPeliculasXGeneroXDirectorRow AddEstadisticaCantPeliculasXGeneroXDirectorRow(string director, string genero, int cantidad) {
+                EstadisticaCantPeliculasXGeneroXDirectorRow rowEstadisticaCantPeliculasXGeneroXDirectorRow = ((EstadisticaCantPeliculasXGeneroXDirectorRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        director,
+                        genero,
+                        cantidad};
+                rowEstadisticaCantPeliculasXGeneroXDirectorRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowEstadisticaCantPeliculasXGeneroXDirectorRow);
+                return rowEstadisticaCantPeliculasXGeneroXDirectorRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                EstadisticaCantPeliculasXGeneroXDirectorDataTable cln = ((EstadisticaCantPeliculasXGeneroXDirectorDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new EstadisticaCantPeliculasXGeneroXDirectorDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columndirector = base.Columns["director"];
+                this.columngenero = base.Columns["genero"];
+                this.columncantidad = base.Columns["cantidad"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columndirector = new global::System.Data.DataColumn("director", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndirector);
+                this.columngenero = new global::System.Data.DataColumn("genero", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columngenero);
+                this.columncantidad = new global::System.Data.DataColumn("cantidad", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncantidad);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EstadisticaCantPeliculasXGeneroXDirectorRow NewEstadisticaCantPeliculasXGeneroXDirectorRow() {
+                return ((EstadisticaCantPeliculasXGeneroXDirectorRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new EstadisticaCantPeliculasXGeneroXDirectorRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(EstadisticaCantPeliculasXGeneroXDirectorRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.EstadisticaCantPeliculasXGeneroXDirectorRowChanged != null)) {
+                    this.EstadisticaCantPeliculasXGeneroXDirectorRowChanged(this, new EstadisticaCantPeliculasXGeneroXDirectorRowChangeEvent(((EstadisticaCantPeliculasXGeneroXDirectorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.EstadisticaCantPeliculasXGeneroXDirectorRowChanging != null)) {
+                    this.EstadisticaCantPeliculasXGeneroXDirectorRowChanging(this, new EstadisticaCantPeliculasXGeneroXDirectorRowChangeEvent(((EstadisticaCantPeliculasXGeneroXDirectorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.EstadisticaCantPeliculasXGeneroXDirectorRowDeleted != null)) {
+                    this.EstadisticaCantPeliculasXGeneroXDirectorRowDeleted(this, new EstadisticaCantPeliculasXGeneroXDirectorRowChangeEvent(((EstadisticaCantPeliculasXGeneroXDirectorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.EstadisticaCantPeliculasXGeneroXDirectorRowDeleting != null)) {
+                    this.EstadisticaCantPeliculasXGeneroXDirectorRowDeleting(this, new EstadisticaCantPeliculasXGeneroXDirectorRowChangeEvent(((EstadisticaCantPeliculasXGeneroXDirectorRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveEstadisticaCantPeliculasXGeneroXDirectorRow(EstadisticaCantPeliculasXGeneroXDirectorRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSetInformes ds = new DataSetInformes();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "EstadisticaCantPeliculasXGeneroXDirectorDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2413,10 +2723,10 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public string cantidad {
+            public int cantidad {
                 get {
                     try {
-                        return ((string)(this[this.tableEstadisticaCantPeliculasXGenero.cantidadColumn]));
+                        return ((int)(this[this.tableEstadisticaCantPeliculasXGenero.cantidadColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'cantidad\' de la tabla \'EstadisticaCantPeliculasXGenero\' e" +
@@ -2450,6 +2760,108 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public void SetcantidadNull() {
                 this[this.tableEstadisticaCantPeliculasXGenero.cantidadColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class EstadisticaCantPeliculasXGeneroXDirectorRow : global::System.Data.DataRow {
+            
+            private EstadisticaCantPeliculasXGeneroXDirectorDataTable tableEstadisticaCantPeliculasXGeneroXDirector;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal EstadisticaCantPeliculasXGeneroXDirectorRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableEstadisticaCantPeliculasXGeneroXDirector = ((EstadisticaCantPeliculasXGeneroXDirectorDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string director {
+                get {
+                    try {
+                        return ((string)(this[this.tableEstadisticaCantPeliculasXGeneroXDirector.directorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'director\' de la tabla \'EstadisticaCantPeliculasXGeneroXDi" +
+                                "rector\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadisticaCantPeliculasXGeneroXDirector.directorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string genero {
+                get {
+                    try {
+                        return ((string)(this[this.tableEstadisticaCantPeliculasXGeneroXDirector.generoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'genero\' de la tabla \'EstadisticaCantPeliculasXGeneroXDire" +
+                                "ctor\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadisticaCantPeliculasXGeneroXDirector.generoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int cantidad {
+                get {
+                    try {
+                        return ((int)(this[this.tableEstadisticaCantPeliculasXGeneroXDirector.cantidadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'cantidad\' de la tabla \'EstadisticaCantPeliculasXGeneroXDi" +
+                                "rector\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEstadisticaCantPeliculasXGeneroXDirector.cantidadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsdirectorNull() {
+                return this.IsNull(this.tableEstadisticaCantPeliculasXGeneroXDirector.directorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetdirectorNull() {
+                this[this.tableEstadisticaCantPeliculasXGeneroXDirector.directorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsgeneroNull() {
+                return this.IsNull(this.tableEstadisticaCantPeliculasXGeneroXDirector.generoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetgeneroNull() {
+                this[this.tableEstadisticaCantPeliculasXGeneroXDirector.generoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IscantidadNull() {
+                return this.IsNull(this.tableEstadisticaCantPeliculasXGeneroXDirector.cantidadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetcantidadNull() {
+                this[this.tableEstadisticaCantPeliculasXGeneroXDirector.cantidadColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -2609,6 +3021,40 @@ namespace TP_PAVI_CineTop.FuentesDatos {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public EstadisticaCantPeliculasXGeneroRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class EstadisticaCantPeliculasXGeneroXDirectorRowChangeEvent : global::System.EventArgs {
+            
+            private EstadisticaCantPeliculasXGeneroXDirectorRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EstadisticaCantPeliculasXGeneroXDirectorRowChangeEvent(EstadisticaCantPeliculasXGeneroXDirectorRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public EstadisticaCantPeliculasXGeneroXDirectorRow Row {
                 get {
                     return this.eventRow;
                 }

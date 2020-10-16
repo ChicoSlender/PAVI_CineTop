@@ -46,5 +46,19 @@ namespace TP_PAVI_CineTop.CapaNegocio
             string fechaHastaStr = fechaHasta.ToString("yyyy-MM-dd");
             return dao.obtenerTablaPeliculaExtendidaFiltrada(fechaDesdeStr, fechaHastaStr, id_director, id_pais);
         }
+
+        public DataTable obtenerEstadisticaPeliculasPorGenero(DateTime estrenoDesde, DateTime estrenoHasta, IList<int> directores, IList<int> generos, int duracionMax)
+        {
+            string estrenoDesdeStr = estrenoDesde.ToString("yyyy-MM-dd");
+            string estrenoHastaStr = estrenoHasta.ToString("yyyy-MM-dd");
+            return dao.obtenerEstadisticaPeliculasPorGenero(estrenoDesdeStr, estrenoHastaStr, directores, generos, duracionMax);
+        }
+
+        public DataTable obtenerEstadisticaPeliculasPorGeneroYDirector(DateTime estrenoDesde, DateTime estrenoHasta, IList<int> directores, IList<int> generos, int duracionMax)
+        {
+            string estrenoDesdeStr = estrenoDesde.ToString("yyyy-MM-dd");
+            string estrenoHastaStr = estrenoHasta.ToString("yyyy-MM-dd");
+            return dao.obtenerEstadisticaPeliculasPorGeneroYDirector(estrenoDesdeStr, estrenoHastaStr, directores, generos, duracionMax);
+        }
     }
 }
