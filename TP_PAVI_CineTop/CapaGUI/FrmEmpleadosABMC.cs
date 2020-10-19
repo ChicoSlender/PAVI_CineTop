@@ -189,7 +189,15 @@ namespace TP_PAVI_CineTop.CapaGUI
             int legajo = Convert.ToInt32(txtLegajo.Text);
             string usuario = txtUsuario.Text;
             int idTipoDoc = Convert.ToInt32(cmbTipoDocumento.SelectedValue);
-            int nroDoc = Convert.ToInt32(txtDocumento.Text);
+            int nroDoc;
+            if(Convert.ToInt32(cmbTipoDocumento.SelectedValue) != 2)
+            {
+                nroDoc = Convert.ToInt32(txtDocumento.Text);
+            }
+            else
+            {
+                nroDoc = Convert.ToInt32(txtDocumento.Text.Replace("-", ""));
+            }
             string nombre = txtNombre.Text;
             string apellido = txtApellido.Text;
             DateTime fechaIngreso = dtpFechaIngreso.Value;
