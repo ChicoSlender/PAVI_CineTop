@@ -43,6 +43,10 @@ namespace TP_PAVI_CineTop.CapaNegocio
             return dao.obtenerPromoID(id) != null;
         }
 
+        public DataTable obtenerTablaPromosFiltrada(DateTime fechaDesde, DateTime fechaHasta)
+        {
+            return dao.obtenerTablaPromosFiltrada(fechaDesde, fechaHasta);
+        }
 
     }
 }

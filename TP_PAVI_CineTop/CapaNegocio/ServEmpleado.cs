@@ -46,5 +46,10 @@ namespace TP_PAVI_CineTop.CapaNegocio
         {
             return dao.borrarEmpleado(legajo);
         }
+
+        public DataTable obtenerTablaEmpleadosFiltrada(DateTime fechaDesde, DateTime fechaHasta)
+        {
+            return dao.obtenerTablaEmpleadosFiltrada(fechaDesde, fechaHasta);
+        }
     }
 }

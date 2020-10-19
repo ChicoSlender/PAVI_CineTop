@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TP_PAVI_CineTop.Entidades;
 using System.Data;
+using System.Windows.Forms;
 
 namespace TP_PAVI_CineTop.CapaDatos
 {
@@ -28,18 +29,18 @@ namespace TP_PAVI_CineTop.CapaDatos
 
         internal Empleado obtenerEmpleado(int legajo)
         {
-            string consultaSQL = "SELECT * FROM Empleado WHERE borrado=0 AND legajo="+legajo;
+            string consultaSQL = "SELECT * FROM Empleado WHERE borrado=0 AND legajo=" + legajo;
             DBHelper.GetDBHelper().conectar();
             DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
             DBHelper.GetDBHelper().desconectar();
 
-            if(resultado.Rows.Count>0)
+            if (resultado.Rows.Count > 0)
             {
                 return mapearEmpleado(resultado.Rows[0]);
             }
             else
             {
-                return new Empleado(0,1,0,"","",DateTime.Today,"");
+                return new Empleado(0, 1, 0, "", "", DateTime.Today, "");
             }
         }
 
@@ -60,7 +61,7 @@ namespace TP_PAVI_CineTop.CapaDatos
                                                 empleado.IdTipoDoc + ", " +
                                                 empleado.NroDoc + ", " +
                                                 "'" + empleado.Nombre + "', " +
-                                                "'" + empleado.Apellido + "', " + 
+                                                "'" + empleado.Apellido + "', " +
                                                 "'" + empleado.FechaIngreso.ToString("yyyy-MM-dd") + "', " +
                                                 "'" + empleado.NombreUsuario + "', 0)";
             DBHelper.GetDBHelper().conectar();
@@ -105,5 +106,17 @@ namespace TP_PAVI_CineTop.CapaDatos
 
             return new Empleado(legajo, idTipoDoc, dni, nombre, apellido, fechaIngreso, nombreUsuario);
         }
+
+        public DataTable obtenerTablaEmpleadosFiltrada(DateTime fechaDesde, DateTime fechaHasta)
+        {
+            string consultaSQL = "SELECT legajo, nombre, apellido, nombreUsuario, fechaIngreso from Empleado WHERE borrado=0 AND fechaIngreso BETWEEN '" + fechaDesde.ToString("yyyy-MM-dd") + "' AND '" + fechaHasta.ToString("yyyy-MM-dd")+"'";
+            DBHelper.GetDBHelper().conectar();
+            DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
+
+            return resultado;
+        }
+
+
     }
 }

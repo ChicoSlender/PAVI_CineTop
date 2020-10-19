@@ -118,11 +118,23 @@
     <Compile Include="CapaGUI\FrmPromosABMC.Designer.cs">
       <DependentUpon>FrmPromosABMC.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaGUI\FrmReporteEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaGUI\FrmReporteEmpleados.Designer.cs">
+      <DependentUpon>FrmReporteEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaGUI\FrmReportePeliculas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="CapaGUI\FrmReportePeliculas.Designer.cs">
       <DependentUpon>FrmReportePeliculas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapaGUI\FrmReportePromos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaGUI\FrmReportePromos.Designer.cs">
+      <DependentUpon>FrmReportePromos.cs</DependentUpon>
     </Compile>
     <Compile Include="CapaGUI\FrmReporteSalas.cs">
       <SubType>Form</SubType>
@@ -199,8 +211,14 @@
     <EmbeddedResource Include="CapaGUI\FrmPromosABMC.resx">
       <DependentUpon>FrmPromosABMC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CapaGUI\FrmReporteEmpleados.resx">
+      <DependentUpon>FrmReporteEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CapaGUI\FrmReportePeliculas.resx">
       <DependentUpon>FrmReportePeliculas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapaGUI\FrmReportePromos.resx">
+      <DependentUpon>FrmReportePromos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CapaGUI\FrmReporteSalas.resx">
       <DependentUpon>FrmReporteSalas.cs</DependentUpon>
@@ -223,6 +241,8 @@
     </Compile>
     <EmbeddedResource Include="Reportes\EstadisticaPeliculasXGenero.rdlc" />
     <EmbeddedResource Include="Reportes\EstadisticaSalas.rdlc" />
+    <EmbeddedResource Include="Reportes\ReportePromos.rdlc" />
+    <EmbeddedResource Include="Reportes\ReporteEmpleados.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteSalas.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePeliculas.rdlc" />
     <None Include="FuentesDatos\DataSetInformes.xsc">
