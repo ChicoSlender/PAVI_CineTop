@@ -37,11 +37,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>legajo</Value>
-                              <Style />
+                              <Value>Legajo</Value>
+                              <Style>
+                                <FontWeight>SemiBold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox13</rd:DefaultName>
@@ -67,11 +71,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>id tipo Doc</Value>
-                              <Style />
+                              <Value>ID tipo documento</Value>
+                              <Style>
+                                <FontWeight>SemiBold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox15</rd:DefaultName>
@@ -97,11 +105,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>nombre</Value>
-                              <Style />
+                              <Value>Nombre</Value>
+                              <Style>
+                                <FontWeight>SemiBold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox17</rd:DefaultName>
@@ -127,11 +139,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>apellido</Value>
-                              <Style />
+                              <Value>Apellido</Value>
+                              <Style>
+                                <FontWeight>SemiBold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox19</rd:DefaultName>
@@ -157,11 +173,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>fecha Ingreso</Value>
-                              <Style />
+                              <Value>Fecha de Ingreso</Value>
+                              <Style>
+                                <FontWeight>SemiBold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox25</rd:DefaultName>
@@ -187,11 +207,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>nombre Usuario</Value>
-                              <Style />
+                              <Value>Nombre de usuario</Value>
+                              <Style>
+                                <FontWeight>SemiBold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox23</rd:DefaultName>
@@ -342,7 +366,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!fechaIngreso.Value</Value>
+                              <Value>=FormatDateTime(Fields!fechaIngreso.Value, DateFormat.ShortDate)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>

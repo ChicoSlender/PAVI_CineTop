@@ -109,7 +109,7 @@ namespace TP_PAVI_CineTop.CapaDatos
 
         public DataTable obtenerTablaEmpleadosFiltrada(DateTime fechaDesde, DateTime fechaHasta)
         {
-            string consultaSQL = "SELECT legajo, nombre, apellido, nombreUsuario, fechaIngreso from Empleado WHERE borrado=0 AND fechaIngreso BETWEEN '" + fechaDesde.ToString("yyyy-MM-dd") + "' AND '" + fechaHasta.ToString("yyyy-MM-dd")+"'";
+            string consultaSQL = "SELECT legajo, id_tipoDoc, nombre, apellido, nombreUsuario, fechaIngreso from Empleado WHERE borrado=0 AND fechaIngreso BETWEEN '" + fechaDesde.ToString("yyyy-MM-dd") + "' AND '" + fechaHasta.ToString("yyyy-MM-dd")+"'";
             DBHelper.GetDBHelper().conectar();
             DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
             DBHelper.GetDBHelper().desconectar();

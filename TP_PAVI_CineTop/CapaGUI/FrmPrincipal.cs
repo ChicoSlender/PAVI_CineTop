@@ -83,5 +83,23 @@ namespace TP_PAVI_CineTop.CapaGUI
             FrmEstadisticaSalas frmEstadisticaSalas = new FrmEstadisticaSalas();
             frmEstadisticaSalas.ShowDialog();
         }
+
+        private void promosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmReportePromos frmReportePromos = new FrmReportePromos();
+            frmReportePromos.ShowDialog();
+        }
+
+        private void empleadosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmReporteEmpleados frmReporteEmpleados = new FrmReporteEmpleados();
+            frmReporteEmpleados.ShowDialog();
+        }
+
+        private void peliculasPorGéneroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEstadisticaPeliculas frmEstadisticaPeliculas = new FrmEstadisticaPeliculas();
+            frmEstadisticaPeliculas.ShowDialog();
+        }
     }
 }

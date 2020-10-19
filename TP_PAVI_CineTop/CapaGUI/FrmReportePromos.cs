@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ namespace TP_PAVI_CineTop.CapaGUI
 {
     public partial class FrmReportePromos : Form
     {
+        ServPromo servPromo = new ServPromo();
         public FrmReportePromos()
         {
             InitializeComponent();
@@ -41,11 +43,9 @@ namespace TP_PAVI_CineTop.CapaGUI
                     return;
                 }
                 reportViewer1.LocalReport.DataSources.Clear();
-                reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSetPromos", servPromos.obtenerTablaPromosFiltrada(fechaDesde, fechaHasta)));
+                reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("TablaPromo", servPromo.obtenerTablaPromosFiltrada(fechaDesde, fechaHasta)));
                 reportViewer1.RefreshReport();
             }
-
-            ServPromo servPromo = new ServPromo();
         }
     }
 }

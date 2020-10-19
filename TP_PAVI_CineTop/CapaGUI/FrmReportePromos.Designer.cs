@@ -29,27 +29,43 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.dataSetInformes = new TP_PAVI_CineTop.FuentesDatos.DataSetInformes();
-            this.dataSetInformesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReportePromos));
             this.promoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetInformesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataSetInformes = new TP_PAVI_CineTop.FuentesDatos.DataSetInformes();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.promoTableAdapter = new TP_PAVI_CineTop.FuentesDatos.DataSetInformesTableAdapters.PromoTableAdapter();
             this.BtnFiltrar = new System.Windows.Forms.Button();
             this.dtpHasta = new System.Windows.Forms.DateTimePicker();
             this.dtpDesde = new System.Windows.Forms.DateTimePicker();
             this.LblFechaHasta = new System.Windows.Forms.Label();
             this.LblFechaDesde = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInformes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInformesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.promoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInformesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInformes)).BeginInit();
             this.SuspendLayout();
+            // 
+            // promoBindingSource
+            // 
+            this.promoBindingSource.DataMember = "Promo";
+            this.promoBindingSource.DataSource = this.dataSetInformesBindingSource;
+            // 
+            // dataSetInformesBindingSource
+            // 
+            this.dataSetInformesBindingSource.DataSource = this.dataSetInformes;
+            this.dataSetInformesBindingSource.Position = 0;
+            // 
+            // dataSetInformes
+            // 
+            this.dataSetInformes.DataSetName = "DataSetInformes";
+            this.dataSetInformes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
-            reportDataSource2.Name = "TablaPromo";
-            reportDataSource2.Value = this.promoBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource2);
+            reportDataSource1.Name = "TablaPromo";
+            reportDataSource1.Value = this.promoBindingSource;
+            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "TP_PAVI_CineTop.Reportes.ReportePromos.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(12, 155);
             this.reportViewer1.Name = "reportViewer1";
@@ -57,33 +73,23 @@
             this.reportViewer1.Size = new System.Drawing.Size(776, 283);
             this.reportViewer1.TabIndex = 0;
             // 
-            // dataSetInformes
-            // 
-            this.dataSetInformes.DataSetName = "DataSetInformes";
-            this.dataSetInformes.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // dataSetInformesBindingSource
-            // 
-            this.dataSetInformesBindingSource.DataSource = this.dataSetInformes;
-            this.dataSetInformesBindingSource.Position = 0;
-            // 
-            // promoBindingSource
-            // 
-            this.promoBindingSource.DataMember = "Promo";
-            this.promoBindingSource.DataSource = this.dataSetInformesBindingSource;
-            // 
             // promoTableAdapter
             // 
             this.promoTableAdapter.ClearBeforeFill = true;
             // 
             // BtnFiltrar
             // 
+            this.BtnFiltrar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnFiltrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnFiltrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.BtnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnFiltrar.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.BtnFiltrar.Location = new System.Drawing.Point(397, 46);
             this.BtnFiltrar.Name = "BtnFiltrar";
             this.BtnFiltrar.Size = new System.Drawing.Size(75, 23);
             this.BtnFiltrar.TabIndex = 10;
             this.BtnFiltrar.Text = "Filtrar";
-            this.BtnFiltrar.UseVisualStyleBackColor = true;
+            this.BtnFiltrar.UseVisualStyleBackColor = false;
             this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click_1);
             // 
             // dtpHasta
@@ -122,6 +128,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.BtnFiltrar);
             this.Controls.Add(this.dtpHasta);
@@ -129,12 +136,13 @@
             this.Controls.Add(this.LblFechaHasta);
             this.Controls.Add(this.LblFechaDesde);
             this.Controls.Add(this.reportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmReportePromos";
             this.Text = "Reporte de Promociones";
             this.Load += new System.EventHandler(this.FrmReportePromos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInformes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataSetInformesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.promoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInformesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataSetInformes)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

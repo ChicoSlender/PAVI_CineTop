@@ -77,8 +77,11 @@ namespace TP_PAVI_CineTop.CapaDatos
         }
 
         public DataTable obtenerTablaPromosFiltrada(DateTime fechaDesde, DateTime fechaHasta)
-        {                                                                                         //JUSTO ACÁ NO SE COMO HACER PARA FILTRAR LA FECHA - HELP BENJA
-            string consultaSQL = "SELECT id, id_epoca, precio_menores, precio_mayores from Empleado WHERE borrado=0 AND AyudaBenja! BETWEEN '" + fechaDesde.ToString("yyyy-MM-dd") + "' AND '" + fechaHasta.ToString("yyyy-MM-dd") + "'";
+        {
+            string consultaSQL = "SELECT id, id_epoca, vigencia_desde, vigencia_hasta, precio_menores, precio_mayores FROM Promo WHERE borrado=0 " +
+                "AND (vigencia_desde BETWEEN '" + fechaDesde.ToString("yyyy-MM-dd") + "' AND '" + fechaHasta.ToString("yyyy-MM-dd") + "' " +
+                "OR vigencia_hasta BETWEEN '" + fechaDesde.ToString("yyyy-MM-dd") + "' AND '" + fechaHasta.ToString("yyyy-MM-dd") + "' " +
+                "OR vigencia_desde <= '" + fechaDesde.ToString("yyyy-MM-dd") + "' AND vigencia_hasta >= '" + fechaHasta.ToString("yyyy-MM-dd") + "')";
             DBHelper.GetDBHelper().conectar();
             DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
             DBHelper.GetDBHelper().desconectar();

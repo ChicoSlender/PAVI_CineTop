@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmReporteEmpleados));
             this.empleadoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new TP_PAVI_CineTop.FuentesDatos.DataSetInformes();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
@@ -108,18 +109,24 @@
             // 
             // BtnFiltrar
             // 
+            this.BtnFiltrar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.BtnFiltrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.BtnFiltrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.BtnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnFiltrar.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.BtnFiltrar.Location = new System.Drawing.Point(411, 49);
             this.BtnFiltrar.Name = "BtnFiltrar";
             this.BtnFiltrar.Size = new System.Drawing.Size(75, 23);
             this.BtnFiltrar.TabIndex = 5;
             this.BtnFiltrar.Text = "Filtrar";
-            this.BtnFiltrar.UseVisualStyleBackColor = true;
+            this.BtnFiltrar.UseVisualStyleBackColor = false;
             this.BtnFiltrar.Click += new System.EventHandler(this.BtnFiltrar_Click);
             // 
             // FrmReporteEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.BtnFiltrar);
             this.Controls.Add(this.dtpHasta);
@@ -127,6 +134,7 @@
             this.Controls.Add(this.LblFechaAltasHasta);
             this.Controls.Add(this.LblFechaAltasDesde);
             this.Controls.Add(this.reportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmReporteEmpleados";
             this.Text = "Reporte de Empleados";
             this.Load += new System.EventHandler(this.FrmReporteEmpleados_Load);

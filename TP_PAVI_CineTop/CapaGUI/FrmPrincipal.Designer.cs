@@ -39,10 +39,13 @@
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.peliculasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.promosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.empleadosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.estadísticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.capacidadDeSalasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imgLogo = new System.Windows.Forms.PictureBox();
             this.lblBienvenida = new System.Windows.Forms.Label();
+            this.peliculasPorGéneroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.SuspendLayout();
@@ -119,9 +122,12 @@
             // 
             // reportesToolStripMenuItem
             // 
+            this.reportesToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.peliculasToolStripMenuItem,
-            this.salasToolStripMenuItem});
+            this.salasToolStripMenuItem,
+            this.promosToolStripMenuItem1,
+            this.empleadosToolStripMenuItem1});
             this.reportesToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             this.reportesToolStripMenuItem.Size = new System.Drawing.Size(65, 20);
@@ -132,7 +138,7 @@
             this.peliculasToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.peliculasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.peliculasToolStripMenuItem.Name = "peliculasToolStripMenuItem";
-            this.peliculasToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.peliculasToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.peliculasToolStripMenuItem.Text = "Peliculas";
             this.peliculasToolStripMenuItem.Click += new System.EventHandler(this.peliculasToolStripMenuItem_Click);
             // 
@@ -141,15 +147,34 @@
             this.salasToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.salasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.salasToolStripMenuItem.Name = "salasToolStripMenuItem";
-            this.salasToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.salasToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.salasToolStripMenuItem.Text = "Salas";
             this.salasToolStripMenuItem.Click += new System.EventHandler(this.salasToolStripMenuItem_Click);
+            // 
+            // promosToolStripMenuItem1
+            // 
+            this.promosToolStripMenuItem1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.promosToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.promosToolStripMenuItem1.Name = "promosToolStripMenuItem1";
+            this.promosToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
+            this.promosToolStripMenuItem1.Text = "Promos";
+            this.promosToolStripMenuItem1.Click += new System.EventHandler(this.promosToolStripMenuItem1_Click);
+            // 
+            // empleadosToolStripMenuItem1
+            // 
+            this.empleadosToolStripMenuItem1.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.empleadosToolStripMenuItem1.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.empleadosToolStripMenuItem1.Name = "empleadosToolStripMenuItem1";
+            this.empleadosToolStripMenuItem1.Size = new System.Drawing.Size(132, 22);
+            this.empleadosToolStripMenuItem1.Text = "Empleados";
+            this.empleadosToolStripMenuItem1.Click += new System.EventHandler(this.empleadosToolStripMenuItem1_Click);
             // 
             // estadísticasToolStripMenuItem
             // 
             this.estadísticasToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.estadísticasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.capacidadDeSalasToolStripMenuItem});
+            this.capacidadDeSalasToolStripMenuItem,
+            this.peliculasPorGéneroToolStripMenuItem});
             this.estadísticasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.estadísticasToolStripMenuItem.Name = "estadísticasToolStripMenuItem";
             this.estadísticasToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
@@ -160,7 +185,7 @@
             this.capacidadDeSalasToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.capacidadDeSalasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.capacidadDeSalasToolStripMenuItem.Name = "capacidadDeSalasToolStripMenuItem";
-            this.capacidadDeSalasToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.capacidadDeSalasToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.capacidadDeSalasToolStripMenuItem.Text = "Salas";
             this.capacidadDeSalasToolStripMenuItem.Click += new System.EventHandler(this.capacidadDeSalasToolStripMenuItem_Click);
             // 
@@ -184,6 +209,15 @@
             this.lblBienvenida.TabIndex = 2;
             this.lblBienvenida.Text = "Bienvenido de nuevo";
             this.lblBienvenida.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // peliculasPorGéneroToolStripMenuItem
+            // 
+            this.peliculasPorGéneroToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.peliculasPorGéneroToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.peliculasPorGéneroToolStripMenuItem.Name = "peliculasPorGéneroToolStripMenuItem";
+            this.peliculasPorGéneroToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.peliculasPorGéneroToolStripMenuItem.Text = "Peliculas por género";
+            this.peliculasPorGéneroToolStripMenuItem.Click += new System.EventHandler(this.peliculasPorGéneroToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -226,6 +260,9 @@
         private System.Windows.Forms.Label lblBienvenida;
         private System.Windows.Forms.ToolStripMenuItem estadísticasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem capacidadDeSalasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem promosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem peliculasPorGéneroToolStripMenuItem;
     }
 }
 

@@ -37,11 +37,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>id</Value>
-                              <Style />
+                              <Value>ID</Value>
+                              <Style>
+                                <FontWeight>SemiBold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox15</rd:DefaultName>
@@ -67,11 +71,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>id epoca</Value>
-                              <Style />
+                              <Value>ID época</Value>
+                              <Style>
+                                <FontWeight>SemiBold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox17</rd:DefaultName>
@@ -97,11 +105,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>vigencia desde</Value>
-                              <Style />
+                              <Value>Vigencia desde</Value>
+                              <Style>
+                                <FontWeight>SemiBold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox19</rd:DefaultName>
@@ -127,11 +139,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>vigencia hasta</Value>
-                              <Style />
+                              <Value>Vigencia hasta</Value>
+                              <Style>
+                                <FontWeight>SemiBold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox21</rd:DefaultName>
@@ -157,11 +173,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>precio mayores</Value>
-                              <Style />
+                              <Value>Precio mayores</Value>
+                              <Style>
+                                <FontWeight>SemiBold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox27</rd:DefaultName>
@@ -187,11 +207,15 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>precio menores</Value>
-                              <Style />
+                              <Value>Precio menores</Value>
+                              <Style>
+                                <FontWeight>SemiBold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox25</rd:DefaultName>
@@ -282,7 +306,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!vigencia_desde.Value</Value>
+                              <Value>=FormatDateTime(Fields!vigencia_desde.Value, DateFormat.ShortDate)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -312,7 +336,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!vigencia_hasta.Value</Value>
+                              <Value>=FormatDateTime(Fields!vigencia_hasta.Value, DateFormat.ShortDate)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -342,7 +366,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!precio_mayores.Value</Value>
+                              <Value>=FormatCurrency(Fields!precio_mayores.Value)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -372,7 +396,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!precio_menores.Value</Value>
+                              <Value>=FormatCurrency(Fields!precio_menores.Value)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -391,6 +415,7 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>

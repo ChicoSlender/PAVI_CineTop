@@ -16,6 +16,7 @@ namespace TP_PAVI_CineTop.CapaGUI
 {
     public partial class FrmReporteEmpleados : Form
     {
+        ServEmpleado servEmpleado = new ServEmpleado();
         public FrmReporteEmpleados()
         {
             InitializeComponent();
@@ -60,7 +61,6 @@ namespace TP_PAVI_CineTop.CapaGUI
             reportViewer1.RefreshReport();
         }
 
-        ServEmpleado servEmpleado = new ServEmpleado();
 
         private void LblFechaAltasHasta_Click(object sender, EventArgs e)
         {
