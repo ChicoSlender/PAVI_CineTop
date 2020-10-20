@@ -10,14 +10,15 @@ namespace TP_PAVI_CineTop.Entidades
     {
         int legajo;
         int idTipoDoc;
-        int nroDoc;
+        long nroDoc;
         string nombre;
         string apellido;
         DateTime fechaIngreso;
         string nombreUsuario;
         bool borrado;
+        float salario;
 
-        public Empleado(int legajo, int idTipoDoc, int nroDoc, string nombre, string apellido, DateTime fechaIngreso, string nombreUsuario)
+        public Empleado(int legajo, int idTipoDoc, long nroDoc, string nombre, string apellido, DateTime fechaIngreso, string nombreUsuario, float salario)
         {
             this.legajo = legajo;
             this.idTipoDoc = idTipoDoc;
@@ -26,15 +27,17 @@ namespace TP_PAVI_CineTop.Entidades
             this.apellido = apellido;
             this.fechaIngreso = fechaIngreso;
             this.nombreUsuario = nombreUsuario;
+            this.salario = salario;
         }
 
         public int Legajo { get => legajo; set => legajo = value; }
         public int IdTipoDoc { get => idTipoDoc; set => idTipoDoc = value; }
-        public int NroDoc { get => nroDoc; set => nroDoc = value; }
+        public long NroDoc { get => nroDoc; set => nroDoc = value; }
         public string Nombre { get => nombre; set => nombre = value; }
         public string Apellido { get => apellido; set => apellido = value; }
         public DateTime FechaIngreso { get => fechaIngreso; set => fechaIngreso = value; }
         public string NombreUsuario { get => nombreUsuario; set => nombreUsuario = value; }
         public bool Borrado { get => borrado; set => borrado = value; }
+        public float Salario { get => salario; set => salario = value; }
     }
 }

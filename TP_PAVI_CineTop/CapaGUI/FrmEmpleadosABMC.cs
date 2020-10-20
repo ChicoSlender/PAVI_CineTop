@@ -34,6 +34,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             txtNombre.Text = seleccionado.Nombre;
             txtApellido.Text = seleccionado.Apellido;
             dtpFechaIngreso.Value = seleccionado.FechaIngreso;
+            txtSalario.Text = seleccionado.Salario.ToString();
         }
 
         private void habilitarCampos(bool v)
@@ -107,6 +108,11 @@ namespace TP_PAVI_CineTop.CapaGUI
             {
                 MessageBox.Show("El apellido no puede estar vacío", "Apellido incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 txtApellido.Focus();
+                return false;
+            }
+            else if(float.TryParse(txtSalario.Text, out float salario))
+            {
+                MessageBox.Show("El salario debe ser un numero decimal", "Salario incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
             else if(!servUsuario.existeUsuario(txtUsuario.Text))
@@ -189,20 +195,21 @@ namespace TP_PAVI_CineTop.CapaGUI
             int legajo = Convert.ToInt32(txtLegajo.Text);
             string usuario = txtUsuario.Text;
             int idTipoDoc = Convert.ToInt32(cmbTipoDocumento.SelectedValue);
-            int nroDoc;
+            long nroDoc;
             if(Convert.ToInt32(cmbTipoDocumento.SelectedValue) != 2)
             {
-                nroDoc = Convert.ToInt32(txtDocumento.Text);
+                nroDoc = Convert.ToInt64(txtDocumento.Text);
             }
             else
             {
-                nroDoc = Convert.ToInt32(txtDocumento.Text.Replace("-", ""));
+                nroDoc = Convert.ToInt64(txtDocumento.Text.Replace("-", ""));
             }
             string nombre = txtNombre.Text;
             string apellido = txtApellido.Text;
             DateTime fechaIngreso = dtpFechaIngreso.Value;
+            float salario = Convert.ToSingle(txtSalario.Text);
 
-            Empleado oEmpleado = new Empleado(legajo, idTipoDoc, nroDoc, nombre, apellido, fechaIngreso, usuario);
+            Empleado oEmpleado = new Empleado(legajo, idTipoDoc, nroDoc, nombre, apellido, fechaIngreso, usuario, salario);
 
             if (nuevo)
             {

@@ -57,6 +57,9 @@
             this.txtLegajo = new System.Windows.Forms.TextBox();
             this.txtUsuario = new System.Windows.Forms.ComboBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.salario = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.txtSalario = new System.Windows.Forms.TextBox();
+            this.lblSalario = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dtgEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,7 +120,7 @@
             // lblFechaIngreso
             // 
             this.lblFechaIngreso.AutoSize = true;
-            this.lblFechaIngreso.Location = new System.Drawing.Point(126, 162);
+            this.lblFechaIngreso.Location = new System.Drawing.Point(21, 163);
             this.lblFechaIngreso.Name = "lblFechaIngreso";
             this.lblFechaIngreso.Size = new System.Drawing.Size(92, 13);
             this.lblFechaIngreso.TabIndex = 12;
@@ -132,7 +135,8 @@
             this.nombre,
             this.apellido,
             this.nombreUsuario,
-            this.fechaIngreso});
+            this.fechaIngreso,
+            this.salario});
             this.dtgEmpleados.Location = new System.Drawing.Point(12, 217);
             this.dtgEmpleados.Name = "dtgEmpleados";
             this.dtgEmpleados.ReadOnly = true;
@@ -289,7 +293,7 @@
             // 
             // dtpFechaIngreso
             // 
-            this.dtpFechaIngreso.Location = new System.Drawing.Point(239, 158);
+            this.dtpFechaIngreso.Location = new System.Drawing.Point(134, 159);
             this.dtpFechaIngreso.Name = "dtpFechaIngreso";
             this.dtpFechaIngreso.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaIngreso.TabIndex = 13;
@@ -331,12 +335,36 @@
             this.txtUsuario.TabIndex = 21;
             this.txtUsuario.SelectedIndexChanged += new System.EventHandler(this.txtUsuario_SelectedIndexChanged);
             // 
+            // salario
+            // 
+            this.salario.HeaderText = "Salario";
+            this.salario.Name = "salario";
+            this.salario.ReadOnly = true;
+            // 
+            // txtSalario
+            // 
+            this.txtSalario.Location = new System.Drawing.Point(410, 160);
+            this.txtSalario.Name = "txtSalario";
+            this.txtSalario.Size = new System.Drawing.Size(153, 20);
+            this.txtSalario.TabIndex = 23;
+            // 
+            // lblSalario
+            // 
+            this.lblSalario.AutoSize = true;
+            this.lblSalario.Location = new System.Drawing.Point(353, 163);
+            this.lblSalario.Name = "lblSalario";
+            this.lblSalario.Size = new System.Drawing.Size(42, 13);
+            this.lblSalario.TabIndex = 22;
+            this.lblSalario.Text = "Salario:";
+            // 
             // FrmEmpleadosABMC
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(624, 455);
+            this.Controls.Add(this.txtSalario);
+            this.Controls.Add(this.lblSalario);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtLegajo);
             this.Controls.Add(this.txtDocumento);
@@ -397,5 +425,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaIngreso;
         private System.Windows.Forms.ComboBox txtUsuario;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salario;
+        private System.Windows.Forms.TextBox txtSalario;
+        private System.Windows.Forms.Label lblSalario;
     }
 }
