@@ -87,6 +87,12 @@
     <Compile Include="CapaGUI\FrmEmpleadosABMC.Designer.cs">
       <DependentUpon>FrmEmpleadosABMC.cs</DependentUpon>
     </Compile>
+    <Compile Include="CapaGUI\FrmEstadisticaEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapaGUI\FrmEstadisticaEmpleados.Designer.cs">
+      <DependentUpon>FrmEstadisticaEmpleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="CapaGUI\FrmEstadisticaPeliculas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +202,9 @@
     <EmbeddedResource Include="CapaGUI\FrmEmpleadosABMC.resx">
       <DependentUpon>FrmEmpleadosABMC.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="CapaGUI\FrmEstadisticaEmpleados.resx">
+      <DependentUpon>FrmEstadisticaEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CapaGUI\FrmEstadisticaPeliculas.resx">
       <DependentUpon>FrmEstadisticaPeliculas.cs</DependentUpon>
     </EmbeddedResource>
@@ -241,6 +250,7 @@
     </Compile>
     <EmbeddedResource Include="Reportes\EstadisticaPeliculasXGenero.rdlc" />
     <EmbeddedResource Include="Reportes\EstadisticaSalas.rdlc" />
+    <EmbeddedResource Include="Reportes\EstadisticaEmpleados.rdlc" />
     <EmbeddedResource Include="Reportes\ReportePromos.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteEmpleados.rdlc" />
     <EmbeddedResource Include="Reportes\ReporteSalas.rdlc" />

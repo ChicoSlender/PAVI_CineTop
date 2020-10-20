@@ -4,6 +4,10 @@
 
     public partial class DataSetInformes
     {
+        partial class EstadisticaSalarioEmpleadosDataTable
+        {
+        }
+
         partial class Salas1DataTable
         {
         }
@@ -27,5 +31,12 @@
         partial class PeliculasDataTable
         {
         }
+    }
+}
+
+namespace TP_PAVI_CineTop.FuentesDatos.DataSetInformesTableAdapters {
+    
+    
+    public partial class DataTable1TableAdapter {
     }
 }

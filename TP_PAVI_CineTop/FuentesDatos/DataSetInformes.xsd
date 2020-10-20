@@ -139,6 +139,51 @@ SELECT id, id_epoca, vigencia_desde, vigencia_hasta, precio_mayores, precio_meno
             </Mappings>
             <Sources />
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EstadisticaAntiguedadEmpleadoTableAdapter" GeneratorDataComponentClassName="EstadisticaAntiguedadEmpleadoTableAdapter" Name="EstadisticaAntiguedadEmpleado" UserDataComponentName="EstadisticaAntiguedadEmpleadoTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CINETOPConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT DATEDIFF(YEAR, fechaIngreso, CURRENT_TIMESTAMP) as antiguedad_años, AVG(salario) as promedio
+FROM Empleado
+WHERE borrado=0
+GROUP BY DATEDIFF(YEAR, fechaIngreso, CURRENT_TIMESTAMP)</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="antiguedad_años" DataSetColumn="antiguedad_años" />
+              <Mapping SourceColumn="promedio" DataSetColumn="promedio" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EstadisticaSalarioEmpleadosTableAdapter" GeneratorDataComponentClassName="EstadisticaSalarioEmpleadosTableAdapter" Name="EstadisticaSalarioEmpleados" UserDataComponentName="EstadisticaSalarioEmpleadosTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="CINETOPConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        TOP (5) e.legajo, e.nombre, e.apellido, tp.nombre AS tipo_documento, e.nroDoc, e.salario
+FROM            Empleado AS e INNER JOIN
+                         TipoDocumento AS tp ON e.id_tipoDoc = tp.id
+WHERE        (e.borrado = 0)
+ORDER BY e.salario DESC</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="legajo" DataSetColumn="legajo" />
+              <Mapping SourceColumn="nombre" DataSetColumn="nombre" />
+              <Mapping SourceColumn="apellido" DataSetColumn="apellido" />
+              <Mapping SourceColumn="tipo_documento" DataSetColumn="tipo_documento" />
+              <Mapping SourceColumn="nroDoc" DataSetColumn="nroDoc" />
+              <Mapping SourceColumn="salario" DataSetColumn="salario" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -147,7 +192,7 @@ SELECT id, id_epoca, vigencia_desde, vigencia_hasta, precio_mayores, precio_meno
   <xs:element name="DataSetInformes" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetInformes" msprop:Generator_UserDSName="DataSetInformes">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Peliculas" msprop:Generator_TableClassName="PeliculasDataTable" msprop:Generator_TableVarName="tablePeliculas" msprop:Generator_TablePropName="Peliculas" msprop:Generator_RowDeletingName="PeliculasRowDeleting" msprop:Generator_RowChangingName="PeliculasRowChanging" msprop:Generator_RowEvHandlerName="PeliculasRowChangeEventHandler" msprop:Generator_RowDeletedName="PeliculasRowDeleted" msprop:Generator_UserTableName="Peliculas" msprop:Generator_RowChangedName="PeliculasRowChanged" msprop:Generator_RowEvArgName="PeliculasRowChangeEvent" msprop:Generator_RowClassName="PeliculasRow">
+        <xs:element name="Peliculas" msprop:Generator_TableClassName="PeliculasDataTable" msprop:Generator_TableVarName="tablePeliculas" msprop:Generator_RowChangedName="PeliculasRowChanged" msprop:Generator_TablePropName="Peliculas" msprop:Generator_RowDeletingName="PeliculasRowDeleting" msprop:Generator_RowChangingName="PeliculasRowChanging" msprop:Generator_RowEvHandlerName="PeliculasRowChangeEventHandler" msprop:Generator_RowDeletedName="PeliculasRowDeleted" msprop:Generator_RowClassName="PeliculasRow" msprop:Generator_UserTableName="Peliculas" msprop:Generator_RowEvArgName="PeliculasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" minOccurs="0" />
@@ -161,7 +206,7 @@ SELECT id, id_epoca, vigencia_desde, vigencia_hasta, precio_mayores, precio_meno
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Salas" msprop:Generator_TableClassName="SalasDataTable" msprop:Generator_TableVarName="tableSalas" msprop:Generator_RowChangedName="SalasRowChanged" msprop:Generator_TablePropName="Salas" msprop:Generator_RowDeletingName="SalasRowDeleting" msprop:Generator_RowChangingName="SalasRowChanging" msprop:Generator_RowEvHandlerName="SalasRowChangeEventHandler" msprop:Generator_RowDeletedName="SalasRowDeleted" msprop:Generator_RowClassName="SalasRow" msprop:Generator_UserTableName="Salas" msprop:Generator_RowEvArgName="SalasRowChangeEvent">
+        <xs:element name="Salas" msprop:Generator_TableClassName="SalasDataTable" msprop:Generator_TableVarName="tableSalas" msprop:Generator_TablePropName="Salas" msprop:Generator_RowDeletingName="SalasRowDeleting" msprop:Generator_RowChangingName="SalasRowChanging" msprop:Generator_RowEvHandlerName="SalasRowChangeEventHandler" msprop:Generator_RowDeletedName="SalasRowDeleted" msprop:Generator_UserTableName="Salas" msprop:Generator_RowChangedName="SalasRowChanged" msprop:Generator_RowEvArgName="SalasRowChangeEvent" msprop:Generator_RowClassName="SalasRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
@@ -171,7 +216,7 @@ SELECT id, id_epoca, vigencia_desde, vigencia_hasta, precio_mayores, precio_meno
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EstadisticaSalas" msprop:Generator_TableClassName="EstadisticaSalasDataTable" msprop:Generator_TableVarName="tableEstadisticaSalas" msprop:Generator_RowChangedName="EstadisticaSalasRowChanged" msprop:Generator_TablePropName="EstadisticaSalas" msprop:Generator_RowDeletingName="EstadisticaSalasRowDeleting" msprop:Generator_RowChangingName="EstadisticaSalasRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaSalasRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaSalasRowDeleted" msprop:Generator_RowClassName="EstadisticaSalasRow" msprop:Generator_UserTableName="EstadisticaSalas" msprop:Generator_RowEvArgName="EstadisticaSalasRowChangeEvent">
+        <xs:element name="EstadisticaSalas" msprop:Generator_TableClassName="EstadisticaSalasDataTable" msprop:Generator_TableVarName="tableEstadisticaSalas" msprop:Generator_TablePropName="EstadisticaSalas" msprop:Generator_RowDeletingName="EstadisticaSalasRowDeleting" msprop:Generator_RowChangingName="EstadisticaSalasRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaSalasRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaSalasRowDeleted" msprop:Generator_UserTableName="EstadisticaSalas" msprop:Generator_RowChangedName="EstadisticaSalasRowChanged" msprop:Generator_RowEvArgName="EstadisticaSalasRowChangeEvent" msprop:Generator_RowClassName="EstadisticaSalasRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ubicacion" msprop:Generator_ColumnVarNameInTable="columnubicacion" msprop:Generator_ColumnPropNameInRow="ubicacion" msprop:Generator_ColumnPropNameInTable="ubicacionColumn" msprop:Generator_UserColumnName="ubicacion" type="xs:string" minOccurs="0" />
@@ -179,7 +224,7 @@ SELECT id, id_epoca, vigencia_desde, vigencia_hasta, precio_mayores, precio_meno
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EstadisticaCantSalas" msprop:Generator_TableClassName="EstadisticaCantSalasDataTable" msprop:Generator_TableVarName="tableEstadisticaCantSalas" msprop:Generator_TablePropName="EstadisticaCantSalas" msprop:Generator_RowDeletingName="EstadisticaCantSalasRowDeleting" msprop:Generator_RowChangingName="EstadisticaCantSalasRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaCantSalasRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaCantSalasRowDeleted" msprop:Generator_UserTableName="EstadisticaCantSalas" msprop:Generator_RowChangedName="EstadisticaCantSalasRowChanged" msprop:Generator_RowEvArgName="EstadisticaCantSalasRowChangeEvent" msprop:Generator_RowClassName="EstadisticaCantSalasRow">
+        <xs:element name="EstadisticaCantSalas" msprop:Generator_TableClassName="EstadisticaCantSalasDataTable" msprop:Generator_TableVarName="tableEstadisticaCantSalas" msprop:Generator_RowChangedName="EstadisticaCantSalasRowChanged" msprop:Generator_TablePropName="EstadisticaCantSalas" msprop:Generator_RowDeletingName="EstadisticaCantSalasRowDeleting" msprop:Generator_RowChangingName="EstadisticaCantSalasRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaCantSalasRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaCantSalasRowDeleted" msprop:Generator_RowClassName="EstadisticaCantSalasRow" msprop:Generator_UserTableName="EstadisticaCantSalas" msprop:Generator_RowEvArgName="EstadisticaCantSalasRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="ubicacion" msprop:Generator_ColumnVarNameInTable="columnubicacion" msprop:Generator_ColumnPropNameInRow="ubicacion" msprop:Generator_ColumnPropNameInTable="ubicacionColumn" msprop:Generator_UserColumnName="ubicacion" type="xs:string" minOccurs="0" />
@@ -188,7 +233,7 @@ SELECT id, id_epoca, vigencia_desde, vigencia_hasta, precio_mayores, precio_meno
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EstadisticaCantPeliculasXGenero" msprop:Generator_TableClassName="EstadisticaCantPeliculasXGeneroDataTable" msprop:Generator_TableVarName="tableEstadisticaCantPeliculasXGenero" msprop:Generator_RowChangedName="EstadisticaCantPeliculasXGeneroRowChanged" msprop:Generator_TablePropName="EstadisticaCantPeliculasXGenero" msprop:Generator_RowDeletingName="EstadisticaCantPeliculasXGeneroRowDeleting" msprop:Generator_RowChangingName="EstadisticaCantPeliculasXGeneroRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaCantPeliculasXGeneroRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaCantPeliculasXGeneroRowDeleted" msprop:Generator_RowClassName="EstadisticaCantPeliculasXGeneroRow" msprop:Generator_UserTableName="EstadisticaCantPeliculasXGenero" msprop:Generator_RowEvArgName="EstadisticaCantPeliculasXGeneroRowChangeEvent">
+        <xs:element name="EstadisticaCantPeliculasXGenero" msprop:Generator_TableClassName="EstadisticaCantPeliculasXGeneroDataTable" msprop:Generator_TableVarName="tableEstadisticaCantPeliculasXGenero" msprop:Generator_TablePropName="EstadisticaCantPeliculasXGenero" msprop:Generator_RowDeletingName="EstadisticaCantPeliculasXGeneroRowDeleting" msprop:Generator_RowChangingName="EstadisticaCantPeliculasXGeneroRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaCantPeliculasXGeneroRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaCantPeliculasXGeneroRowDeleted" msprop:Generator_UserTableName="EstadisticaCantPeliculasXGenero" msprop:Generator_RowChangedName="EstadisticaCantPeliculasXGeneroRowChanged" msprop:Generator_RowEvArgName="EstadisticaCantPeliculasXGeneroRowChangeEvent" msprop:Generator_RowClassName="EstadisticaCantPeliculasXGeneroRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="genero" msprop:Generator_ColumnVarNameInTable="columngenero" msprop:Generator_ColumnPropNameInRow="genero" msprop:Generator_ColumnPropNameInTable="generoColumn" msprop:Generator_UserColumnName="genero" type="xs:string" minOccurs="0" />
@@ -196,7 +241,7 @@ SELECT id, id_epoca, vigencia_desde, vigencia_hasta, precio_mayores, precio_meno
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="EstadisticaCantPeliculasXGeneroXDirector" msprop:Generator_TableClassName="EstadisticaCantPeliculasXGeneroXDirectorDataTable" msprop:Generator_TableVarName="tableEstadisticaCantPeliculasXGeneroXDirector" msprop:Generator_RowChangedName="EstadisticaCantPeliculasXGeneroXDirectorRowChanged" msprop:Generator_TablePropName="EstadisticaCantPeliculasXGeneroXDirector" msprop:Generator_RowDeletingName="EstadisticaCantPeliculasXGeneroXDirectorRowDeleting" msprop:Generator_RowChangingName="EstadisticaCantPeliculasXGeneroXDirectorRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaCantPeliculasXGeneroXDirectorRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaCantPeliculasXGeneroXDirectorRowDeleted" msprop:Generator_RowClassName="EstadisticaCantPeliculasXGeneroXDirectorRow" msprop:Generator_UserTableName="EstadisticaCantPeliculasXGeneroXDirector" msprop:Generator_RowEvArgName="EstadisticaCantPeliculasXGeneroXDirectorRowChangeEvent">
+        <xs:element name="EstadisticaCantPeliculasXGeneroXDirector" msprop:Generator_TableClassName="EstadisticaCantPeliculasXGeneroXDirectorDataTable" msprop:Generator_TableVarName="tableEstadisticaCantPeliculasXGeneroXDirector" msprop:Generator_TablePropName="EstadisticaCantPeliculasXGeneroXDirector" msprop:Generator_RowDeletingName="EstadisticaCantPeliculasXGeneroXDirectorRowDeleting" msprop:Generator_RowChangingName="EstadisticaCantPeliculasXGeneroXDirectorRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaCantPeliculasXGeneroXDirectorRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaCantPeliculasXGeneroXDirectorRowDeleted" msprop:Generator_UserTableName="EstadisticaCantPeliculasXGeneroXDirector" msprop:Generator_RowChangedName="EstadisticaCantPeliculasXGeneroXDirectorRowChanged" msprop:Generator_RowEvArgName="EstadisticaCantPeliculasXGeneroXDirectorRowChangeEvent" msprop:Generator_RowClassName="EstadisticaCantPeliculasXGeneroXDirectorRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="director" msprop:Generator_ColumnVarNameInTable="columndirector" msprop:Generator_ColumnPropNameInRow="director" msprop:Generator_ColumnPropNameInTable="directorColumn" msprop:Generator_UserColumnName="director" type="xs:string" minOccurs="0" />
@@ -205,7 +250,7 @@ SELECT id, id_epoca, vigencia_desde, vigencia_hasta, precio_mayores, precio_meno
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Empleado" msprop:Generator_TableClassName="EmpleadoDataTable" msprop:Generator_TableVarName="tableEmpleado" msprop:Generator_TablePropName="Empleado" msprop:Generator_RowDeletingName="EmpleadoRowDeleting" msprop:Generator_RowChangingName="EmpleadoRowChanging" msprop:Generator_RowEvHandlerName="EmpleadoRowChangeEventHandler" msprop:Generator_RowDeletedName="EmpleadoRowDeleted" msprop:Generator_UserTableName="Empleado" msprop:Generator_RowChangedName="EmpleadoRowChanged" msprop:Generator_RowEvArgName="EmpleadoRowChangeEvent" msprop:Generator_RowClassName="EmpleadoRow">
+        <xs:element name="Empleado" msprop:Generator_TableClassName="EmpleadoDataTable" msprop:Generator_TableVarName="tableEmpleado" msprop:Generator_RowChangedName="EmpleadoRowChanged" msprop:Generator_TablePropName="Empleado" msprop:Generator_RowDeletingName="EmpleadoRowDeleting" msprop:Generator_RowChangingName="EmpleadoRowChanging" msprop:Generator_RowEvHandlerName="EmpleadoRowChangeEventHandler" msprop:Generator_RowDeletedName="EmpleadoRowDeleted" msprop:Generator_RowClassName="EmpleadoRow" msprop:Generator_UserTableName="Empleado" msprop:Generator_RowEvArgName="EmpleadoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="legajo" msprop:Generator_ColumnVarNameInTable="columnlegajo" msprop:Generator_ColumnPropNameInRow="legajo" msprop:Generator_ColumnPropNameInTable="legajoColumn" msprop:Generator_UserColumnName="legajo" type="xs:int" />
@@ -235,7 +280,7 @@ SELECT id, id_epoca, vigencia_desde, vigencia_hasta, precio_mayores, precio_meno
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="Promo" msprop:Generator_TableClassName="PromoDataTable" msprop:Generator_TableVarName="tablePromo" msprop:Generator_TablePropName="Promo" msprop:Generator_RowDeletingName="PromoRowDeleting" msprop:Generator_RowChangingName="PromoRowChanging" msprop:Generator_RowEvHandlerName="PromoRowChangeEventHandler" msprop:Generator_RowDeletedName="PromoRowDeleted" msprop:Generator_UserTableName="Promo" msprop:Generator_RowChangedName="PromoRowChanged" msprop:Generator_RowEvArgName="PromoRowChangeEvent" msprop:Generator_RowClassName="PromoRow">
+        <xs:element name="Promo" msprop:Generator_TableClassName="PromoDataTable" msprop:Generator_TableVarName="tablePromo" msprop:Generator_RowChangedName="PromoRowChanged" msprop:Generator_TablePropName="Promo" msprop:Generator_RowDeletingName="PromoRowDeleting" msprop:Generator_RowChangingName="PromoRowChanging" msprop:Generator_RowEvHandlerName="PromoRowChangeEventHandler" msprop:Generator_RowDeletedName="PromoRowDeleted" msprop:Generator_RowClassName="PromoRow" msprop:Generator_UserTableName="Promo" msprop:Generator_RowEvArgName="PromoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id" msprop:Generator_ColumnVarNameInTable="columnid" msprop:Generator_ColumnPropNameInRow="id" msprop:Generator_ColumnPropNameInTable="idColumn" msprop:Generator_UserColumnName="id" type="xs:int" />
@@ -244,6 +289,44 @@ SELECT id, id_epoca, vigencia_desde, vigencia_hasta, precio_mayores, precio_meno
               <xs:element name="vigencia_hasta" msprop:Generator_ColumnVarNameInTable="columnvigencia_hasta" msprop:Generator_ColumnPropNameInRow="vigencia_hasta" msprop:Generator_ColumnPropNameInTable="vigencia_hastaColumn" msprop:Generator_UserColumnName="vigencia_hasta" type="xs:dateTime" minOccurs="0" />
               <xs:element name="precio_mayores" msprop:Generator_ColumnVarNameInTable="columnprecio_mayores" msprop:Generator_ColumnPropNameInRow="precio_mayores" msprop:Generator_ColumnPropNameInTable="precio_mayoresColumn" msprop:Generator_UserColumnName="precio_mayores" type="xs:double" minOccurs="0" />
               <xs:element name="precio_menores" msprop:Generator_ColumnVarNameInTable="columnprecio_menores" msprop:Generator_ColumnPropNameInRow="precio_menores" msprop:Generator_ColumnPropNameInTable="precio_menoresColumn" msprop:Generator_UserColumnName="precio_menores" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EstadisticaAntiguedadEmpleado" msprop:Generator_TableClassName="EstadisticaAntiguedadEmpleadoDataTable" msprop:Generator_TableVarName="tableEstadisticaAntiguedadEmpleado" msprop:Generator_TablePropName="EstadisticaAntiguedadEmpleado" msprop:Generator_RowDeletingName="EstadisticaAntiguedadEmpleadoRowDeleting" msprop:Generator_RowChangingName="EstadisticaAntiguedadEmpleadoRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaAntiguedadEmpleadoRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaAntiguedadEmpleadoRowDeleted" msprop:Generator_UserTableName="EstadisticaAntiguedadEmpleado" msprop:Generator_RowChangedName="EstadisticaAntiguedadEmpleadoRowChanged" msprop:Generator_RowEvArgName="EstadisticaAntiguedadEmpleadoRowChangeEvent" msprop:Generator_RowClassName="EstadisticaAntiguedadEmpleadoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="antiguedad_años" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnantiguedad_años" msprop:Generator_ColumnPropNameInRow="antiguedad_años" msprop:Generator_ColumnPropNameInTable="antiguedad_añosColumn" msprop:Generator_UserColumnName="antiguedad_años" type="xs:int" minOccurs="0" />
+              <xs:element name="promedio" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnpromedio" msprop:Generator_ColumnPropNameInRow="promedio" msprop:Generator_ColumnPropNameInTable="promedioColumn" msprop:Generator_UserColumnName="promedio" type="xs:double" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="EstadisticaSalarioEmpleados" msprop:Generator_TableClassName="EstadisticaSalarioEmpleadosDataTable" msprop:Generator_TableVarName="tableEstadisticaSalarioEmpleados" msprop:Generator_TablePropName="EstadisticaSalarioEmpleados" msprop:Generator_RowDeletingName="EstadisticaSalarioEmpleadosRowDeleting" msprop:Generator_RowChangingName="EstadisticaSalarioEmpleadosRowChanging" msprop:Generator_RowEvHandlerName="EstadisticaSalarioEmpleadosRowChangeEventHandler" msprop:Generator_RowDeletedName="EstadisticaSalarioEmpleadosRowDeleted" msprop:Generator_UserTableName="EstadisticaSalarioEmpleados" msprop:Generator_RowChangedName="EstadisticaSalarioEmpleadosRowChanged" msprop:Generator_RowEvArgName="EstadisticaSalarioEmpleadosRowChangeEvent" msprop:Generator_RowClassName="EstadisticaSalarioEmpleadosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="legajo" msprop:Generator_ColumnVarNameInTable="columnlegajo" msprop:Generator_ColumnPropNameInRow="legajo" msprop:Generator_ColumnPropNameInTable="legajoColumn" msprop:Generator_UserColumnName="legajo" type="xs:int" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="apellido" msprop:Generator_ColumnVarNameInTable="columnapellido" msprop:Generator_ColumnPropNameInRow="apellido" msprop:Generator_ColumnPropNameInTable="apellidoColumn" msprop:Generator_UserColumnName="apellido" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tipo_documento" msprop:Generator_ColumnVarNameInTable="columntipo_documento" msprop:Generator_ColumnPropNameInRow="tipo_documento" msprop:Generator_ColumnPropNameInTable="tipo_documentoColumn" msprop:Generator_UserColumnName="tipo_documento">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="nroDoc" msprop:Generator_ColumnVarNameInTable="columnnroDoc" msprop:Generator_ColumnPropNameInRow="nroDoc" msprop:Generator_ColumnPropNameInTable="nroDocColumn" msprop:Generator_UserColumnName="nroDoc" type="xs:long" minOccurs="0" />
+              <xs:element name="salario" msprop:Generator_ColumnVarNameInTable="columnsalario" msprop:Generator_ColumnPropNameInRow="salario" msprop:Generator_ColumnPropNameInTable="salarioColumn" msprop:Generator_UserColumnName="salario" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -256,6 +339,10 @@ SELECT id, id_epoca, vigencia_desde, vigencia_hasta, precio_mayores, precio_meno
     <xs:unique name="Promo_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:Promo" />
       <xs:field xpath="mstns:id" />
+    </xs:unique>
+    <xs:unique name="EstadisticaSalarioEmpleados_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:EstadisticaSalarioEmpleados" />
+      <xs:field xpath="mstns:legajo" />
     </xs:unique>
   </xs:element>
 </xs:schema>
