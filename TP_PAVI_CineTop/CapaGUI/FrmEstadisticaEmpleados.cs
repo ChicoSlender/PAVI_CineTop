@@ -17,6 +17,7 @@ namespace TP_PAVI_CineTop.CapaGUI
 
     public partial class FrmEstadisticaEmpleados : Form
     {
+        ServEmpleado servEmpleado = new ServEmpleado();
         public FrmEstadisticaEmpleados()
         {
             InitializeComponent();
@@ -37,7 +38,6 @@ namespace TP_PAVI_CineTop.CapaGUI
 
         private void reportViewer1_Load(object sender, EventArgs e)
         {
-            ServEmpleado servEmpleado = new ServEmpleado();
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet1", servEmpleado.obtenerTablaTopSalariosEmpleado()));
             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSet2", servEmpleado.obtenerTablaSalariosXAntiguedad()));
@@ -46,7 +46,6 @@ namespace TP_PAVI_CineTop.CapaGUI
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            ServEmpleado servEmpleado = new ServEmpleado();
             DateTime fechaDesde = dtpFechaIngresoDesde.Value;
             DateTime fechaHasta = dtpFechaIngresoHasta.Value;
 

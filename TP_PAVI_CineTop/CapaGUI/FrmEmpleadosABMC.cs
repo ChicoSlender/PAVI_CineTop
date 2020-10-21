@@ -46,6 +46,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             txtNombre.Enabled = v;
             txtApellido.Enabled = v;
             dtpFechaIngreso.Enabled = v;
+            txtSalario.Enabled = v;
 
             btnGuardar.Enabled = v;
             btnCancelar.Enabled = v;
@@ -64,6 +65,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             txtNombre.Text = "";
             txtApellido.Text = "";
             dtpFechaIngreso.Value = DateTime.Today;
+            txtSalario.Text = "";
         }
 
         private void refrescarGrilla()
@@ -110,7 +112,7 @@ namespace TP_PAVI_CineTop.CapaGUI
                 txtApellido.Focus();
                 return false;
             }
-            else if(float.TryParse(txtSalario.Text, out float salario))
+            else if(!float.TryParse(txtSalario.Text, out float salario))
             {
                 MessageBox.Show("El salario debe ser un numero decimal", "Salario incorrecto", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;

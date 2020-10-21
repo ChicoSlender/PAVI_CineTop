@@ -101,17 +101,17 @@
             <ChartSeriesHierarchy>
               <ChartMembers>
                 <ChartMember>
-                  <Label>antiguedad años</Label>
+                  <Label>promedio</Label>
                 </ChartMember>
               </ChartMembers>
             </ChartSeriesHierarchy>
             <ChartData>
               <ChartSeriesCollection>
-                <ChartSeries Name="antiguedad_años">
+                <ChartSeries Name="promedio">
                   <ChartDataPoints>
                     <ChartDataPoint>
                       <ChartDataPointValues>
-                        <Y>=Sum(Fields!antiguedad_años.Value)</Y>
+                        <Y>=Sum(Fields!promedio.Value)</Y>
                       </ChartDataPointValues>
                       <ChartDataLabel>
                         <Style />
@@ -133,6 +133,9 @@
                       <Style />
                     </ChartDataLabel>
                   </ChartEmptyPoints>
+                  <ChartItemInLegend>
+                    <LegendText>Salario promedio</LegendText>
+                  </ChartItemInLegend>
                   <ValueAxisName>Primary</ValueAxisName>
                   <CategoryAxisName>Primary</CategoryAxisName>
                   <ChartSmartLabel>
@@ -447,11 +450,15 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>antiguedad años</Value>
-                                  <Style />
+                                  <Value>Antigüedad en años</Value>
+                                  <Style>
+                                    <FontWeight>SemiBold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox3</rd:DefaultName>
@@ -477,11 +484,15 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>promedio</Value>
-                                  <Style />
+                                  <Value>Promedio salario</Value>
+                                  <Style>
+                                    <FontWeight>SemiBold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox5</rd:DefaultName>
@@ -587,7 +598,7 @@
             <Top>2.96016cm</Top>
             <Left>10.07067cm</Left>
             <Height>2.72458cm</Height>
-            <Width>7.39479cm</Width>
+            <Width>7.3948cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -666,11 +677,15 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>legajo</Value>
-                                  <Style />
+                                  <Value>Legajo</Value>
+                                  <Style>
+                                    <FontWeight>SemiBold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox13</rd:DefaultName>
@@ -696,11 +711,15 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>nombre</Value>
-                                  <Style />
+                                  <Value>Nombre</Value>
+                                  <Style>
+                                    <FontWeight>SemiBold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox15</rd:DefaultName>
@@ -726,11 +745,15 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>apellido</Value>
-                                  <Style />
+                                  <Value>Apellido</Value>
+                                  <Style>
+                                    <FontWeight>SemiBold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox17</rd:DefaultName>
@@ -756,11 +779,15 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>tipo documento</Value>
-                                  <Style />
+                                  <Value>Tipo documento</Value>
+                                  <Style>
+                                    <FontWeight>SemiBold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox21</rd:DefaultName>
@@ -786,11 +813,15 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>nro Doc</Value>
-                                  <Style />
+                                  <Value>Num Documento</Value>
+                                  <Style>
+                                    <FontWeight>SemiBold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox19</rd:DefaultName>
@@ -816,11 +847,15 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>salario</Value>
-                                  <Style />
+                                  <Value>Salario</Value>
+                                  <Style>
+                                    <FontWeight>SemiBold</FontWeight>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
-                              <Style />
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
                             </Paragraph>
                           </Paragraphs>
                           <rd:DefaultName>Textbox23</rd:DefaultName>

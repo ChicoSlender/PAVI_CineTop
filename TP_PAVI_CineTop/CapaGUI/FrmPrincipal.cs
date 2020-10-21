@@ -101,5 +101,11 @@ namespace TP_PAVI_CineTop.CapaGUI
             FrmEstadisticaPeliculas frmEstadisticaPeliculas = new FrmEstadisticaPeliculas();
             frmEstadisticaPeliculas.ShowDialog();
         }
+
+        private void salariosDeEmpleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEstadisticaEmpleados frmEstadisticaEmpleados = new FrmEstadisticaEmpleados();
+            frmEstadisticaEmpleados.ShowDialog();
+        }
     }
 }

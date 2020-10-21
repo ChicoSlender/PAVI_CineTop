@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEstadisticaEmpleados));
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnFiltrar = new System.Windows.Forms.Button();
             this.lblFechaIngresoDesde = new System.Windows.Forms.Label();
@@ -48,12 +49,17 @@
             // 
             // btnFiltrar
             // 
+            this.btnFiltrar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnFiltrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnFiltrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltrar.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnFiltrar.Location = new System.Drawing.Point(411, 26);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(121, 57);
+            this.btnFiltrar.Size = new System.Drawing.Size(74, 52);
             this.btnFiltrar.TabIndex = 1;
             this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.UseVisualStyleBackColor = false;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // lblFechaIngresoDesde
@@ -93,6 +99,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.dtpFechaIngresoHasta);
             this.Controls.Add(this.label1);
@@ -100,6 +107,7 @@
             this.Controls.Add(this.lblFechaIngresoDesde);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.reportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEstadisticaEmpleados";
             this.Text = "Estadísticas de Salarios";
             this.Load += new System.EventHandler(this.FrmEstadisticaEmpleados_Load);

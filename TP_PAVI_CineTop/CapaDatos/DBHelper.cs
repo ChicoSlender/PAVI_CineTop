@@ -40,7 +40,7 @@ public class DBHelper
         //string nombreBD = ConfigurationManager.AppSettings["dbName"];
         //string cadenaConexion = ConfigurationManager.ConnectionStrings[nombreBD].ConnectionString;
 
-        string cadenaConexion = new CadenaConexion().agus;
+        string cadenaConexion = new CadenaConexion().benja;
         conexion.ConnectionString = cadenaConexion;
         tipo = TipoConexion.comun;
         resultado = "";

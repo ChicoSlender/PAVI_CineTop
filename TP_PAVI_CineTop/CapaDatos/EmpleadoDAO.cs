@@ -56,7 +56,7 @@ namespace TP_PAVI_CineTop.CapaDatos
 
         public string insertarEmpleado(Empleado empleado)
         {
-            string consultaSQL = "INSERT INTO Empleado (legajo, id_tipoDoc, nroDoc, nombre, apellido, fechaIngreso, nombreUsuario, borrado)" +
+            string consultaSQL = "INSERT INTO Empleado (legajo, id_tipoDoc, nroDoc, nombre, apellido, fechaIngreso, nombreUsuario, salario, borrado)" +
                                         "VALUES (" + empleado.Legajo + ", " +
                                                 empleado.IdTipoDoc + ", " +
                                                 empleado.NroDoc + ", " +
@@ -133,7 +133,7 @@ namespace TP_PAVI_CineTop.CapaDatos
 
         public DataTable obtenerTablaTopSalariosEmpleado()
         {
-            string consultaSQL = "SELECT legajo, id_tipoDoc, nombre, apellido, fechaIngreso, nombreUsuario FROM Empleado WHERE(borrado = 0)";
+            string consultaSQL = "SELECT TOP(5) e.legajo, e.nombre, e.apellido, tp.nombre as tipo_documento, e.nroDoc, e.salario FROM Empleado e JOIN TipoDocumento tp ON e.id_tipoDoc = tp.id WHERE borrado = 0 ORDER BY salario DESC";
             DBHelper.GetDBHelper().conectar();
             DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
             DBHelper.GetDBHelper().desconectar();
@@ -143,7 +143,7 @@ namespace TP_PAVI_CineTop.CapaDatos
 
         public DataTable obtenerTablaFiltradaSalariosXAntiguedad(DateTime fechaDesde, DateTime fechaHasta)
         {
-            string consultaSQL = "SELECT TOP(5) e.legajo, e.nombre, e.apellido, tp.nombre as tipo_documento, e.nroDoc, e.salario FROM Empleado e JOIN TipoDocumento tp ON e.id_tipoDoc = tp.id WHERE borrado = 0 AND fechaIngreso BETWEEN '" + fechaDesde.ToString("yyyy-MM-dd") + "' AND '" + fechaHasta.ToString("yyyy-MM-dd") + "' ORDER BY salario DESC";
+            string consultaSQL = "SELECT DATEDIFF(YEAR, fechaIngreso, CURRENT_TIMESTAMP) as antiguedad_años, AVG(salario) as promedio FROM Empleado WHERE borrado = 0 AND fechaIngreso BETWEEN '" + fechaDesde.ToString("yyyy-MM-dd") + "' AND '" + fechaHasta.ToString("yyyy-MM-dd") + "' GROUP BY DATEDIFF(YEAR, fechaIngreso, CURRENT_TIMESTAMP)";
             DBHelper.GetDBHelper().conectar();
             DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
             DBHelper.GetDBHelper().desconectar();
@@ -153,7 +153,7 @@ namespace TP_PAVI_CineTop.CapaDatos
 
         public DataTable obtenerTablaFiltradaTopSalariosEmpleado(DateTime fechaDesde, DateTime fechaHasta)
         {
-            string consultaSQL = "SELECT legajo, id_tipoDoc, nombre, apellido, fechaIngreso, nombreUsuario FROM Empleado WHERE (borrado = 0) AND fechaIngreso BETWEEN '" + fechaDesde.ToString("yyyy-MM-dd") + "' AND '" + fechaHasta.ToString("yyyy-MM-dd") + "'";
+            string consultaSQL = "SELECT TOP(5) e.legajo, e.nombre, e.apellido, tp.nombre as tipo_documento, e.nroDoc, e.salario FROM Empleado e JOIN TipoDocumento tp ON e.id_tipoDoc = tp.id WHERE borrado = 0 AND fechaIngreso BETWEEN '" + fechaDesde.ToString("yyyy-MM-dd") + "' AND '" + fechaHasta.ToString("yyyy-MM-dd") + "' ORDER BY salario DESC";
             DBHelper.GetDBHelper().conectar();
             DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
             DBHelper.GetDBHelper().desconectar();

@@ -43,9 +43,10 @@
             this.empleadosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.estadísticasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.capacidadDeSalasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.peliculasPorGéneroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imgLogo = new System.Windows.Forms.PictureBox();
             this.lblBienvenida = new System.Windows.Forms.Label();
-            this.peliculasPorGéneroToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salariosDeEmpleadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgLogo)).BeginInit();
             this.SuspendLayout();
@@ -174,7 +175,8 @@
             this.estadísticasToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.estadísticasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.capacidadDeSalasToolStripMenuItem,
-            this.peliculasPorGéneroToolStripMenuItem});
+            this.peliculasPorGéneroToolStripMenuItem,
+            this.salariosDeEmpleadosToolStripMenuItem});
             this.estadísticasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.estadísticasToolStripMenuItem.Name = "estadísticasToolStripMenuItem";
             this.estadísticasToolStripMenuItem.Size = new System.Drawing.Size(79, 20);
@@ -185,9 +187,18 @@
             this.capacidadDeSalasToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.capacidadDeSalasToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.capacidadDeSalasToolStripMenuItem.Name = "capacidadDeSalasToolStripMenuItem";
-            this.capacidadDeSalasToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.capacidadDeSalasToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
             this.capacidadDeSalasToolStripMenuItem.Text = "Salas";
             this.capacidadDeSalasToolStripMenuItem.Click += new System.EventHandler(this.capacidadDeSalasToolStripMenuItem_Click);
+            // 
+            // peliculasPorGéneroToolStripMenuItem
+            // 
+            this.peliculasPorGéneroToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.peliculasPorGéneroToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.peliculasPorGéneroToolStripMenuItem.Name = "peliculasPorGéneroToolStripMenuItem";
+            this.peliculasPorGéneroToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.peliculasPorGéneroToolStripMenuItem.Text = "Peliculas por género";
+            this.peliculasPorGéneroToolStripMenuItem.Click += new System.EventHandler(this.peliculasPorGéneroToolStripMenuItem_Click);
             // 
             // imgLogo
             // 
@@ -210,14 +221,14 @@
             this.lblBienvenida.Text = "Bienvenido de nuevo";
             this.lblBienvenida.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // peliculasPorGéneroToolStripMenuItem
+            // salariosDeEmpleadosToolStripMenuItem
             // 
-            this.peliculasPorGéneroToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.peliculasPorGéneroToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.peliculasPorGéneroToolStripMenuItem.Name = "peliculasPorGéneroToolStripMenuItem";
-            this.peliculasPorGéneroToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
-            this.peliculasPorGéneroToolStripMenuItem.Text = "Peliculas por género";
-            this.peliculasPorGéneroToolStripMenuItem.Click += new System.EventHandler(this.peliculasPorGéneroToolStripMenuItem_Click);
+            this.salariosDeEmpleadosToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.salariosDeEmpleadosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.salariosDeEmpleadosToolStripMenuItem.Name = "salariosDeEmpleadosToolStripMenuItem";
+            this.salariosDeEmpleadosToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.salariosDeEmpleadosToolStripMenuItem.Text = "Salarios de empleados";
+            this.salariosDeEmpleadosToolStripMenuItem.Click += new System.EventHandler(this.salariosDeEmpleadosToolStripMenuItem_Click);
             // 
             // FrmPrincipal
             // 
@@ -263,6 +274,7 @@
         private System.Windows.Forms.ToolStripMenuItem promosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem empleadosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem peliculasPorGéneroToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salariosDeEmpleadosToolStripMenuItem;
     }
 }
 
