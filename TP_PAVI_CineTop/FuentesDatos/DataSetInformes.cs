@@ -4,6 +4,10 @@
 
     public partial class DataSetInformes
     {
+        partial class EstadisticaAntiguedadEmpleadoDataTable
+        {
+        }
+
         partial class EstadisticaSalarioEmpleadosDataTable
         {
         }

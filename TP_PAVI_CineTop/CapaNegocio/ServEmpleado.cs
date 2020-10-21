@@ -51,5 +51,25 @@ namespace TP_PAVI_CineTop.CapaNegocio
         {
             return dao.obtenerTablaEmpleadosFiltrada(fechaDesde, fechaHasta);
         }
+
+        public DataTable obtenerTablaSalariosXAntiguedad()
+        {
+            return dao.obtenerTablaSalariosXAntiguedad();
+        }
+
+        public DataTable obtenerTablaTopSalariosEmpleado()
+        {
+            return dao.obtenerTablaTopSalariosEmpleado();
+        }
+
+        public DataTable obtenerTablaFiltradaSalariosXAntiguedad(DateTime fechaDesde, DateTime fechaHasta)
+        {
+            return dao.obtenerTablaFiltradaSalariosXAntiguedad(fechaDesde, fechaHasta);
+        }
+
+        public DataTable obtenerTablaFiltradaTopSalariosEmpleado(DateTime fechaDesde, DateTime fechaHasta)
+        {
+            return dao.obtenerTablaFiltradaTopSalariosEmpleado(fechaDesde, fechaHasta);
+        }
     }
 }

@@ -121,5 +121,45 @@ namespace TP_PAVI_CineTop.CapaDatos
         }
 
 
+        public DataTable obtenerTablaSalariosXAntiguedad()
+        {
+            string consultaSQL = "SELECT DATEDIFF(YEAR, fechaIngreso, CURRENT_TIMESTAMP) as antiguedad_años, AVG(salario) as promedio FROM Empleado WHERE borrado = 0 GROUP BY DATEDIFF(YEAR, fechaIngreso, CURRENT_TIMESTAMP)";
+            DBHelper.GetDBHelper().conectar();
+            DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
+
+            return resultado;
+        }
+
+        public DataTable obtenerTablaTopSalariosEmpleado()
+        {
+            string consultaSQL = "SELECT legajo, id_tipoDoc, nombre, apellido, fechaIngreso, nombreUsuario FROM Empleado WHERE(borrado = 0)";
+            DBHelper.GetDBHelper().conectar();
+            DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
+
+            return resultado;
+        }
+
+        public DataTable obtenerTablaFiltradaSalariosXAntiguedad(DateTime fechaDesde, DateTime fechaHasta)
+        {
+            string consultaSQL = "SELECT TOP(5) e.legajo, e.nombre, e.apellido, tp.nombre as tipo_documento, e.nroDoc, e.salario FROM Empleado e JOIN TipoDocumento tp ON e.id_tipoDoc = tp.id WHERE borrado = 0 AND fechaIngreso BETWEEN '" + fechaDesde.ToString("yyyy-MM-dd") + "' AND '" + fechaHasta.ToString("yyyy-MM-dd") + "' ORDER BY salario DESC";
+            DBHelper.GetDBHelper().conectar();
+            DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
+
+            return resultado;
+        }
+
+        public DataTable obtenerTablaFiltradaTopSalariosEmpleado(DateTime fechaDesde, DateTime fechaHasta)
+        {
+            string consultaSQL = "SELECT legajo, id_tipoDoc, nombre, apellido, fechaIngreso, nombreUsuario FROM Empleado WHERE (borrado = 0) AND fechaIngreso BETWEEN '" + fechaDesde.ToString("yyyy-MM-dd") + "' AND '" + fechaHasta.ToString("yyyy-MM-dd") + "'";
+            DBHelper.GetDBHelper().conectar();
+            DataTable resultado = DBHelper.GetDBHelper().consultaSQL(consultaSQL);
+            DBHelper.GetDBHelper().desconectar();
+
+            return resultado;
+        }
+
     }
 }

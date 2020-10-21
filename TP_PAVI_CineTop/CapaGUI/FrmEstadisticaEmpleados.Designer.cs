@@ -30,8 +30,10 @@
         {
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnFiltrar = new System.Windows.Forms.Button();
-            this.lblFechaIngreso = new System.Windows.Forms.Label();
-            this.dtpFechaIngreso = new System.Windows.Forms.DateTimePicker();
+            this.lblFechaIngresoDesde = new System.Windows.Forms.Label();
+            this.dtpFechaIngresoDesde = new System.Windows.Forms.DateTimePicker();
+            this.label1 = new System.Windows.Forms.Label();
+            this.dtpFechaIngresoHasta = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // reportViewer1
@@ -42,40 +44,60 @@
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(776, 330);
             this.reportViewer1.TabIndex = 0;
+            this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
             // btnFiltrar
             // 
-            this.btnFiltrar.Location = new System.Drawing.Point(392, 48);
+            this.btnFiltrar.Location = new System.Drawing.Point(411, 26);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
+            this.btnFiltrar.Size = new System.Drawing.Size(121, 57);
             this.btnFiltrar.TabIndex = 1;
             this.btnFiltrar.Text = "Filtrar";
             this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
-            // lblFechaIngreso
+            // lblFechaIngresoDesde
             // 
-            this.lblFechaIngreso.AutoSize = true;
-            this.lblFechaIngreso.Location = new System.Drawing.Point(64, 50);
-            this.lblFechaIngreso.Name = "lblFechaIngreso";
-            this.lblFechaIngreso.Size = new System.Drawing.Size(93, 13);
-            this.lblFechaIngreso.TabIndex = 3;
-            this.lblFechaIngreso.Text = "Fecha de Ingreso:";
-            this.lblFechaIngreso.Click += new System.EventHandler(this.label1_Click);
+            this.lblFechaIngresoDesde.AutoSize = true;
+            this.lblFechaIngresoDesde.Location = new System.Drawing.Point(37, 28);
+            this.lblFechaIngresoDesde.Name = "lblFechaIngresoDesde";
+            this.lblFechaIngresoDesde.Size = new System.Drawing.Size(125, 13);
+            this.lblFechaIngresoDesde.TabIndex = 3;
+            this.lblFechaIngresoDesde.Text = "Fecha de Ingreso desde:";
+            this.lblFechaIngresoDesde.Click += new System.EventHandler(this.label1_Click);
             // 
-            // dtpFechaIngreso
+            // dtpFechaIngresoDesde
             // 
-            this.dtpFechaIngreso.Location = new System.Drawing.Point(163, 48);
-            this.dtpFechaIngreso.Name = "dtpFechaIngreso";
-            this.dtpFechaIngreso.Size = new System.Drawing.Size(200, 20);
-            this.dtpFechaIngreso.TabIndex = 4;
+            this.dtpFechaIngresoDesde.Location = new System.Drawing.Point(179, 26);
+            this.dtpFechaIngresoDesde.Name = "dtpFechaIngresoDesde";
+            this.dtpFechaIngresoDesde.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaIngresoDesde.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Fecha de Ingreso hasta:";
+            // 
+            // dtpFechaIngresoHasta
+            // 
+            this.dtpFechaIngresoHasta.Location = new System.Drawing.Point(179, 63);
+            this.dtpFechaIngresoHasta.Name = "dtpFechaIngresoHasta";
+            this.dtpFechaIngresoHasta.Size = new System.Drawing.Size(200, 20);
+            this.dtpFechaIngresoHasta.TabIndex = 6;
             // 
             // FrmEstadisticaEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dtpFechaIngreso);
-            this.Controls.Add(this.lblFechaIngreso);
+            this.Controls.Add(this.dtpFechaIngresoHasta);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.dtpFechaIngresoDesde);
+            this.Controls.Add(this.lblFechaIngresoDesde);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.reportViewer1);
             this.Name = "FrmEstadisticaEmpleados";
@@ -90,7 +112,9 @@
 
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.Button btnFiltrar;
-        private System.Windows.Forms.Label lblFechaIngreso;
-        private System.Windows.Forms.DateTimePicker dtpFechaIngreso;
+        private System.Windows.Forms.Label lblFechaIngresoDesde;
+        private System.Windows.Forms.DateTimePicker dtpFechaIngresoDesde;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DateTimePicker dtpFechaIngresoHasta;
     }
 }

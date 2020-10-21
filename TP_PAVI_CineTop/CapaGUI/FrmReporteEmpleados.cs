@@ -47,18 +47,7 @@ namespace TP_PAVI_CineTop.CapaGUI
 
         private void BtnFiltrar_Click(object sender, EventArgs e)
         {
-            DateTime fechaDesde = dtpDesde.Value;
-            DateTime fechaHasta = dtpHasta.Value;
 
-            if (fechaDesde > fechaHasta)
-            {
-                MessageBox.Show("La fecha de ingreso DESDE debe ser posterior a la fecha de ingreso HASTA", "Error de fechas", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-                return;
-            }
-            reportViewer1.LocalReport.DataSources.Clear();
-            reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("DataSetEmpleados", servEmpleado.obtenerTablaEmpleadosFiltrada(fechaDesde, fechaHasta)));
-            reportViewer1.RefreshReport();
         }
 
 
