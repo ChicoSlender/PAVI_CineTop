@@ -28,29 +28,30 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEstadisticaPeliculas));
             this.lblEstrenoDesde = new System.Windows.Forms.Label();
             this.dtpEstrenoDesde = new System.Windows.Forms.DateTimePicker();
             this.dtpEstrenoHasta = new System.Windows.Forms.DateTimePicker();
             this.lblEstrenoHasta = new System.Windows.Forms.Label();
             this.grpDirectores = new System.Windows.Forms.GroupBox();
-            this.cmbDirectores = new System.Windows.Forms.ComboBox();
-            this.dtgDirectores = new System.Windows.Forms.DataGridView();
-            this.btnAgregarDirector = new System.Windows.Forms.Button();
             this.btnQuitarDirector = new System.Windows.Forms.Button();
+            this.btnAgregarDirector = new System.Windows.Forms.Button();
+            this.dtgDirectores = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmbDirectores = new System.Windows.Forms.ComboBox();
             this.grpGeneros = new System.Windows.Forms.GroupBox();
             this.btnQuitarGenero = new System.Windows.Forms.Button();
             this.btnAgregarGenero = new System.Windows.Forms.Button();
             this.dtgGeneros = new System.Windows.Forms.DataGridView();
+            this.id_genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nombre_genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmbGeneros = new System.Windows.Forms.ComboBox();
             this.lblDuracionMax = new System.Windows.Forms.Label();
             this.numDuracionMax = new System.Windows.Forms.NumericUpDown();
             this.lblMinutos = new System.Windows.Forms.Label();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.btnGenerar = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id_genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nombre_genero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.grpDirectores.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtgDirectores)).BeginInit();
             this.grpGeneros.SuspendLayout();
@@ -103,14 +104,35 @@
             this.grpDirectores.TabStop = false;
             this.grpDirectores.Text = "Filtrar por directores";
             // 
-            // cmbDirectores
+            // btnQuitarDirector
             // 
-            this.cmbDirectores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbDirectores.FormattingEnabled = true;
-            this.cmbDirectores.Location = new System.Drawing.Point(6, 19);
-            this.cmbDirectores.Name = "cmbDirectores";
-            this.cmbDirectores.Size = new System.Drawing.Size(224, 21);
-            this.cmbDirectores.TabIndex = 5;
+            this.btnQuitarDirector.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnQuitarDirector.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnQuitarDirector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnQuitarDirector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuitarDirector.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnQuitarDirector.Location = new System.Drawing.Point(264, 19);
+            this.btnQuitarDirector.Name = "btnQuitarDirector";
+            this.btnQuitarDirector.Size = new System.Drawing.Size(23, 23);
+            this.btnQuitarDirector.TabIndex = 6;
+            this.btnQuitarDirector.Text = "-";
+            this.btnQuitarDirector.UseVisualStyleBackColor = false;
+            this.btnQuitarDirector.Click += new System.EventHandler(this.btnQuitarDirector_Click);
+            // 
+            // btnAgregarDirector
+            // 
+            this.btnAgregarDirector.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnAgregarDirector.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAgregarDirector.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAgregarDirector.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarDirector.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.btnAgregarDirector.Location = new System.Drawing.Point(236, 19);
+            this.btnAgregarDirector.Name = "btnAgregarDirector";
+            this.btnAgregarDirector.Size = new System.Drawing.Size(23, 23);
+            this.btnAgregarDirector.TabIndex = 5;
+            this.btnAgregarDirector.Text = "+";
+            this.btnAgregarDirector.UseVisualStyleBackColor = false;
+            this.btnAgregarDirector.Click += new System.EventHandler(this.btnAgregarDirector_Click);
             // 
             // dtgDirectores
             // 
@@ -129,25 +151,28 @@
             this.dtgDirectores.Size = new System.Drawing.Size(281, 85);
             this.dtgDirectores.TabIndex = 5;
             // 
-            // btnAgregarDirector
+            // id
             // 
-            this.btnAgregarDirector.Location = new System.Drawing.Point(236, 19);
-            this.btnAgregarDirector.Name = "btnAgregarDirector";
-            this.btnAgregarDirector.Size = new System.Drawing.Size(23, 23);
-            this.btnAgregarDirector.TabIndex = 5;
-            this.btnAgregarDirector.Text = "+";
-            this.btnAgregarDirector.UseVisualStyleBackColor = true;
-            this.btnAgregarDirector.Click += new System.EventHandler(this.btnAgregarDirector_Click);
+            this.id.HeaderText = "ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
             // 
-            // btnQuitarDirector
+            // nombre
             // 
-            this.btnQuitarDirector.Location = new System.Drawing.Point(264, 19);
-            this.btnQuitarDirector.Name = "btnQuitarDirector";
-            this.btnQuitarDirector.Size = new System.Drawing.Size(23, 23);
-            this.btnQuitarDirector.TabIndex = 6;
-            this.btnQuitarDirector.Text = "-";
-            this.btnQuitarDirector.UseVisualStyleBackColor = true;
-            this.btnQuitarDirector.Click += new System.EventHandler(this.btnQuitarDirector_Click);
+            this.nombre.HeaderText = "Nombre";
+            this.nombre.Name = "nombre";
+            this.nombre.ReadOnly = true;
+            this.nombre.Width = 275;
+            // 
+            // cmbDirectores
+            // 
+            this.cmbDirectores.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbDirectores.FormattingEnabled = true;
+            this.cmbDirectores.Location = new System.Drawing.Point(6, 19);
+            this.cmbDirectores.Name = "cmbDirectores";
+            this.cmbDirectores.Size = new System.Drawing.Size(224, 21);
+            this.cmbDirectores.TabIndex = 5;
             // 
             // grpGeneros
             // 
@@ -164,22 +189,32 @@
             // 
             // btnQuitarGenero
             // 
+            this.btnQuitarGenero.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnQuitarGenero.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnQuitarGenero.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnQuitarGenero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuitarGenero.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnQuitarGenero.Location = new System.Drawing.Point(264, 19);
             this.btnQuitarGenero.Name = "btnQuitarGenero";
             this.btnQuitarGenero.Size = new System.Drawing.Size(23, 23);
             this.btnQuitarGenero.TabIndex = 6;
             this.btnQuitarGenero.Text = "-";
-            this.btnQuitarGenero.UseVisualStyleBackColor = true;
+            this.btnQuitarGenero.UseVisualStyleBackColor = false;
             this.btnQuitarGenero.Click += new System.EventHandler(this.btnQuitarGenero_Click);
             // 
             // btnAgregarGenero
             // 
+            this.btnAgregarGenero.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnAgregarGenero.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAgregarGenero.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnAgregarGenero.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregarGenero.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnAgregarGenero.Location = new System.Drawing.Point(236, 19);
             this.btnAgregarGenero.Name = "btnAgregarGenero";
             this.btnAgregarGenero.Size = new System.Drawing.Size(23, 23);
             this.btnAgregarGenero.TabIndex = 5;
             this.btnAgregarGenero.Text = "+";
-            this.btnAgregarGenero.UseVisualStyleBackColor = true;
+            this.btnAgregarGenero.UseVisualStyleBackColor = false;
             this.btnAgregarGenero.Click += new System.EventHandler(this.btnAgregarGenero_Click);
             // 
             // dtgGeneros
@@ -198,6 +233,20 @@
             this.dtgGeneros.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtgGeneros.Size = new System.Drawing.Size(281, 85);
             this.dtgGeneros.TabIndex = 5;
+            // 
+            // id_genero
+            // 
+            this.id_genero.HeaderText = "ID";
+            this.id_genero.Name = "id_genero";
+            this.id_genero.ReadOnly = true;
+            this.id_genero.Visible = false;
+            // 
+            // nombre_genero
+            // 
+            this.nombre_genero.HeaderText = "Nombre";
+            this.nombre_genero.Name = "nombre_genero";
+            this.nombre_genero.ReadOnly = true;
+            this.nombre_genero.Width = 275;
             // 
             // cmbGeneros
             // 
@@ -250,46 +299,24 @@
             // 
             // btnGenerar
             // 
+            this.btnGenerar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnGenerar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnGenerar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnGenerar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGenerar.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnGenerar.Location = new System.Drawing.Point(623, 209);
             this.btnGenerar.Name = "btnGenerar";
             this.btnGenerar.Size = new System.Drawing.Size(75, 23);
             this.btnGenerar.TabIndex = 12;
             this.btnGenerar.Text = "Generar";
-            this.btnGenerar.UseVisualStyleBackColor = true;
+            this.btnGenerar.UseVisualStyleBackColor = false;
             this.btnGenerar.Click += new System.EventHandler(this.btnGenerar_Click);
-            // 
-            // id
-            // 
-            this.id.HeaderText = "ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // nombre
-            // 
-            this.nombre.HeaderText = "Nombre";
-            this.nombre.Name = "nombre";
-            this.nombre.ReadOnly = true;
-            this.nombre.Width = 275;
-            // 
-            // id_genero
-            // 
-            this.id_genero.HeaderText = "ID";
-            this.id_genero.Name = "id_genero";
-            this.id_genero.ReadOnly = true;
-            this.id_genero.Visible = false;
-            // 
-            // nombre_genero
-            // 
-            this.nombre_genero.HeaderText = "Nombre";
-            this.nombre_genero.Name = "nombre_genero";
-            this.nombre_genero.ReadOnly = true;
-            this.nombre_genero.Width = 275;
             // 
             // FrmEstadisticaPeliculas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(710, 553);
             this.Controls.Add(this.btnGenerar);
             this.Controls.Add(this.reportViewer1);
@@ -302,8 +329,9 @@
             this.Controls.Add(this.lblEstrenoHasta);
             this.Controls.Add(this.dtpEstrenoDesde);
             this.Controls.Add(this.lblEstrenoDesde);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEstadisticaPeliculas";
-            this.Text = "Estadistica de peliculas por género";
+            this.Text = "Estadística de peliculas por género";
             this.Load += new System.EventHandler(this.FrmEstadisticaPeliculas_Load);
             this.grpDirectores.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dtgDirectores)).EndInit();

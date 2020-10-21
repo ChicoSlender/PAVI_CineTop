@@ -35,6 +35,10 @@ namespace TP_PAVI_CineTop.CapaGUI
         {
             DateTime estrenoDesde = dtpEstrenoDesde.Value;
             DateTime estrenoHasta = dtpEstrenoHasta.Value;
+            if(estrenoDesde > estrenoHasta)
+            {
+                MessageBox.Show("La fecha de estreno desde tiene que ser anterior a la fecha hasta", "Error de incoherencia de fechas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             int maxDuracion = Convert.ToInt32(numDuracionMax.Value);
             List<int> directores = new List<int>();
             string nombresDirectores = "";
@@ -85,7 +89,7 @@ namespace TP_PAVI_CineTop.CapaGUI
         {
             for (int i = 0; i < dtgGeneros.Rows.Count; i++)
             {
-                if (Convert.ToInt32(cmbGeneros.SelectedValue) == Convert.ToInt32(dtgGeneros.Rows[i].Cells["id"].Value))
+                if (Convert.ToInt32(cmbGeneros.SelectedValue) == Convert.ToInt32(dtgGeneros.Rows[i].Cells["id_genero"].Value))
                 {
                     MessageBox.Show("No se puede agregar el mismo género 2 veces", "Error de género repetido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;

@@ -40,10 +40,10 @@
             // reportViewer1
             // 
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "TP_PAVI_CineTop.Reportes.EstadisticaEmpleados.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(12, 108);
+            this.reportViewer1.Location = new System.Drawing.Point(12, 66);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(776, 330);
+            this.reportViewer1.Size = new System.Drawing.Size(776, 372);
             this.reportViewer1.TabIndex = 0;
             this.reportViewer1.Load += new System.EventHandler(this.reportViewer1_Load);
             // 
@@ -54,18 +54,18 @@
             this.btnFiltrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
             this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFiltrar.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.btnFiltrar.Location = new System.Drawing.Point(411, 26);
+            this.btnFiltrar.Location = new System.Drawing.Point(714, 22);
             this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(74, 52);
+            this.btnFiltrar.Size = new System.Drawing.Size(74, 25);
             this.btnFiltrar.TabIndex = 1;
-            this.btnFiltrar.Text = "Filtrar";
+            this.btnFiltrar.Text = "Generar";
             this.btnFiltrar.UseVisualStyleBackColor = false;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // lblFechaIngresoDesde
             // 
             this.lblFechaIngresoDesde.AutoSize = true;
-            this.lblFechaIngresoDesde.Location = new System.Drawing.Point(37, 28);
+            this.lblFechaIngresoDesde.Location = new System.Drawing.Point(12, 28);
             this.lblFechaIngresoDesde.Name = "lblFechaIngresoDesde";
             this.lblFechaIngresoDesde.Size = new System.Drawing.Size(125, 13);
             this.lblFechaIngresoDesde.TabIndex = 3;
@@ -74,7 +74,7 @@
             // 
             // dtpFechaIngresoDesde
             // 
-            this.dtpFechaIngresoDesde.Location = new System.Drawing.Point(179, 26);
+            this.dtpFechaIngresoDesde.Location = new System.Drawing.Point(143, 26);
             this.dtpFechaIngresoDesde.Name = "dtpFechaIngresoDesde";
             this.dtpFechaIngresoDesde.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaIngresoDesde.TabIndex = 4;
@@ -82,7 +82,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 65);
+            this.label1.Location = new System.Drawing.Point(372, 28);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(122, 13);
             this.label1.TabIndex = 5;
@@ -90,7 +90,7 @@
             // 
             // dtpFechaIngresoHasta
             // 
-            this.dtpFechaIngresoHasta.Location = new System.Drawing.Point(179, 63);
+            this.dtpFechaIngresoHasta.Location = new System.Drawing.Point(500, 26);
             this.dtpFechaIngresoHasta.Name = "dtpFechaIngresoHasta";
             this.dtpFechaIngresoHasta.Size = new System.Drawing.Size(200, 20);
             this.dtpFechaIngresoHasta.TabIndex = 6;

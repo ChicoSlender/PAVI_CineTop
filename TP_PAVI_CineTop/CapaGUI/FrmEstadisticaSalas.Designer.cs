@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEstadisticaSalas));
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.lblCapacidadMinima = new System.Windows.Forms.Label();
             this.numCapacidadMinima = new System.Windows.Forms.NumericUpDown();
@@ -92,18 +93,24 @@
             // 
             // btnFiltrar
             // 
+            this.btnFiltrar.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.btnFiltrar.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnFiltrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.White;
+            this.btnFiltrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFiltrar.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.btnFiltrar.Location = new System.Drawing.Point(598, 16);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(75, 23);
             this.btnFiltrar.TabIndex = 5;
-            this.btnFiltrar.Text = "Filtrar";
-            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Text = "Generar";
+            this.btnFiltrar.UseVisualStyleBackColor = false;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // FrmEstadisticaSalas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ControlDark;
             this.ClientSize = new System.Drawing.Size(694, 409);
             this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.numCapacidadMaxima);
@@ -111,8 +118,9 @@
             this.Controls.Add(this.numCapacidadMinima);
             this.Controls.Add(this.lblCapacidadMinima);
             this.Controls.Add(this.reportViewer1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmEstadisticaSalas";
-            this.Text = "Estadisticas de salas";
+            this.Text = "Estadísticas de salas";
             this.Load += new System.EventHandler(this.FrmEstadisticaSalas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.numCapacidadMinima)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCapacidadMaxima)).EndInit();

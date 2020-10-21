@@ -51,7 +51,7 @@ namespace TP_PAVI_CineTop.CapaGUI
 
             if (fechaDesde > fechaHasta)
             {
-                MessageBox.Show("La fecha de ingreso desde debe ser posterior a la fecha de ingreso hasta", "Error de fechas", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La fecha de ingreso desde debe ser posterior a la fecha de ingreso hasta", "Error de incoherencia de fechas", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

@@ -39,7 +39,7 @@ namespace TP_PAVI_CineTop.CapaGUI
         {
             if(numCapacidadMaxima.Value<numCapacidadMinima.Value)
             {
-                MessageBox.Show("La capacidad máxima debe ser mayor a la capacidad mínima", "Error de valor de capacidad", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La capacidad máxima debe ser mayor a la capacidad mínima", "Error de incoherencia de capacidades", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
