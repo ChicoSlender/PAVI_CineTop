@@ -185,7 +185,7 @@
             this.grpGeneros.Size = new System.Drawing.Size(293, 138);
             this.grpGeneros.TabIndex = 7;
             this.grpGeneros.TabStop = false;
-            this.grpGeneros.Text = "Excluir géneros";
+            this.grpGeneros.Text = "Filtrar por géneros";
             // 
             // btnQuitarGenero
             // 

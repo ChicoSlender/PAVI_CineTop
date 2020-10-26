@@ -235,7 +235,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>Géneros excluidos:</Value>
+                        <Value>Géneros incluidos:</Value>
                         <Style>
                           <FontWeight>Medium</FontWeight>
                           <TextDecoration>Underline</TextDecoration>
@@ -268,7 +268,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>=IIf(Parameters!paramGen.Value="", "(NINGUNO)", Parameters!paramGen.Value)</Value>
+                        <Value>=IIf(Parameters!paramGen.Value="", "(TODOS)", Parameters!paramGen.Value)</Value>
                         <Style />
                       </TextRun>
                     </TextRuns>

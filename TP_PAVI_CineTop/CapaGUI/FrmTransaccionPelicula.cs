@@ -68,8 +68,6 @@ namespace TP_PAVI_CineTop.CapaGUI
 
             btnGuardar.Enabled = v;
             btnCancelar.Enabled = v;
-            radDBHelper.Enabled = v;
-            radDataManager.Enabled = v;
 
             btnNuevo.Enabled = !v;
             btnModificar.Enabled = !v;
@@ -274,7 +272,7 @@ namespace TP_PAVI_CineTop.CapaGUI
             switch (modo)
             {
                 case Modo.nuevo:
-                    errores = servPelicula.insertarPelicula(peli, radDBHelper.Checked);
+                    errores = servPelicula.insertarPelicula(peli);
                     break;
                 case Modo.modificar:
                     errores = servPelicula.actualizarPelicula(peli);

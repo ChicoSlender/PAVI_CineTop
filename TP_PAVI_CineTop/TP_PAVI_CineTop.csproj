@@ -67,7 +67,6 @@
   <ItemGroup>
     <Compile Include="CapaDatos\ActorPeliculaDAO.cs" />
     <Compile Include="CapaDatos\CategoriaPremioDAO.cs" />
-    <Compile Include="CapaDatos\DataManager.cs" />
     <Compile Include="CapaDatos\DBHelper.cs" />
     <Compile Include="CapaDatos\DirectorDAO.cs" />
     <Compile Include="CapaDatos\EmpleadoDAO.cs" />
